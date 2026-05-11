@@ -6,93 +6,292 @@
     <title>加密货币实时行情分析 - Signal</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color:#fff; min-height:100vh; padding:20px;}
-        .container{max-width:1200px;margin:0 auto;}
-        header{text-align:center;padding:40px 20px;margin-bottom:30px;}
-        h1{font-size:2.5em;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,0.3);}
-        .subtitle{font-size:1.1em;opacity:0.9;}
-        .update-time{background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:20px;display:inline-block;margin-top:15px;}
-        .section{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:15px;padding:30px;margin-bottom:30px;box-shadow:0 8px 32px rgba(0,0,0,0.1);}
-        h2{font-size:1.8em;margin-bottom:20px;border-bottom:2px solid rgba(255,255,255,0.3);padding-bottom:10px;}
-        table{width:100%;border-collapse:collapse;margin-top:15px;}
-        th{background:rgba(255,255,255,0.2);padding:12px;text-align:left;font-weight:600;}
-        td{padding:12px;border-bottom:1px solid rgba(255,255,255,0.1);}
-        tr:hover{background:rgba(255,255,255,0.05);}
-        .warning{background:rgba(255,193,7,0.2);border-left:4px solid #ffc107;padding:15px;margin-top:30px;border-radius:5px;}
-        footer{text-align:center;padding:30px;opacity:0.7;font-size:0.9em;}
-        @media (max-width:768px){h1{font-size:1.8em;}.section{padding:20px;}.table{font-size:0.9em;}}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .update-time {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .warning {
+            background: rgba(255,193,7,0.2);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            table { font-size: 0.9em; }
+        }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <h1>🚀 加密货币实时行情分析</h1>
-        <p class="subtitle">智能识别短期异动与横盘启动品种</p>
-        <div class="update-time">⏰ 更新时间：$(date '+%Y-%m-%d %H:%M:%S')</div>
-    </header>
-    <div class="section" data-key="short_term">
-        <h2>📈 短期异动品种 (24h涨跌>±10%)</h2>
-        <table>
-            <thead><tr><th>排名</th><th>交易对</th><th>价格</th><th>24h涨跌</th><th>成交量</th></tr></thead>
-            <tbody></tbody>
-        </table>
+    <div class="container">
+        <header>
+            <h1>🚀 加密货币实时行情分析</h1>
+            <p class="subtitle">智能识别短期异动与横盘启动品种</p>
+            <div class="update-time">⏰ 更新时间：2026-05-11 21:04:08</div>
+        </header>
+        
+        <div class="section">
+            <h2>📈 短期异动品种 (24h涨跌>±10%)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>交易对</th>
+                        <th>价格</th>
+                        <th>24h涨跌</th>
+                        <th>成交量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td>1</td>
+            <td>BTC-USDT</td>
+            <td>$81220.3000</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$382,577,206</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>ETH-USDT</td>
+            <td>$2331.4900</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$297,702,220</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>SUI-USDT</td>
+            <td>$1.2828</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$114,267,839</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>SOL-USDT</td>
+            <td>$95.2100</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$88,074,501</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>USDC-USDT</td>
+            <td>$1.0002</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$70,568,988</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>DOGE-USDT</td>
+            <td>$0.1098</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$69,441,011</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>XRP-USDT</td>
+            <td>$1.4633</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$60,138,157</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>TON-USDT</td>
+            <td>$2.2860</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$23,929,680</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>USDG-USDT</td>
+            <td>$1.0002</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$21,483,246</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>PEPE-USDT</td>
+            <td>$0.0000</td>
+            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
+            <td>$17,059,075</td>
+        </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>📊 横盘启动品种 (24h波动<5%)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>交易对</th>
+                        <th>价格</th>
+                        <th>波动率</th>
+                        <th>24h涨跌</th>
+                        <th>成交量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        <tr>
+            <td>1</td>
+            <td>BTC-USDT</td>
+            <td>$81220.3000</td>
+            <td>2.73%</td>
+            <td>+0.0%</td>
+            <td>$382,577,206</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>ETH-USDT</td>
+            <td>$2331.4900</td>
+            <td>3.09%</td>
+            <td>+0.0%</td>
+            <td>$297,702,220</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>SOL-USDT</td>
+            <td>$95.2100</td>
+            <td>3.91%</td>
+            <td>+0.0%</td>
+            <td>$88,074,501</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>USDC-USDT</td>
+            <td>$1.0002</td>
+            <td>0.03%</td>
+            <td>+0.0%</td>
+            <td>$70,568,988</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>USDG-USDT</td>
+            <td>$1.0002</td>
+            <td>0.02%</td>
+            <td>+0.0%</td>
+            <td>$21,483,246</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>BNB-USDT</td>
+            <td>$656.0000</td>
+            <td>2.81%</td>
+            <td>+0.0%</td>
+            <td>$15,634,477</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>TRX-USDT</td>
+            <td>$0.3524</td>
+            <td>1.06%</td>
+            <td>+0.0%</td>
+            <td>$14,421,042</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>XAUT-USDT</td>
+            <td>$4700.6000</td>
+            <td>1.54%</td>
+            <td>+0.0%</td>
+            <td>$11,891,418</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>OKB-USDT</td>
+            <td>$87.2500</td>
+            <td>3.04%</td>
+            <td>+0.0%</td>
+            <td>$9,482,791</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>RLUSD-USDT</td>
+            <td>$1.0003</td>
+            <td>0.04%</td>
+            <td>+0.0%</td>
+            <td>$8,921,564</td>
+        </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ 风险提示：</strong>加密货币风险极高，仅用闲钱投资（不超过总资产5%）！本分析仅供参考，不构成投资建议。
+        </div>
+        
+        <footer>
+            <p>Powered by Signal | 数据来源：OKX | 自动化分析系统</p>
+        </footer>
     </div>
-    <div class="section" data-key="flat_start">
-        <h2>📊 横盘启动品种 (24h波动<5%)</h2>
-        <table>
-            <thead><tr><th>排名</th><th>交易对</th><th>价格</th><th>波动率</th><th>24h涨跌</th><th>成交量</th></tr></thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    <div class="section" data-key="top_volume">
-        <h2>💧 成交量前十</h2>
-        <table>
-            <thead><tr><th>排名</th><th>交易对</th><th>价格</th><th>24h涨跌</th><th>成交量</th></tr></thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    <div class="section" data-key="top_gainers">
-        <h2>🚀 24h涨幅前十</h2>
-        <table>
-            <thead><tr><th>排名</th><th>交易对</th><th>价格</th><th>涨跌幅</th><th>成交量</th></tr></thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    <div class="section" data-key="top_losers">
-        <h2>📉 24h跌幅前十</h2>
-        <table>
-            <thead><tr><th>排名</th><th>交易对</th><th>价格</th><th>跌幅</th><th>成交量</th></tr></thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    <div class="warning">
-        <strong>⚠️ 风险提示：</strong>加密货币风险极高，仅用闲钱投资（不超过总资产5%）！本分析仅供参考，不构成投资建议。
-    </div>
-    <footer>
-        <p>Powered by Signal | 数据来源：OKX | 自动化分析系统</p>
-    </footer>
-</div>
-<script>
-fetch('data.json')
-  .then(r=>r.json())
-  .then(d=>{
-    const mapping={
-      short_term:{cols:['pair','price','change','volume']},
-      flat_start:{cols:['pair','price','volatility','change','volume']},
-      top_volume:{cols:['pair','price','change','volume']},
-      top_gainers:{cols:['pair','price','change','volume']},
-      top_losers:{cols:['pair','price','change','volume']}
-    };
-    document.querySelectorAll('.section[data-key]').forEach(sec=>{
-      const key=sec.getAttribute('data-key');
-      const cfg=mapping[key];
-      if(cfg && d[key]){
-        const tbody=sec.querySelector('tbody');
-        const rows=d[key];
-        tbody.innerHTML=rows.length?rows.map((r,i)=>`<tr><td>${i+1}</td>`+cfg.cols.map(c=>`<td>${r[c]||''}</td>`).join('')+`</tr>`).join(''):`<tr><td colspan="${cfg.cols.length+1}" style="text-align:center;">暂无数据</td></tr>`;
-      }
-    });
-  });
-</script>
 </body>
 </html>
