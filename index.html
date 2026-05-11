@@ -143,5 +143,22 @@
             <p>Powered by Signal | 数据来源：OKX | 自动化分析系统</p>
         </footer>
     </div>
+<script>
+fetch('data.json')
+  .then(r=>r.json())
+  .then(d=>{
+    const short = d.short_term || [];
+    const flat = d.flat_start || [];
+    const fill = (tbl, rows) => {
+      const tbody = tbl.querySelector('tbody');
+      tbody.innerHTML = rows.length ? rows.map((r,i)=>`<tr>
+           <td>${i+1}</td><td>${r.pair}</td><td>${r.price}</td><td>${r.change}</td><td>${r.volume}</td>
+         </tr>`).join('') : '<tr><td colspan="5" style="text-align:center;">暂无数据</td></tr>';
+    };
+    const sections = document.querySelectorAll('.section');
+    if (sections[0]) fill(sections[0], short);
+    if (sections[1]) fill(sections[1], flat);
+  });
+</script>
 </body>
 </html>
