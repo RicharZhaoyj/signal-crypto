@@ -3,295 +3,557 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>加密货币实时行情分析 - Signal</title>
+    <title>Signal · 加密货币分析</title>
+    <meta name="description" content="智能识别异动品种与横盘启动机会，数据来自 OKX">
+    <meta name="keywords" content="加密货币,数字货币,行情分析,OKX,异动检测,横盘启动,投资参考">
+    <meta property="og:title" content="Signal · 加密货币分析">
+    <meta property="og:description" content="智能识别异动品种与横盘启动机会，数据来自 OKX">
+    <meta property="og:type" content="website">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 40%, #24243e 100%);
+            color: #e0e0e0;
             min-height: 100vh;
             padding: 20px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        /* ---- Header ---- */
         header {
             text-align: center;
-            padding: 40px 20px;
-            margin-bottom: 30px;
+            padding: 50px 20px 30px;
         }
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.2em;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
         }
-        .subtitle {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
+        .subtitle { color: #aaa; font-size: 1em; margin-bottom: 20px; }
         .update-time {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 20px;
             display: inline-block;
-            margin-top: 15px;
+            background: rgba(255,255,255,0.08);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #aaa;
         }
-        .section {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
+        
+        /* ---- Top Coins ---- */
+        .top-coins {
+            display: flex; gap: 20px; justify-content: center;
+            margin: 25px 0; flex-wrap: wrap;
+        }
+        .coin-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 22px 32px;
+            min-width: 200px;
+            text-align: center;
+        }
+        .coin-name { font-size: 0.9em; color: #888; margin-bottom: 6px; }
+        .coin-price { font-size: 1.6em; font-weight: 700; color: #fff; }
+        .coin-change { font-size: 1.1em; font-weight: 600; margin: 4px 0; }
+        .coin-vol { font-size: 0.8em; color: #888; }
+        
+        /* ---- Market Overview ---- */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .ov-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+        .ov-label { font-size: 0.8em; color: #888; margin-bottom: 6px; }
+        .ov-value { font-size: 1.4em; font-weight: 700; }
+        
+        /* ---- Sections ---- */
+        .section {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
         }
         h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
+            font-size: 1.4em;
+            margin-bottom: 18px;
             padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; gap: 10px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
+        
+        /* ---- Tables ---- */
+        .table-wrap { overflow-x: auto; }
+        table { width:100%; border-collapse:collapse; font-size:0.9em; }
         th {
-            background: rgba(255,255,255,0.2);
-            padding: 12px;
+            background: rgba(255,255,255,0.06);
+            padding: 10px 12px;
             text-align: left;
             font-weight: 600;
+            color: #999;
+            font-size: 0.85em;
+            white-space: nowrap;
         }
         td {
-            padding: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            white-space: nowrap;
         }
-        tr:hover {
-            background: rgba(255,255,255,0.05);
+        tr:hover td { background: rgba(255,255,255,0.03); }
+        .sym { font-weight: 500; color: #fff; }
+        
+        /* ---- Promotion ---- */
+        .promo {
+            background: linear-gradient(135deg, rgba(102,126,234,0.12), rgba(118,75,162,0.12));
+            border: 1px solid rgba(102,126,234,0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
         }
-        .warning {
-            background: rgba(255,193,7,0.2);
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin-top: 30px;
-            border-radius: 5px;
+        .promo h3 { font-size: 1.2em; margin-bottom: 10px; color: #fff; }
+        .promo p { color: #aaa; font-size: 0.9em; margin-bottom: 15px; }
+        .promo-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .promo-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 25px;
+            background: rgba(102,126,234,0.2);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid rgba(102,126,234,0.3);
+            transition: all 0.2s;
         }
+        .promo-btn:hover { background: rgba(102,126,234,0.4); transform: translateY(-1px); }
+        
+        /* ---- Disclaimer ---- */
+        .disclaimer {
+            background: rgba(255,193,7,0.08);
+            border-left: 3px solid #ffc107;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+        
+        /* ---- Footer ---- */
         footer {
             text-align: center;
             padding: 30px;
-            opacity: 0.7;
-            font-size: 0.9em;
+            color: #555;
+            font-size: 0.8em;
         }
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            .section { padding: 20px; }
-            table { font-size: 0.9em; }
+        footer a { color: #667eea; text-decoration: none; }
+        
+        /* ---- Badge ---- */
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        .badge-up { background: rgba(82,196,26,0.15); color: #52c41a; }
+        .badge-dn { background: rgba(255,77,79,0.15); color: #ff4d4f; }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6em; }
+            .section { padding: 16px; }
+            th, td { padding: 8px 6px; font-size: 0.8em; }
+            .coin-card { min-width: 140px; padding: 16px 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 加密货币实时行情分析</h1>
-            <p class="subtitle">智能识别短期异动与横盘启动品种</p>
-            <div class="update-time">⏰ 更新时间：2026-05-16 07:51:14</div>
-        </header>
+<div class="container">
+    
+    <!-- Header -->
+    <header>
+        <h1>📡 Signal 加密分析</h1>
+        <p class="subtitle">智能识别异动品种与横盘启动机会，数据来自 OKX</p>
+        <div class="update-time">⏰ 2026-05-16 08:19:51</div>
+    </header>
+
+    <!-- Top Coins -->
+    <div class="top-coins">
         
-        <div class="section">
-            <h2>📈 短期异动品种 (24h涨跌>±10%)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>排名</th>
-                        <th>交易对</th>
-                        <th>价格</th>
-                        <th>24h涨跌</th>
-                        <th>成交量</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
+        <div class="coin-card">
+            <div class="coin-name">₿ BTC</div>
+            <div class="coin-price">$79,160.90</div>
+            <div class="coin-change" style="color:#52c41a">-2.79%</div>
+            <div class="coin-vol">24h量 $5.40亿</div>
+        </div>
+        
+        <div class="coin-card">
+            <div class="coin-name">⟠ ETH</div>
+            <div class="coin-price">$2,226.52</div>
+            <div class="coin-change" style="color:#52c41a">-2.88%</div>
+            <div class="coin-vol">24h量 $2.63亿</div>
+        </div>
+    </div>
+
+    <!-- Market Overview -->
+    <div class="section">
+        <h2>📊 市场概览</h2>
+        <div class="overview-grid">
+            <div class="ov-item">
+                <div class="ov-label">监控品种</div>
+                <div class="ov-value">298</div>
+            </div>
+            <div class="ov-item">
+                <div class="ov-label">上涨</div>
+                <div class="ov-value" style="color:#52c41a;">20 <span style="font-size:0.6em;">(6.7%)</span></div>
+            </div>
+            <div class="ov-item">
+                <div class="ov-label">下跌</div>
+                <div class="ov-value" style="color:#ff4d4f;">276 <span style="font-size:0.6em;">(92.6%)</span></div>
+            </div>
+            <div class="ov-item">
+                <div class="ov-label">24h总成交</div>
+                <div class="ov-value" style="font-size:1.1em;">$15.91亿</div>
+            </div>
+            <div class="ov-item">
+                <div class="ov-label">市场情绪</div>
+                <div class="ov-value" style="color:#ff4d4f;font-size:1em;">🔴 悲观</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volatile -->
+    <div class="section">
+        <h2>⚡ 异动品种 (24h涨跌 ≥ ±5%)</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead>
+            <tbody>
+                
         <tr>
             <td>1</td>
-            <td>BTC-USDT</td>
-            <td>$79143.2000</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$539,577,197</td>
+            <td class="sym">STORJ-USDT</td>
+            <td>$0.131120</td>
+            <td style="color:#ff4d4f;font-weight:bold;">+21.19%</td>
+            <td>$270.04万</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>ETH-USDT</td>
-            <td>$2225.4500</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$264,994,170</td>
+            <td class="sym">BASED-USDT</td>
+            <td>$0.075570</td>
+            <td style="color:#52c41a;font-weight:bold;">-13.01%</td>
+            <td>$600.32万</td>
         </tr>
         <tr>
             <td>3</td>
-            <td>USDG-USDT</td>
-            <td>$1.0002</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$101,865,289</td>
+            <td class="sym">2Z-USDT</td>
+            <td>$0.091960</td>
+            <td style="color:#52c41a;font-weight:bold;">-12.34%</td>
+            <td>$16.73万</td>
         </tr>
         <tr>
             <td>4</td>
-            <td>USDC-USDT</td>
-            <td>$1.0004</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$83,357,292</td>
+            <td class="sym">DEGEN-USDT</td>
+            <td>$0.00095410</td>
+            <td style="color:#52c41a;font-weight:bold;">-12.31%</td>
+            <td>$421.80万</td>
         </tr>
         <tr>
             <td>5</td>
-            <td>SOL-USDT</td>
-            <td>$89.2900</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$66,735,780</td>
+            <td class="sym">JTO-USDT</td>
+            <td>$0.455300</td>
+            <td style="color:#52c41a;font-weight:bold;">-12.16%</td>
+            <td>$91.48万</td>
         </tr>
         <tr>
             <td>6</td>
-            <td>DOGE-USDT</td>
-            <td>$0.1135</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$60,702,928</td>
+            <td class="sym">NAVX-USDT</td>
+            <td>$0.011599</td>
+            <td style="color:#52c41a;font-weight:bold;">-11.26%</td>
+            <td>$17.46万</td>
         </tr>
         <tr>
             <td>7</td>
-            <td>EDGE-USDT</td>
-            <td>$1.2625</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$46,444,467</td>
+            <td class="sym">GOAT-USDT</td>
+            <td>$0.020410</td>
+            <td style="color:#52c41a;font-weight:bold;">-10.68%</td>
+            <td>$190.87万</td>
         </tr>
         <tr>
             <td>8</td>
-            <td>XRP-USDT</td>
-            <td>$1.4355</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$42,856,336</td>
+            <td class="sym">EIGEN-USDT</td>
+            <td>$0.202100</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.9%</td>
+            <td>$50.26万</td>
         </tr>
         <tr>
             <td>9</td>
-            <td>HYPE-USDT</td>
-            <td>$44.2600</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$38,718,655</td>
+            <td class="sym">TIA-USDT</td>
+            <td>$0.421400</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.88%</td>
+            <td>$94.98万</td>
         </tr>
         <tr>
             <td>10</td>
-            <td>XAUT-USDT</td>
-            <td>$4541.1000</td>
-            <td style="color: #52c41a; font-weight: bold;">+0.0%</td>
-            <td>$34,227,569</td>
+            <td class="sym">MERL-USDT</td>
+            <td>$0.033630</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.69%</td>
+            <td>$204.83万</td>
         </tr>
-                </tbody>
-            </table>
+        <tr>
+            <td>11</td>
+            <td class="sym">MAJOR-USDT</td>
+            <td>$0.062740</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.34%</td>
+            <td>$3.57万</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td class="sym">WET-USDT</td>
+            <td>$0.082660</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.21%</td>
+            <td>$37.85万</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td class="sym">GMT-USDT</td>
+            <td>$0.011594</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.17%</td>
+            <td>$10.13万</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td class="sym">EDGE-USDT</td>
+            <td>$1.2704</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.13%</td>
+            <td>$4628.68万</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td class="sym">BIO-USDT</td>
+            <td>$0.041890</td>
+            <td style="color:#52c41a;font-weight:bold;">-9.13%</td>
+            <td>$201.40万</td>
+        </tr>
+            </tbody>
+        </table>
         </div>
-        
-        <div class="section">
-            <h2>📊 横盘启动品种 (24h波动<5%)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>排名</th>
-                        <th>交易对</th>
-                        <th>价格</th>
-                        <th>波动率</th>
-                        <th>24h涨跌</th>
-                        <th>成交量</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
+    </div>
+
+    <!-- Sideways -->
+    <div class="section">
+        <h2>📊 横盘关注 (波动<5%·量>50万)</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>#</th><th>币种</th><th>价格</th><th>波动率</th><th>24h涨跌</th><th>24h成交</th></tr></thead>
+            <tbody>
+                
         <tr>
             <td>1</td>
-            <td>BTC-USDT</td>
-            <td>$79143.2000</td>
+            <td class="sym">BTC-USDT</td>
+            <td>$79,160.90</td>
             <td>3.84%</td>
-            <td>+0.0%</td>
-            <td>$539,577,197</td>
+            <td style="color:#52c41a;font-weight:bold;">-2.79%</td>
+            <td>$5.40亿</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>ETH-USDT</td>
-            <td>$2225.4500</td>
+            <td class="sym">ETH-USDT</td>
+            <td>$2,226.52</td>
             <td>4.31%</td>
-            <td>+0.0%</td>
-            <td>$264,994,170</td>
+            <td style="color:#52c41a;font-weight:bold;">-2.88%</td>
+            <td>$2.63亿</td>
         </tr>
         <tr>
             <td>3</td>
-            <td>USDG-USDT</td>
+            <td class="sym">USDG-USDT</td>
             <td>$1.0002</td>
             <td>0.07%</td>
-            <td>+0.0%</td>
-            <td>$101,865,289</td>
+            <td style="color:#ff4d4f;font-weight:bold;">+0.04%</td>
+            <td>$1.02亿</td>
         </tr>
         <tr>
             <td>4</td>
-            <td>USDC-USDT</td>
-            <td>$1.0004</td>
+            <td class="sym">USDC-USDT</td>
+            <td>$1.0003</td>
             <td>0.05%</td>
-            <td>+0.0%</td>
-            <td>$83,357,292</td>
+            <td style="color:#ff4d4f;font-weight:bold;">+0.04%</td>
+            <td>$8403.86万</td>
         </tr>
         <tr>
             <td>5</td>
-            <td>SOL-USDT</td>
-            <td>$89.2900</td>
+            <td class="sym">SOL-USDT</td>
+            <td>$89.3200</td>
             <td>4.64%</td>
-            <td>+0.0%</td>
-            <td>$66,735,780</td>
+            <td style="color:#52c41a;font-weight:bold;">-3.39%</td>
+            <td>$6605.48万</td>
         </tr>
         <tr>
             <td>6</td>
-            <td>XAUT-USDT</td>
-            <td>$4541.1000</td>
-            <td>3.07%</td>
-            <td>+0.0%</td>
-            <td>$34,227,569</td>
+            <td class="sym">XAUT-USDT</td>
+            <td>$4,542.40</td>
+            <td>3.01%</td>
+            <td style="color:#52c41a;font-weight:bold;">-2.4%</td>
+            <td>$3404.92万</td>
         </tr>
         <tr>
             <td>7</td>
-            <td>TRX-USDT</td>
-            <td>$0.3523</td>
+            <td class="sym">TRX-USDT</td>
+            <td>$0.352210</td>
             <td>1.23%</td>
-            <td>+0.0%</td>
-            <td>$17,630,566</td>
+            <td style="color:#52c41a;font-weight:bold;">-0.5%</td>
+            <td>$1784.38万</td>
         </tr>
         <tr>
             <td>8</td>
-            <td>RLUSD-USDT</td>
-            <td>$1.0005</td>
+            <td class="sym">RLUSD-USDT</td>
+            <td>$1.0004</td>
             <td>0.08%</td>
-            <td>+0.0%</td>
-            <td>$12,325,761</td>
+            <td style="color:#ff4d4f;font-weight:bold;">+0.04%</td>
+            <td>$1243.10万</td>
         </tr>
         <tr>
             <td>9</td>
-            <td>OKB-USDT</td>
-            <td>$85.1700</td>
+            <td class="sym">OKB-USDT</td>
+            <td>$84.9800</td>
             <td>4.52%</td>
-            <td>+0.0%</td>
-            <td>$10,726,991</td>
+            <td style="color:#52c41a;font-weight:bold;">-0.29%</td>
+            <td>$1093.17万</td>
         </tr>
         <tr>
             <td>10</td>
-            <td>BNB-USDT</td>
-            <td>$672.5000</td>
+            <td class="sym">BNB-USDT</td>
+            <td>$673.8000</td>
             <td>3.11%</td>
-            <td>+0.0%</td>
-            <td>$8,804,700</td>
+            <td style="color:#52c41a;font-weight:bold;">-1.46%</td>
+            <td>$877.50万</td>
         </tr>
-                </tbody>
-            </table>
+            </tbody>
+        </table>
         </div>
-        
-        <div class="warning">
-            <strong>⚠️ 风险提示：</strong>加密货币风险极高，仅用闲钱投资（不超过总资产5%）！本分析仅供参考，不构成投资建议。
-        </div>
-        
-        <footer>
-            <p>Powered by Signal | 数据来源：OKX | 自动化分析系统</p>
-        </footer>
     </div>
+
+    <!-- Top Volume -->
+    <div class="section">
+        <h2>🔥 成交量 Top 10</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead>
+            <tbody>
+                
+        <tr>
+            <td>1</td>
+            <td class="sym">BTC-USDT</td>
+            <td>$79,160.90</td>
+            <td style="color:#52c41a;">-2.79%</td>
+            <td>$5.40亿</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="sym">ETH-USDT</td>
+            <td>$2,226.52</td>
+            <td style="color:#52c41a;">-2.88%</td>
+            <td>$2.63亿</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="sym">USDG-USDT</td>
+            <td>$1.0002</td>
+            <td style="color:#ff4d4f;">+0.04%</td>
+            <td>$1.02亿</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td class="sym">USDC-USDT</td>
+            <td>$1.0003</td>
+            <td style="color:#ff4d4f;">+0.04%</td>
+            <td>$8403.86万</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td class="sym">SOL-USDT</td>
+            <td>$89.3200</td>
+            <td style="color:#52c41a;">-3.39%</td>
+            <td>$6605.48万</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td class="sym">DOGE-USDT</td>
+            <td>$0.113220</td>
+            <td style="color:#52c41a;">-2.65%</td>
+            <td>$6030.19万</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td class="sym">EDGE-USDT</td>
+            <td>$1.2704</td>
+            <td style="color:#52c41a;">-9.13%</td>
+            <td>$4628.68万</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td class="sym">XRP-USDT</td>
+            <td>$1.4365</td>
+            <td style="color:#52c41a;">-3.97%</td>
+            <td>$4142.07万</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td class="sym">HYPE-USDT</td>
+            <td>$44.3040</td>
+            <td style="color:#52c41a;">-0.91%</td>
+            <td>$3857.42万</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td class="sym">XAUT-USDT</td>
+            <td>$4,542.40</td>
+            <td style="color:#52c41a;">-2.4%</td>
+            <td>$3404.92万</td>
+        </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <!-- Promotion -->
+    <div class="promo">
+        <h3>📡 关注 Signal 获取更多</h3>
+        <p>每日异动提醒 · 横盘启动提前发现 · 市场情绪追踪</p>
+        <div class="promo-btns">
+            <a href="https://signal.link.cn" class="promo-btn" target="_blank">🌐 访问主页</a>
+            <a href="javascript:void(0)" onclick="alert('微信公众号：Signal分析（建设中）')" class="promo-btn">💬 微信关注</a>
+            <a href="javascript:void(0)" onclick="alert('复制链接分享给朋友，让更多人看到！')" class="promo-btn">📤 分享页面</a>
+        </div>
+        <p style="margin-top:12px;font-size:0.8em;color:#666;">
+            如果觉得有用，欢迎分享给炒币的朋友 🚀
+        </p>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+        <strong>⚠️ 风险提示：</strong>⚠️ 本分析仅供参考，不构成投资建议。加密货币风险极高，仅用闲钱参与。
+    </div>
+
+    <footer>
+        <p>Powered by <strong>Signal</strong> · 数据来源：OKX</p>
+        <p style="margin-top:4px;">
+            <a href="https://signal.link.cn">signal.link.cn</a> · 
+            自动更新 · 仅供参考
+        </p>
+    </footer>
+
+</div>
 </body>
 </html>
