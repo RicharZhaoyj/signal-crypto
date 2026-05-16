@@ -1,0 +1,19 @@
+{
+  "agent_id": "signal-crypto-agent",
+  "agent_status": "active",
+  "trust_level": 50,
+  "capabilities": ["crypto_analysis", "market_monitoring", "trend_detection"],
+  "endpoint_url": "https://signal.link.cn/api/agent",
+  "session_id": "sess_1778931795200_h1r49fh",
+  "link_session_id": "sess_1778931795200_h1r49fh",
+  "registration_mode": "explicit",
+  "protocol": "link/1.0",
+  "state": "CONFIRMED",
+  "registered_at": "2026-05-16T08:23:15Z",
+  "next_steps": {
+    "heartbeat": "POST /api/mcp/heartbeat",
+    "call": "POST /api/v1/call",
+    "discover": "GET /api/mcp/agents/discover",
+    "tools": "GET /api/mcp/tools.json"
+  }
+}

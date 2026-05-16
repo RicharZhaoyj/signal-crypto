@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "api/agent.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/api/agent", "destination": "/api/agent.js" }
+  ]
+}
