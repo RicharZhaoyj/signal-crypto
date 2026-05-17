@@ -3,9 +3,19 @@
     "api/agent.js": {
       "memory": 128,
       "maxDuration": 10
+    },
+    "api/update.js": {
+      "memory": 256,
+      "maxDuration": 30
     }
   },
   "rewrites": [
     { "source": "/api/agent", "destination": "/api/agent.js" }
+  ],
+  "crons": [
+    {
+      "path": "/api/update",
+      "schedule": "0 * * * *"
+    }
   ]
 }
