@@ -1,19 +1,20 @@
 {
-  "timestamp": "2026-05-17T05:15:18.761Z",
+  "timestamp": "2026-05-17T06:33:08.682Z",
   "totalPairs": 298,
-  "upCount": 52,
-  "downCount": 243,
+  "upCount": 68,
+  "downCount": 225,
+  "totalVolume": 1176093184.0906944,
+  "sentiment": "bearish",
   "btc": {
-    "price": 78240.9,
+    "price": 78095.8,
     "change24h": -1.01,
-    "volume": 386959143.3710017
+    "volume": 380620895.4745547
   },
   "eth": {
-    "price": 2190.58,
-    "change24h": -1.57,
-    "volume": 206502974.97596627
+    "price": 2184.61,
+    "change24h": -1.68,
+    "volume": 205957684.9783198
   },
-  "sentiment": "bearish",
-  "volatileCount": 22,
-  "sidewaysCount": 40
+  "volatileCount": 19,
+  "sidewaysCount": 54
 }
