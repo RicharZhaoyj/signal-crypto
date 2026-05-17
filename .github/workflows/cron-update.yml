@@ -1,0 +1,14 @@
+name: Signal Cron Update
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # 每整点运行
+  workflow_dispatch:  # 可手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel update API
+        run: |
+          curl -sL --max-time 30 "https://signal.link.cn/api/update" || echo "Update API call failed"
