@@ -24,20 +24,36 @@ export default async function handler(req, res) {
   // 3. 如果有 GITHUB_TOKEN，提交更新到仓库
   const token = process.env.GITHUB_TOKEN;
   if (token) {
-    const html = genHTML(summary);
-    await commitFile(token, "index.html", html, `Auto update: ${new Date().toISOString()}`);
-    const dataContent = JSON.stringify({
-      timestamp: summary.timestamp,
-      totalPairs: summary.totalPairs,
-      upCount: summary.upCount,
-      downCount: summary.downCount,
-      btc: summary.btc,
-      eth: summary.eth,
-      sentiment: summary.sentiment,
-      volatileCount: summary.volatileCount,
-      sidewaysCount: summary.sidewaysCount
-    }, null, 2);
-    await commitFile(token, "data.json", dataContent, `Update data: ${new Date().toISOString()}`);
+    console.log("GITHUB_TOKEN exists, attempting commit...");
+    try {
+      const html = genHTML(summary);
+      await commitFile(token, "index.html", html, `Auto update: ${new Date().toISOString()}`);
+      const dataContent = JSON.stringify({
+        timestamp: summary.timestamp,
+        totalPairs: summary.totalPairs,
+        upCount: summary.upCount,
+        downCount: summary.downCount,
+        btc: summary.btc,
+        eth: summary.eth,
+        sentiment: summary.sentiment,
+        volatileCount: summary.volatileCount,
+        sidewaysCount: summary.sidewaysCount
+      }, null, 2);
+      await commitFile(token, "data.json", dataContent, `Update data: ${new Date().toISOString()}`);
+    } catch (err) {
+      console.error("Commit failed:", err.message);
+      return res.status(200).json({
+        success: true,
+        pairs: tickers.length,
+        time: new Date().toISOString(),
+        btc: summary.btc ? `${summary.btc.price} (${summary.btc.change24h}%)` : null,
+        eth: summary.eth ? `${summary.eth.price} (${summary.eth.change24h}%)` : null,
+        volatile: summary.volatileCount,
+        sideways: summary.sidewaysCount,
+        committed: false,
+        error: err.message
+      });
+    }
   }
 
   return res.status(200).json({
