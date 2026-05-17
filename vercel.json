@@ -4,7 +4,7 @@
       "memory": 128,
       "maxDuration": 10
     },
-    "api/update.js": {
+    "api/cron/update.js": {
       "memory": 256,
       "maxDuration": 30
     }
@@ -14,7 +14,7 @@
   ],
   "crons": [
     {
-      "path": "/api/update",
+      "path": "/api/cron/update",
       "schedule": "0 * * * *"
     }
   ]
