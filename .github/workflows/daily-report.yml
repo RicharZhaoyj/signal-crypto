@@ -1,0 +1,14 @@
+name: Signal Daily Report
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # UTC 0:00 = 北京时间 8:00
+  workflow_dispatch:
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger daily report
+        run: |
+          curl -sL --max-time 60 "https://signal.link.cn/api/daily-report" || echo "Daily report API failed"

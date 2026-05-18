@@ -204,6 +204,16 @@ function genHTML(d) {
     'footer a{color:#667eea;text-decoration:none}',
     '.trade-btn{display:inline-block;padding:8px 18px;border-radius:20px;background:linear-gradient(90deg,#667eea,#764ba2);color:#fff;text-decoration:none;font-size:.8em;font-weight:600;margin-top:8px;transition:opacity .2s}',
     '.trade-btn:hover{opacity:.85}',
+    '.subscribe{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(102,126,234,.2);border-radius:16px;padding:25px;margin-bottom:25px;text-align:center}',
+    '.subscribe h3{font-size:1.2em;margin-bottom:6px;color:#fff}',
+    '.subscribe p{color:#aaa;font-size:.85em;margin-bottom:15px}',
+    '.sub-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:450px;margin:0 auto}',
+    '.sub-form input{flex:1;min-width:200px;padding:10px 16px;border-radius:25px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;font-size:.9em;outline:none}',
+    '.sub-form input:focus{border-color:#667eea}',
+    '.sub-form input::placeholder{color:#666}',
+    '.sub-btn{padding:10px 24px;border-radius:25px;border:none;background:linear-gradient(90deg,#667eea,#764ba2);color:#fff;font-size:.9em;font-weight:600;cursor:pointer;transition:opacity .2s}',
+    '.sub-btn:hover{opacity:.85}',
+    '.sub-msg{margin-top:10px;font-size:.85em;color:#52c41a;display:none}',
     '@media(max-width:600px){h1{font-size:1.6em}.section{padding:16px}th,td{padding:8px 6px;font-size:.8em}}'
   ].join('');
 
@@ -215,6 +225,7 @@ function genHTML(d) {
 <div class=section><h2>📊 横盘关注 (波动<5%·量>50万) — ${d.sideways.length} 个</h2><div class=table-wrap><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>波动率</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody>${sRows}</tbody></table></div></div>
 <div class=section><h2>🔥 成交量 Top 10</h2><div class=table-wrap><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody>${tRows}</tbody></table></div></div>
 <div class="promo"><h3>💰 推荐交易所（返佣支持本站运营）</h3><p>通过以下链接注册交易，你将获得手续费折扣，本站也能获得返佣支持</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px"><a class="trade-btn" href="${AFFILIATE.okx}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">OKX 注册 → 享返佣</a><a class="trade-btn" href="${AFFILIATE.bitget}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">Bitget 注册 → 享返佣</a><a class="trade-btn" href="${AFFILIATE.binance}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">Binance 注册</a></div></div>
+<div class="subscribe"><h3>📬 每日行情日报</h3><p>每天早8点，把最新异动/横盘品种推送到你的邮箱</p><form class="sub-form" onsubmit="event.preventDefault();var e=this.querySelector('input').value;if(!e)return;var m=this.querySelector('.sub-msg');fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e})}).then(r=>r.json()).then(d=>{m.style.display='block';m.style.color=d.success?'#52c41a':'#ff4d4f';m.textContent=d.success?'✅ 订阅成功！明天早8点起将收到日报':'❌ '+d.error;this.querySelector('input').value=''}).catch(()=>{m.style.display='block';m.style.color='#ff4d4f';m.textContent='❌ 提交失败，请重试'})"><input type="email" placeholder="输入邮箱地址" required><button class="sub-btn" type="submit">免费订阅</button><div class="sub-msg"></div></form></div>
 <div class=disclaimer><strong>⚠️ 风险提示：</strong>本分析仅供参考，不构成投资建议。加密货币风险极高，仅用闲钱参与。</div>
 <footer><p>Powered by <strong>Signal</strong> · 数据来源: OKX</p><p style=margin-top:4px><a href=https://signal.link.cn>signal.link.cn</a> · Vercel Cron 自动更新</p></footer>
 </div></body></html>`;

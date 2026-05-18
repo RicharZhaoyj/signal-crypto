@@ -2,7 +2,7 @@ name: Signal Cron Update
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 每整点运行
+    - cron: '0 * * * *'  # 每整点更新行情页面
   workflow_dispatch:  # 可手动触发
 
 jobs:
