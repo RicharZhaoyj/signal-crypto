@@ -133,9 +133,10 @@ async function commitFile(token, path, content, message) {
 
 // ===== 交易所返佣链接配置 =====
 const AFFILIATE = {
-  okx: "https://www.okx.com/join/SIGNAL",  // 替换成你的OKX返佣链接
-  binance: "https://www.binance.com/activity/referral/offers/claim?ref=SIGNAL", // 可替换
-  bybit: "https://www.bybit.com/invite?ref=SIGNAL", // 可替换
+  okx: "https://www.kxmqpwrlvjt.com/join/72697785",
+  binance: "https://www.binance.com/activity/referral/offers/claim?ref=SIGNAL",
+  bybit: "https://www.bybit.com/invite?ref=SIGNAL",
+  bitget: "https://partner.hdmune.cn/bg/GD38XZ",
 };
 
 // ===== HTML 生成 =====
@@ -214,7 +215,7 @@ function genHTML(d) {
 <div class=section><h2>⚡ 异动品种 (24h涨跌 ≥ ±5%) — ${d.volatile.length} 个</h2><div class=table-wrap><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody>${vRows}</tbody></table></div></div>
 <div class=section><h2>📊 横盘关注 (波动<5%·量>50万) — ${d.sideways.length} 个</h2><div class=table-wrap><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>波动率</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody>${sRows}</tbody></table></div></div>
 <div class=section><h2>🔥 成交量 Top 10</h2><div class=table-wrap><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody>${tRows}</tbody></table></div></div>
-<div class="promo"><h3>💰 推荐交易所（返佣支持本站运营）</h3><p>通过以下链接注册交易，你将获得手续费折扣，本站也能获得返佣支持</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px"><a class="trade-btn" href="${AFFILIATE.okx}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">OKX 注册 → 享20%手续费折扣</a><a class="trade-btn" href="${AFFILIATE.binance}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">Binance 注册</a><a class="trade-btn" href="${AFFILIATE.bybit}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">Bybit 注册</a></div></div>
+<div class="promo"><h3>💰 推荐交易所（返佣支持本站运营）</h3><p>通过以下链接注册交易，你将获得手续费折扣，本站也能获得返佣支持</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px"><a class="trade-btn" href="${AFFILIATE.okx}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">OKX 注册 → 享返佣</a><a class="trade-btn" href="${AFFILIATE.bitget}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">Bitget 注册 → 享返佣</a><a class="trade-btn" href="${AFFILIATE.binance}" target="_blank" rel="nofollow noopener" style="padding:10px 24px;font-size:.9em">Binance 注册</a></div></div>
 <div class=disclaimer><strong>⚠️ 风险提示：</strong>本分析仅供参考，不构成投资建议。加密货币风险极高，仅用闲钱参与。</div>
 <footer><p>Powered by <strong>Signal</strong> · 数据来源: OKX</p><p style=margin-top:4px><a href=https://signal.link.cn>signal.link.cn</a> · Vercel Cron 自动更新</p></footer>
 </div></body></html>`;
