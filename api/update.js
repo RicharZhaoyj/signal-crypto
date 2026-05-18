@@ -134,8 +134,7 @@ async function commitFile(token, path, content, message) {
 // ===== 交易所返佣链接配置 =====
 const AFFILIATE = {
   okx: "https://www.kxmqpwrlvjt.com/join/72697785",
-  binance: "https://www.binance.com/activity/referral/offers/claim?ref=SIGNAL",
-  bybit: "https://www.bybit.com/invite?ref=SIGNAL",
+  binance: "https://www.bsmkweb.cc/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_DUO1O&utm_source=referral_entrance",
   bitget: "https://partner.hdmune.cn/bg/GD38XZ",
 };
 
