@@ -118,9 +118,56 @@ def analyze(data):
         "volume": f"{int(float(t.get('volCcy24h',0))):,}"
     } for t in losers]
 
+    # ========== 新增：长期横盘启动关注（方案A优化版） ==========
+    stablecoins = {'USDT', 'USDC', 'BUSD', 'DAI', 'FDUSD', 'TUSD', 'USDD', 'USDE', 'USDG', 'RLUSD', 'PYUSD'}
+
+    long_term_sideways = []
+    for t in data:
+        try:
+            inst_id = t["instId"]
+            base = inst_id.split('-')[0].upper()
+
+            # 过滤稳定币
+            if base in stablecoins:
+                continue
+
+            high = float(t.get('high24h', 0))
+            low = float(t.get('low24h', 0))
+            last = float(t.get('last', 0))
+            vol = float(t.get('volCcy24h', 0))
+            change = get_change(t)
+            vr = volatility_rate(t)
+
+            if high == 0 or low == 0 or last == 0:
+                continue
+
+            volatility = vr if vr is not None else 999
+            price_position = (last - low) / (high - low) if (high - low) > 0 else 0.5
+
+            # 优化条件
+            if (volatility < 7.0 and
+                0.25 < price_position < 0.70 and
+                vol > 5_000_000 and
+                -1.0 < change < 4.0):
+
+                long_term_sideways.append({
+                    "pair": inst_id,
+                    "price": f"{last:.4f}",
+                    "change": format_change(change),
+                    "volume": f"{int(vol):,}",
+                    "volatility": f"{volatility:.2f}%",
+                    "position": f"{price_position*100:.1f}%",
+                    "signal": "长期横盘蓄势"
+                })
+        except:
+            continue
+
+    long_term_sideways.sort(key=lambda x: float(x['volatility'].replace('%', '')))
+
     return {
         "short_term": short_term,
         "flat_start": flat_start,
+        "long_term_sideways": long_term_sideways,
         "top_volume": top_volume,
         "top_gainers": top_gainers,
         "top_losers": top_losers
