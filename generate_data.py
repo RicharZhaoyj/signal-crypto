@@ -53,26 +53,22 @@ def analyze_data(tickers):
             if abs(change) >= 5:
                 volatile.append(item)
 
-            # ========== 长期横盘蓄势品种（优化版） ==========
+            # ========== 长期横盘蓄势品种（进一步放宽） ==========
             is_stable = any(x in t["instId"] for x in ["USDC", "USDT", "BUSD", "DAI", "TUSD", "FDUSD"])
             
-            # 蓄势条件：
-            # 1. 波动率 < 5%
-            # 2. 成交量 > 120万 USDT
-            # 3. 价格处于24h区间下半部（靠近支撑）
-            # 4. 24h涨跌幅在 -3% ~ +4%
             price_position = (last - low) / (high - low) if high > low else 0.5
             
-            if (volatility < 5.0 and 
-                vol > 1_200_000 and 
+            # 放宽后的条件
+            if (volatility < 5.5 and 
+                vol > 900_000 and 
                 not is_stable and
-                price_position < 0.55 and           # 位于区间下 55% 以内
-                -3.0 <= change <= 4.0):
+                price_position < 0.6 and
+                -4.0 <= change <= 5.0):
                 
                 sideways.append({
                     **item,
                     "volatility": round(volatility, 2),
-                    "position": round(price_position * 100, 1)  # 区间位置百分比
+                    "position": round(price_position * 100, 1)
                 })
 
             top_volume.append(item)
@@ -82,10 +78,9 @@ def analyze_data(tickers):
             elif change < 0:
                 down_count += 1
 
-        except Exception as e:
+        except:
             continue
 
-    # 排序
     volatile.sort(key=lambda x: abs(x["change"]), reverse=True)
     sideways.sort(key=lambda x: x.get("volatility", 999))
     top_volume.sort(key=lambda x: x["volume"], reverse=True)
