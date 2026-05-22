@@ -58,12 +58,12 @@ def analyze_data(tickers):
             
             price_position = (last - low) / (high - low) if high > low else 0.5
             
-            # 放宽后的条件
-            if (volatility < 5.5 and 
-                vol > 900_000 and 
+            # 放宽后的条件（当前市场横盘品种较少，进一步宽松）
+            if (volatility < 8.0 and 
+                vol > 500_000 and 
                 not is_stable and
-                price_position < 0.6 and
-                -4.0 <= change <= 5.0):
+                price_position < 0.7 and
+                -6.0 <= change <= 6.0):
                 
                 sideways.append({
                     **item,
