@@ -130,7 +130,6 @@ async function loadData() {
     
     const d = await res.json();
     
-    // 更新时间
     let timeStr = '刚刚更新';
     if (d.timestamp) {
       try {
@@ -143,7 +142,6 @@ async function loadData() {
     }
     updateEl.innerHTML = `⏰ ${timeStr}`;
 
-    // 渲染（用 try-catch 包裹每个渲染函数）
     safeRender(() => renderTopCoins(d));
     safeRender(() => renderOverview(d));
     safeRender(() => renderVolatileTable(d));
@@ -154,20 +152,16 @@ async function loadData() {
     console.error('数据加载失败:', e);
     updateEl.innerHTML = '⏰ 数据加载失败';
     
-    const errorMsg = '<div class="error">数据正在更新中，请 30 秒后刷新</div>';
-    document.getElementById('topCoins').innerHTML = errorMsg;
-    document.getElementById('volatileTable').innerHTML = `<tr><td colspan="5" class="error">数据更新中...</td></tr>`;
-    document.getElementById('sidewaysTable').innerHTML = `<tr><td colspan="6" class="error">数据更新中...</td></tr>`;
-    document.getElementById('volumeTable').innerHTML = `<tr><td colspan="5" class="error">数据更新中...</td></tr>`;
+    const msg = '<div class="error">数据正在更新中，请稍后刷新</div>';
+    document.getElementById('topCoins').innerHTML = msg;
+    document.getElementById('volatileTable').innerHTML = `<tr><td colspan="5" class="error">更新中...</td></tr>`;
+    document.getElementById('sidewaysTable').innerHTML = `<tr><td colspan="6" class="error">更新中...</td></tr>`;
+    document.getElementById('volumeTable').innerHTML = `<tr><td colspan="5" class="error">更新中...</td></tr>`;
   }
 }
 
 function safeRender(fn) {
-  try {
-    fn();
-  } catch (e) {
-    console.error('渲染出错:', e);
-  }
+  try { fn(); } catch(e) { console.error(e); }
 }
 
 function renderTopCoins(d) {
@@ -264,6 +258,14 @@ function renderVolatileTable(d) {
 function renderSidewaysTable(d) {
   const tbody = document.getElementById('sidewaysTable');
   let list = d.sideways || [];
+  
+  // 兼容旧数据
+  if (list.length === 0 && d.long_term_sideways) {
+    list = d.long_term_sideways;
+  }
+  if (list.length === 0 && d.flat_start) {
+    list = d.flat_start;
+  }
   
   if (list.length === 0) {
     tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#666;">暂无横盘蓄势数据</td></tr>';
