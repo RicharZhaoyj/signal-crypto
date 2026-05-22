@@ -134,8 +134,7 @@ async function loadData() {
     let timeStr = '刚刚更新';
     if (d.timestamp) {
       try {
-        const date = new Date(d.timestamp);
-        timeStr = date.toLocaleString('zh-CN', { 
+        timeStr = new Date(d.timestamp).toLocaleString('zh-CN', { 
           timeZone: 'Asia/Shanghai',
           month: '2-digit', day: '2-digit',
           hour: '2-digit', minute: '2-digit'
@@ -144,26 +143,30 @@ async function loadData() {
     }
     updateEl.innerHTML = `⏰ ${timeStr}`;
 
-    // 渲染内容
-    renderTopCoins(d);
-    renderOverview(d);
-    renderVolatileTable(d);
-    renderSidewaysTable(d);
-    renderVolumeTable(d);
+    // 渲染（用 try-catch 包裹每个渲染函数）
+    safeRender(() => renderTopCoins(d));
+    safeRender(() => renderOverview(d));
+    safeRender(() => renderVolatileTable(d));
+    safeRender(() => renderSidewaysTable(d));
+    safeRender(() => renderVolumeTable(d));
 
   } catch (e) {
     console.error('数据加载失败:', e);
     updateEl.innerHTML = '⏰ 数据加载失败';
     
-    // 显示友好提示
-    document.getElementById('topCoins').innerHTML = 
-      '<div class="error">数据正在更新中，请稍后刷新页面</div>';
-    document.getElementById('volatileTable').innerHTML = 
-      '<tr><td colspan="5" class="error">数据加载中...</td></tr>';
-    document.getElementById('sidewaysTable').innerHTML = 
-      '<tr><td colspan="6" class="error">数据加载中...</td></tr>';
-    document.getElementById('volumeTable').innerHTML = 
-      '<tr><td colspan="5" class="error">数据加载中...</td></tr>';
+    const errorMsg = '<div class="error">数据正在更新中，请 30 秒后刷新</div>';
+    document.getElementById('topCoins').innerHTML = errorMsg;
+    document.getElementById('volatileTable').innerHTML = `<tr><td colspan="5" class="error">数据更新中...</td></tr>`;
+    document.getElementById('sidewaysTable').innerHTML = `<tr><td colspan="6" class="error">数据更新中...</td></tr>`;
+    document.getElementById('volumeTable').innerHTML = `<tr><td colspan="5" class="error">数据更新中...</td></tr>`;
+  }
+}
+
+function safeRender(fn) {
+  try {
+    fn();
+  } catch (e) {
+    console.error('渲染出错:', e);
   }
 }
 
@@ -171,7 +174,6 @@ function renderTopCoins(d) {
   const container = document.getElementById('topCoins');
   let html = '';
   
-  // 支持新旧格式
   let btcData = d.btc;
   let ethData = d.eth;
   
@@ -193,14 +195,15 @@ function renderTopCoins(d) {
 }
 
 function createCoinCard(name, price, change) {
-  const changeColor = (change || 0) >= 0 ? '#ff4d4f' : '#52c41a';
-  const sign = (change || 0) >= 0 ? '+' : '';
+  const c = change || 0;
+  const changeColor = c >= 0 ? '#ff4d4f' : '#52c41a';
+  const sign = c >= 0 ? '+' : '';
   const priceStr = typeof price === 'number' ? price.toLocaleString() : (price || '0');
   return `
     <div class="coin-card">
       <div class="coin-name">${name}</div>
       <div class="coin-price">$${priceStr}</div>
-      <div class="coin-change" style="color:${changeColor}">${sign}${change || 0}%</div>
+      <div class="coin-change" style="color:${changeColor}">${sign}${c}%</div>
       <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
     </div>
   `;
@@ -340,7 +343,6 @@ function subscribe() {
   });
 }
 
-// 启动
 loadData();
 </script>
 </body>
