@@ -5,7 +5,7 @@ from datetime import datetime
 def fetch_okx_data():
     url = "https://www.okx.com/api/v5/market/tickers?instType=SPOT"
     try:
-        resp = requests.get(url, timeout=15)
+        resp = requests.get(url, timeout=20)
         resp.raise_for_status()
         data = resp.json()
         if data.get("code") == "0":
@@ -33,13 +33,13 @@ def analyze_data(tickers):
             vol = float(t.get("volCcy24h", 0))
 
             change = ((last - open24) / open24 * 100) if open24 > 0 else 0
-            volatility = ((high - low) / low * 100) if low > 0 else 0
+            volatility = ((high - low) / low * 100) if low > 0 else 999
 
             total_volume += vol
 
             item = {
                 "symbol": t["instId"],
-                "price": last,
+                "price": round(last, 6),
                 "change": round(change, 2),
                 "volume": vol
             }
@@ -49,11 +49,18 @@ def analyze_data(tickers):
             if t["instId"] == "ETH-USDT":
                 eth = {"price": last, "change24h": round(change, 2), "volume": vol}
 
+            # 异动品种
             if abs(change) >= 5:
                 volatile.append(item)
 
-            if volatility < 5 and vol > 500000 and not any(x in t["instId"] for x in ["USD", "USDT"]):
-                sideways.append({**item, "volatility": round(volatility, 2)})
+            # 长期横盘品种（蓄势）—— 放宽条件
+            # 条件：波动率 < 6%、成交量 > 80万、排除稳定币
+            is_stable = any(x in t["instId"] for x in ["USDC", "USDT", "BUSD", "DAI", "TUSD"])
+            if volatility < 6 and vol > 800000 and not is_stable:
+                sideways.append({
+                    **item,
+                    "volatility": round(volatility, 2)
+                })
 
             top_volume.append(item)
 
@@ -62,12 +69,16 @@ def analyze_data(tickers):
             elif change < 0:
                 down_count += 1
 
-        except:
+        except Exception as e:
             continue
 
+    # 排序
     volatile.sort(key=lambda x: abs(x["change"]), reverse=True)
     sideways.sort(key=lambda x: x.get("volatility", 999))
     top_volume.sort(key=lambda x: x["volume"], reverse=True)
+
+    print(f"横盘品种数量: {len(sideways)}")
+    print(f"异动品种数量: {len(volatile)}")
 
     return {
         "timestamp": datetime.now().isoformat(),
@@ -84,40 +95,20 @@ def analyze_data(tickers):
     }
 
 def main():
-    print("Fetching OKX data...")
+    print("开始拉取 OKX 数据...")
     tickers = fetch_okx_data()
+    print(f"获取到 {len(tickers)} 个交易对")
+
     if not tickers:
-        print("No data fetched")
+        print("未获取到数据，退出")
         return
 
-    print(f"Analyzing {len(tickers)} pairs...")
     market_data = analyze_data(tickers)
 
-    # 保存 data.json
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(market_data, f, ensure_ascii=False, indent=2)
 
-    print("data.json generated successfully")
-
-    # 同时更新 index.html 的更新时间（简单替换）
-    try:
-        with open("index.html", "r", encoding="utf-8") as f:
-            html = f.read()
-
-        now_str = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
-        html = html.replace(
-            'update-time">⏰ 2026/5/19 14:39:24</div>',
-            f'update-time">⏰ {now_str}</div>'
-        )
-
-        with open("index.html", "w", encoding="utf-8") as f:
-            f.write(html)
-
-        print("index.html timestamp updated")
-    except Exception as e:
-        print(f"Could not update index.html timestamp: {e}")
-
-    print("Done!")
+    print("data.json 生成成功")
 
 if __name__ == "__main__":
     main()
