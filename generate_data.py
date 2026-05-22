@@ -1,188 +1,123 @@
-import requests, json, os
+import requests
+import json
 from datetime import datetime
 
-# Proxy configuration – use the SOCKS5 proxy (Clash Verge) reachable via Windows host IP
-PROXY_PORT = 7898  # SOCKS5 proxy port
-PROXY_HOST = "10.255.255.254"  # Windows host IP (LAN enabled)
-PROXY_URL = f"socks5://{PROXY_HOST}:{PROXY_PORT}"
-
-def get_okx_data():
-    """Fetch all OKX USDT spot tickers. Tries via SOCKS5 proxy first, then direct request if needed."""
+def fetch_okx_data():
     url = "https://www.okx.com/api/v5/market/tickers?instType=SPOT"
-    proxies = {"http": PROXY_URL, "https": PROXY_URL}
     try:
-        resp = requests.get(url, timeout=15, proxies=proxies)
+        resp = requests.get(url, timeout=15)
         resp.raise_for_status()
-        result = resp.json()
-        if result.get("code") != "0":
-            print(f"API error (proxy) code: {result.get('code')}")
-            return []
-        return [t for t in result["data"] if t["instId"].endswith("USDT")]
+        data = resp.json()
+        if data.get("code") == "0":
+            return [t for t in data["data"] if t["instId"].endswith("-USDT")]
     except Exception as e:
-        print(f"Proxy request failed ({e}), retrying without proxy...")
+        print(f"Error fetching OKX data: {e}")
+    return []
+
+def analyze_data(tickers):
+    volatile = []
+    sideways = []
+    top_volume = []
+    up_count = 0
+    down_count = 0
+    total_volume = 0
+    btc = None
+    eth = None
+
+    for t in tickers:
         try:
-            resp = requests.get(url, timeout=15)
-            resp.raise_for_status()
-            result = resp.json()
-            if result.get("code") != "0":
-                print(f"API error (direct) code: {result.get('code')}")
-                return []
-            return [t for t in result["data"] if t["instId"].endswith("USDT")]
-        except Exception as e2:
-            print(f"Direct request also failed: {e2}")
-            return []
+            last = float(t.get("last", 0))
+            open24 = float(t.get("open24h", 0))
+            high = float(t.get("high24h", 0))
+            low = float(t.get("low24h", 0))
+            vol = float(t.get("volCcy24h", 0))
 
-def get_change(t):
-    """Return 24h change percentage. Compute from open24h/last (OKX v5 doesn't include change24h)."""
-    try:
-        last = float(t.get('last', 0))
-        open24 = float(t.get('open24h', 0))
-        if open24 == 0:
-            # fallback to sodUtc8 (UTC+8 mid-night open)
-            sod = t.get('sodUtc8')
-            if sod:
-                sod_f = float(sod)
-                if sod_f != 0:
-                    return (last - sod_f) / sod_f * 100
-            return 0.0
-        return (last - open24) / open24 * 100
-    except Exception:
-        return 0.0
+            change = ((last - open24) / open24 * 100) if open24 > 0 else 0
+            volatility = ((high - low) / low * 100) if low > 0 else 0
 
-def volatility_rate(t):
-    try:
-        high = float(t.get('high24h', 0))
-        low = float(t.get('low24h', 0))
-        if low == 0:
-            return None
-        return (high - low) / low * 100
-    except Exception:
-        return None
+            total_volume += vol
 
-def format_change(val):
-    sign = '+' if val >= 0 else '-'
-    return f"{sign}{abs(val):.2f}%"
+            item = {
+                "symbol": t["instId"],
+                "price": last,
+                "change": round(change, 2),
+                "volume": vol
+            }
 
-def analyze(data):
-    # Short‑term volatile: sort all pairs by absolute change descending
-    short_term = []
-    for t in data:
-        change = get_change(t)
-        short_term.append({
-            "pair": t["instId"],
-            "price": f"{float(t.get('last',0)):.4f}",
-            "change": format_change(change),
-            "volume": f"{int(float(t.get('volCcy24h',0))):,}"
-        })
-    short_term.sort(key=lambda x: abs(float(x['change'].replace('%',''))), reverse=True)
+            if t["instId"] == "BTC-USDT":
+                btc = {"price": last, "change24h": round(change, 2), "volume": vol}
+            if t["instId"] == "ETH-USDT":
+                eth = {"price": last, "change24h": round(change, 2), "volume": vol}
 
-    # Flat‑start: volatility <5% and reasonable volume
-    flat_start = []
-    for t in data:
-        vol = float(t.get('volCcy24h', 0))
-        vr = volatility_rate(t)
-        if vr is not None and vr < 5 and (vol > 5e6 or (float(t.get('high24h',0)) - float(t.get('last',0))) / float(t.get('high24h',0)) < 0.01):
-            change = get_change(t)
-            flat_start.append({
-                "pair": t["instId"],
-                "price": f"{float(t.get('last',0)):.4f}",
-                "change": format_change(change),
-                "volume": f"{int(vol):,}",
-                "volatility": f"{vr:.2f}%"
-            })
+            if abs(change) >= 5:
+                volatile.append(item)
 
-    # Top volume: all pairs sorted by volume descending
-    top_volume = sorted(data, key=lambda x: float(x.get('volCcy24h', 0)), reverse=True)
-    top_volume = [{
-        "pair": t["instId"],
-        "price": f"{float(t.get('last',0)):.4f}",
-        "change": format_change(get_change(t)),
-        "volume": f"{int(float(t.get('volCcy24h',0))):,}"
-    } for t in top_volume]
+            if volatility < 5 and vol > 500000 and not any(x in t["instId"] for x in ["USD", "USDT"]):
+                sideways.append({**item, "volatility": round(volatility, 2)})
 
-    # Top gainers: positive change sorted descending
-    gainers = sorted([t for t in data if get_change(t) > 0], key=lambda x: get_change(x), reverse=True)
-    top_gainers = [{
-        "pair": t["instId"],
-        "price": f"{float(t.get('last',0)):.4f}",
-        "change": format_change(get_change(t)),
-        "volume": f"{int(float(t.get('volCcy24h',0))):,}"
-    } for t in gainers]
+            top_volume.append(item)
 
-    # Top losers: negative change sorted ascending
-    losers = sorted([t for t in data if get_change(t) < 0], key=lambda x: get_change(x))
-    top_losers = [{
-        "pair": t["instId"],
-        "price": f"{float(t.get('last',0)):.4f}",
-        "change": format_change(get_change(t)),
-        "volume": f"{int(float(t.get('volCcy24h',0))):,}"
-    } for t in losers]
+            if change > 0:
+                up_count += 1
+            elif change < 0:
+                down_count += 1
 
-    # ========== 新增：长期横盘启动关注（方案A优化版） ==========
-    stablecoins = {'USDT', 'USDC', 'BUSD', 'DAI', 'FDUSD', 'TUSD', 'USDD', 'USDE', 'USDG', 'RLUSD', 'PYUSD'}
-
-    long_term_sideways = []
-    for t in data:
-        try:
-            inst_id = t["instId"]
-            base = inst_id.split('-')[0].upper()
-
-            # 过滤稳定币
-            if base in stablecoins:
-                continue
-
-            high = float(t.get('high24h', 0))
-            low = float(t.get('low24h', 0))
-            last = float(t.get('last', 0))
-            vol = float(t.get('volCcy24h', 0))
-            change = get_change(t)
-            vr = volatility_rate(t)
-
-            if high == 0 or low == 0 or last == 0:
-                continue
-
-            volatility = vr if vr is not None else 999
-            price_position = (last - low) / (high - low) if (high - low) > 0 else 0.5
-
-            # 优化条件
-            if (volatility < 7.0 and
-                0.25 < price_position < 0.70 and
-                vol > 5_000_000 and
-                -1.0 < change < 4.0):
-
-                long_term_sideways.append({
-                    "pair": inst_id,
-                    "price": f"{last:.4f}",
-                    "change": format_change(change),
-                    "volume": f"{int(vol):,}",
-                    "volatility": f"{volatility:.2f}%",
-                    "position": f"{price_position*100:.1f}%",
-                    "signal": "长期横盘蓄势"
-                })
         except:
             continue
 
-    long_term_sideways.sort(key=lambda x: float(x['volatility'].replace('%', '')))
+    volatile.sort(key=lambda x: abs(x["change"]), reverse=True)
+    sideways.sort(key=lambda x: x.get("volatility", 999))
+    top_volume.sort(key=lambda x: x["volume"], reverse=True)
 
     return {
-        "short_term": short_term,
-        "flat_start": flat_start,
-        "long_term_sideways": long_term_sideways,
-        "top_volume": top_volume,
-        "top_gainers": top_gainers,
-        "top_losers": top_losers
+        "timestamp": datetime.now().isoformat(),
+        "totalPairs": len(tickers),
+        "upCount": up_count,
+        "downCount": down_count,
+        "totalVolume": total_volume,
+        "sentiment": "bullish" if up_count > down_count * 1.3 else "bearish" if down_count > up_count * 1.3 else "neutral",
+        "btc": btc,
+        "eth": eth,
+        "volatile": volatile[:20],
+        "sideways": sideways[:15],
+        "topVolume": top_volume[:10]
     }
 
 def main():
-    data = get_okx_data()
-    if not data:
-        print("No data fetched, aborting.")
+    print("Fetching OKX data...")
+    tickers = fetch_okx_data()
+    if not tickers:
+        print("No data fetched")
         return
-    result = analyze(data)
-    out_path = os.path.join(os.path.expanduser("~"), "signal-crypto", "data.json")
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(result, f, ensure_ascii=False, indent=2)
-    print(f"Data written to {out_path}")
+
+    print(f"Analyzing {len(tickers)} pairs...")
+    market_data = analyze_data(tickers)
+
+    # 保存 data.json
+    with open("data.json", "w", encoding="utf-8") as f:
+        json.dump(market_data, f, ensure_ascii=False, indent=2)
+
+    print("data.json generated successfully")
+
+    # 同时更新 index.html 的更新时间（简单替换）
+    try:
+        with open("index.html", "r", encoding="utf-8") as f:
+            html = f.read()
+
+        now_str = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+        html = html.replace(
+            'update-time">⏰ 2026/5/19 14:39:24</div>',
+            f'update-time">⏰ {now_str}</div>'
+        )
+
+        with open("index.html", "w", encoding="utf-8") as f:
+            f.write(html)
+
+        print("index.html timestamp updated")
+    except Exception as e:
+        print(f"Could not update index.html timestamp: {e}")
+
+    print("Done!")
 
 if __name__ == "__main__":
     main()
