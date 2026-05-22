@@ -49,26 +49,16 @@ def analyze_data(tickers):
             if t["instId"] == "ETH-USDT":
                 eth = {"price": last, "change24h": round(change, 2), "volume": vol}
 
-            # 异动品种
             if abs(change) >= 5:
                 volatile.append(item)
 
-            # ========== 长期横盘蓄势品种（进一步放宽） ==========
+            # 横盘蓄势品种（非常宽松）
             is_stable = any(x in t["instId"] for x in ["USDC", "USDT", "BUSD", "DAI", "TUSD", "FDUSD"])
             
-            price_position = (last - low) / (high - low) if high > low else 0.5
-            
-            # 放宽后的条件（当前市场横盘品种较少，进一步宽松）
-            if (volatility < 8.0 and 
-                vol > 500_000 and 
-                not is_stable and
-                price_position < 0.7 and
-                -6.0 <= change <= 6.0):
-                
+            if volatility < 8.0 and not is_stable:
                 sideways.append({
                     **item,
-                    "volatility": round(volatility, 2),
-                    "position": round(price_position * 100, 1)
+                    "volatility": round(volatility, 2)
                 })
 
             top_volume.append(item)
