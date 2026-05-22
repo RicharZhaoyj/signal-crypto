@@ -121,6 +121,12 @@ footer a{color:#667eea;text-decoration:none}
 </div>
 
 <script>
+function toNum(val) {
+  if (val == null) return 0;
+  if (typeof val === 'number') return val;
+  return parseFloat(String(val).replace('%','')) || 0;
+}
+
 async function loadData() {
   const updateEl = document.getElementById('updateTime');
   
@@ -151,7 +157,6 @@ async function loadData() {
   } catch (e) {
     console.error('数据加载失败:', e);
     updateEl.innerHTML = '⏰ 数据加载失败';
-    
     const msg = '<div class="error">数据正在更新中，请稍后刷新</div>';
     document.getElementById('topCoins').innerHTML = msg;
     document.getElementById('volatileTable').innerHTML = `<tr><td colspan="5" class="error">更新中...</td></tr>`;
@@ -177,11 +182,11 @@ function renderTopCoins(d) {
   }
   
   if (btcData) {
-    const change = btcData.change24h || parseFloat((btcData.change || '0').replace('%',''));
+    const change = toNum(btcData.change24h || btcData.change);
     html += createCoinCard('₿ BTC', btcData.price || btcData.last, change);
   }
   if (ethData) {
-    const change = ethData.change24h || parseFloat((ethData.change || '0').replace('%',''));
+    const change = toNum(ethData.change24h || ethData.change);
     html += createCoinCard('⟠ ETH', ethData.price || ethData.last, change);
   }
   
@@ -197,7 +202,7 @@ function createCoinCard(name, price, change) {
     <div class="coin-card">
       <div class="coin-name">${name}</div>
       <div class="coin-price">$${priceStr}</div>
-      <div class="coin-change" style="color:${changeColor}">${sign}${c}%</div>
+      <div class="coin-change" style="color:${changeColor}">${sign}${c.toFixed(2)}%</div>
       <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
     </div>
   `;
@@ -227,7 +232,7 @@ function renderVolatileTable(d) {
   let list = d.volatile || [];
   
   if (list.length === 0 && d.short_term) {
-    list = d.short_term.filter(x => Math.abs(parseFloat(x.change || '0')) >= 5).slice(0, 15);
+    list = d.short_term.filter(x => Math.abs(toNum(x.change)) >= 5).slice(0, 15);
   }
   
   if (list.length === 0) {
@@ -237,7 +242,7 @@ function renderVolatileTable(d) {
   
   let html = '';
   list.slice(0, 15).forEach((item, i) => {
-    const change = item.change24h || parseFloat((item.change || '0').replace('%',''));
+    const change = toNum(item.change24h || item.change);
     const color = change >= 0 ? '#ff4d4f' : '#52c41a';
     const sign = change >= 0 ? '+' : '';
     const price = item.price || item.last || 0;
@@ -259,13 +264,8 @@ function renderSidewaysTable(d) {
   const tbody = document.getElementById('sidewaysTable');
   let list = d.sideways || [];
   
-  // 兼容旧数据
-  if (list.length === 0 && d.long_term_sideways) {
-    list = d.long_term_sideways;
-  }
-  if (list.length === 0 && d.flat_start) {
-    list = d.flat_start;
-  }
+  if (list.length === 0 && d.long_term_sideways) list = d.long_term_sideways;
+  if (list.length === 0 && d.flat_start) list = d.flat_start;
   
   if (list.length === 0) {
     tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#666;">暂无横盘蓄势数据</td></tr>';
@@ -274,7 +274,7 @@ function renderSidewaysTable(d) {
   
   let html = '';
   list.slice(0, 12).forEach((item, i) => {
-    const change = item.change24h || parseFloat((item.change || '0').replace('%',''));
+    const change = toNum(item.change24h || item.change);
     const color = change >= 0 ? '#ff4d4f' : '#52c41a';
     const sign = change >= 0 ? '+' : '';
     const price = item.price || item.last || 0;
@@ -303,7 +303,7 @@ function renderVolumeTable(d) {
   
   let html = '';
   list.slice(0, 10).forEach((item, i) => {
-    const change = item.change24h || parseFloat((item.change || '0').replace('%',''));
+    const change = toNum(item.change24h || item.change);
     const color = change >= 0 ? '#ff4d4f' : '#52c41a';
     const sign = change >= 0 ? '+' : '';
     const price = item.price || item.last || 0;
