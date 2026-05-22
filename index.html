@@ -47,7 +47,7 @@ footer a{color:#667eea;text-decoration:none}
 .sub-btn:hover{opacity:.85}
 .sub-msg{margin-top:10px;font-size:.85em;color:#52c41a;display:none}
 .loading{text-align:center;color:#888;padding:40px}
-.error{color:#ff6b6b;text-align:center;padding:20px}
+.error{color:#ff6b6b;text-align:center;padding:20px;background:rgba(255,107,107,.08);border-radius:12px}
 @media(max-width:600px){h1{font-size:1.6em}.section{padding:16px}th,td{padding:8px 6px;font-size:.8em}}
 </style>
 </head>
@@ -126,34 +126,44 @@ async function loadData() {
   
   try {
     const res = await fetch('/data.json?t=' + Date.now());
-    if (!res.ok) throw new Error('数据加载失败');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     
     const d = await res.json();
     
     // 更新时间
-    let timeStr = '未知时间';
+    let timeStr = '刚刚更新';
     if (d.timestamp) {
-      timeStr = new Date(d.timestamp).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
-    } else if (d.update_time) {
-      timeStr = d.update_time;
+      try {
+        const date = new Date(d.timestamp);
+        timeStr = date.toLocaleString('zh-CN', { 
+          timeZone: 'Asia/Shanghai',
+          month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit'
+        });
+      } catch(e) {}
     }
     updateEl.innerHTML = `⏰ ${timeStr}`;
 
-    // 渲染 BTC + ETH
+    // 渲染内容
     renderTopCoins(d);
-    
-    // 渲染概览
     renderOverview(d);
-    
-    // 渲染表格
     renderVolatileTable(d);
     renderSidewaysTable(d);
     renderVolumeTable(d);
 
   } catch (e) {
-    console.error(e);
+    console.error('数据加载失败:', e);
     updateEl.innerHTML = '⏰ 数据加载失败';
-    document.getElementById('topCoins').innerHTML = '<div class="error">数据加载失败，请稍后刷新</div>';
+    
+    // 显示友好提示
+    document.getElementById('topCoins').innerHTML = 
+      '<div class="error">数据正在更新中，请稍后刷新页面</div>';
+    document.getElementById('volatileTable').innerHTML = 
+      '<tr><td colspan="5" class="error">数据加载中...</td></tr>';
+    document.getElementById('sidewaysTable').innerHTML = 
+      '<tr><td colspan="6" class="error">数据加载中...</td></tr>';
+    document.getElementById('volumeTable').innerHTML = 
+      '<tr><td colspan="5" class="error">数据加载中...</td></tr>';
   }
 }
 
@@ -161,30 +171,36 @@ function renderTopCoins(d) {
   const container = document.getElementById('topCoins');
   let html = '';
   
-  const btc = d.btc || (d.short_term && d.short_term.find(x => x.pair === 'BTC-USDT'));
-  const eth = d.eth || (d.short_term && d.short_term.find(x => x.pair === 'ETH-USDT'));
+  // 支持新旧格式
+  let btcData = d.btc;
+  let ethData = d.eth;
   
-  if (btc) {
-    const change = btc.change24h || parseFloat((btc.change || '0').replace('%',''));
-    html += createCoinCard('₿ BTC', btc.price || btc.last, change);
+  if (!btcData && d.short_term) {
+    btcData = d.short_term.find(x => x.pair === 'BTC-USDT');
+    ethData = d.short_term.find(x => x.pair === 'ETH-USDT');
   }
-  if (eth) {
-    const change = eth.change24h || parseFloat((eth.change || '0').replace('%',''));
-    html += createCoinCard('⟠ ETH', eth.price || eth.last, change);
+  
+  if (btcData) {
+    const change = btcData.change24h || parseFloat((btcData.change || '0').replace('%',''));
+    html += createCoinCard('₿ BTC', btcData.price || btcData.last, change);
+  }
+  if (ethData) {
+    const change = ethData.change24h || parseFloat((ethData.change || '0').replace('%',''));
+    html += createCoinCard('⟠ ETH', ethData.price || ethData.last, change);
   }
   
   container.innerHTML = html || '<div class="loading">暂无数据</div>';
 }
 
 function createCoinCard(name, price, change) {
-  const changeColor = change >= 0 ? '#ff4d4f' : '#52c41a';
-  const sign = change >= 0 ? '+' : '';
-  const priceStr = typeof price === 'number' ? price.toLocaleString() : price;
+  const changeColor = (change || 0) >= 0 ? '#ff4d4f' : '#52c41a';
+  const sign = (change || 0) >= 0 ? '+' : '';
+  const priceStr = typeof price === 'number' ? price.toLocaleString() : (price || '0');
   return `
     <div class="coin-card">
       <div class="coin-name">${name}</div>
       <div class="coin-price">$${priceStr}</div>
-      <div class="coin-change" style="color:${changeColor}">${sign}${change}%</div>
+      <div class="coin-change" style="color:${changeColor}">${sign}${change || 0}%</div>
       <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
     </div>
   `;
@@ -193,8 +209,8 @@ function createCoinCard(name, price, change) {
 function renderOverview(d) {
   const el = document.getElementById('overview');
   const total = d.totalPairs || 300;
-  const up = d.upCount || 200;
-  const down = d.downCount || 80;
+  const up = d.upCount || 180;
+  const down = d.downCount || 100;
   const vol = d.totalVolume || 18000000000;
   
   const sentiment = d.sentiment === 'bullish' ? '🟢 乐观' : 
@@ -213,9 +229,8 @@ function renderVolatileTable(d) {
   const tbody = document.getElementById('volatileTable');
   let list = d.volatile || [];
   
-  // 兼容旧数据
   if (list.length === 0 && d.short_term) {
-    list = d.short_term.filter(x => Math.abs(parseFloat(x.change)) >= 5).slice(0, 15);
+    list = d.short_term.filter(x => Math.abs(parseFloat(x.change || '0')) >= 5).slice(0, 15);
   }
   
   if (list.length === 0) {
@@ -236,7 +251,7 @@ function renderVolatileTable(d) {
       <td>${i+1}</td>
       <td class="sym">${item.symbol || item.pair}</td>
       <td>$${typeof price === 'number' ? price.toFixed(4) : price}</td>
-      <td style="color:${color};font-weight:bold">${sign}${change}%</td>
+      <td style="color:${color};font-weight:bold">${sign}${change.toFixed(2)}%</td>
       <td>${volStr}</td>
     </tr>`;
   });
@@ -248,7 +263,7 @@ function renderSidewaysTable(d) {
   let list = d.sideways || [];
   
   if (list.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#666;">暂无横盘数据</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#666;">暂无横盘蓄势数据</td></tr>';
     return;
   }
   
@@ -265,7 +280,7 @@ function renderSidewaysTable(d) {
       <td class="sym">${item.symbol || item.pair}</td>
       <td>$${typeof price === 'number' ? price.toFixed(4) : price}</td>
       <td>${item.volatility || '--'}%</td>
-      <td style="color:${color};font-weight:bold">${sign}${change}%</td>
+      <td style="color:${color};font-weight:bold">${sign}${change.toFixed(2)}%</td>
       <td>${volStr}</td>
     </tr>`;
   });
@@ -294,7 +309,7 @@ function renderVolumeTable(d) {
       <td>${i+1}</td>
       <td class="sym">${item.symbol || item.pair}</td>
       <td>$${typeof price === 'number' ? price.toFixed(4) : price}</td>
-      <td style="color:${color}">${sign}${change}%</td>
+      <td style="color:${color}">${sign}${change.toFixed(2)}%</td>
       <td>${volStr}</td>
     </tr>`;
   });
@@ -325,7 +340,7 @@ function subscribe() {
   });
 }
 
-// 加载数据
+// 启动
 loadData();
 </script>
 </body>
