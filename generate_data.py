@@ -52,10 +52,10 @@ def analyze_data(tickers):
             if abs(change) >= 5:
                 volatile.append(item)
 
-            # 横盘蓄势品种（非常宽松）
+            # 横盘蓄势品种（适度放宽：波动率 < 9.5%，成交量 > 40万）
             is_stable = any(x in t["instId"] for x in ["USDC", "USDT", "BUSD", "DAI", "TUSD", "FDUSD"])
             
-            if volatility < 8.0 and not is_stable:
+            if volatility < 9.5 and vol > 400000 and not is_stable:
                 sideways.append({
                     **item,
                     "volatility": round(volatility, 2)
