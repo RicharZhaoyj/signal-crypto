@@ -84,7 +84,7 @@ footer a{color:#667eea;text-decoration:none}
 
 <div class="section">
 <h2>🕒 长期横盘启动关注（蓄势品种）</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>波动率</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="sidewaysTable"><tr><td colspan="6" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>7d波动率</th><th>7d位置</th><th>24h涨跌</th></tr></thead><tbody id="sidewaysTable"><tr><td colspan="6" class="loading">加载中...</td></tr></tbody></table></div>
 </div>
 
 <div class="section">
@@ -280,13 +280,16 @@ function renderSidewaysTable(d) {
     const price = item.price || item.last || 0;
     const volStr = (item.volume || 0) > 1e8 ? `$${(item.volume/1e8).toFixed(2)}B` : `$${(item.volume/1e6).toFixed(2)}M`;
     
+    const vola7d = item.vola_7d || '--';
+    const pos7d = item.position_7d || '--';
+    
     html += `<tr>
       <td>${i+1}</td>
       <td class="sym">${item.symbol || item.pair}</td>
       <td>$${typeof price === 'number' ? price.toFixed(4) : price}</td>
-      <td>${item.volatility || '--'}%</td>
+      <td>${vola7d}%</td>
+      <td>${pos7d}%</td>
       <td style="color:${color};font-weight:bold">${sign}${change.toFixed(2)}%</td>
-      <td>${volStr}</td>
     </tr>`;
   });
   tbody.innerHTML = html;

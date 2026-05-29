@@ -1,18 +1,49 @@
 import requests
 import json
 from datetime import datetime
+import time
+
+STABLECOINS = ["USDC", "BUSD", "DAI", "TUSD", "FDUSD", "USDD", "GUSD", "USDP"]
 
 def fetch_okx_data():
     url = "https://www.okx.com/api/v5/market/tickers?instType=SPOT"
     try:
         resp = requests.get(url, timeout=20)
         resp.raise_for_status()
-        data = resp.json()
-        if data.get("code") == "0":
-            return [t for t in data["data"] if t["instId"].endswith("-USDT")]
     except Exception as e:
         print(f"Error fetching OKX data: {e}")
+        return []
+    data = resp.json()
+    if data.get("code") == "0":
+        return [t for t in data["data"] if t["instId"].endswith("-USDT")]
     return []
+
+def fetch_7d_range(symbol):
+    """拉取近7天日线，计算7d波动率和价格位置"""
+    url = f"https://www.okx.com/api/v5/market/candles?instId={symbol}&bar=1D&limit=7"
+    try:
+        resp = requests.get(url, timeout=15)
+        resp.raise_for_status()
+        data = resp.json()
+        if data.get("code") != "0" or not data.get("data"):
+            return None
+        candles = data["data"]
+        highs = [float(c[2]) for c in candles]
+        lows = [float(c[3]) for c in candles]
+        closes = [float(c[4]) for c in candles]
+        
+        high_7d = max(highs)
+        low_7d = min(lows)
+        last_price = closes[0]
+        
+        if high_7d == low_7d:
+            return {"vola_7d": 0, "position_7d": 0.5}
+        
+        vola_7d = (high_7d - low_7d) / low_7d * 100
+        position_7d = (last_price - low_7d) / (high_7d - low_7d)
+        return {"vola_7d": round(vola_7d, 2), "position_7d": round(position_7d, 3)}
+    except Exception as e:
+        return None
 
 def analyze_data(tickers):
     volatile = []
@@ -23,6 +54,8 @@ def analyze_data(tickers):
     total_volume = 0
     btc = None
     eth = None
+
+    candidates = []
 
     for t in tickers:
         try:
@@ -52,24 +85,11 @@ def analyze_data(tickers):
             if abs(change) >= 5:
                 volatile.append(item)
 
-            # ========== 长期横盘蓄势品种（多维度筛选） ==========
-            is_stable = any(x in t["instId"] for x in ["USDC", "USDT", "BUSD", "DAI", "TUSD", "FDUSD"])
-            
-            # 计算价格在24h区间的位置（0=最低点，1=最高点）
-            price_position = (last - low) / (high - low) if high > low else 0.5
-            
-            # 多维度条件
-            if (volatility < 11.0 and 
-                vol > 350000 and 
-                not is_stable and
-                price_position < 0.55 and           # 价格处于区间下半部（更接近支撑）
-                -6.0 <= change <= 5.0):            # 涨跌幅控制在较小范围
-            
-                sideways.append({
-                    **item,
-                    "volatility": round(volatility, 2),
-                    "position": round(price_position * 100, 1)  # 展示价格位置百分比
-                })
+            # 第一阶段：排除稳定币交易对
+            base = t["instId"].split("-")[0]
+            is_stable = base in STABLECOINS
+            if not is_stable:
+                candidates.append(item)
 
             top_volume.append(item)
 
@@ -81,11 +101,31 @@ def analyze_data(tickers):
         except:
             continue
 
+    print(f"第一阶段候选币种: {len(candidates)} 个，开始拉取7d历史数据...")
+
+    # 第二阶段：7d数据做核心判断
+    for item in candidates[:90]:
+        symbol = item["symbol"]
+        hist = fetch_7d_range(symbol)
+        time.sleep(0.11)
+
+        if not hist:
+            continue
+
+        if hist["vola_7d"] < 22.0 and hist["position_7d"] < 0.48:
+            item_with_hist = {
+                **item,
+                "vola_7d": hist["vola_7d"],
+                "position_7d": round(hist["position_7d"] * 100, 1)
+            }
+            sideways.append(item_with_hist)
+            print(f"  命中: {symbol}  7d波动={hist['vola_7d']}%  7d位置={hist['position_7d']*100:.1f}%")
+
     volatile.sort(key=lambda x: abs(x["change"]), reverse=True)
-    sideways.sort(key=lambda x: x.get("volatility", 999))
+    sideways.sort(key=lambda x: x.get("vola_7d", 999))
     top_volume.sort(key=lambda x: x["volume"], reverse=True)
 
-    print(f"横盘蓄势品种数量: {len(sideways)}")
+    print(f"最终横盘蓄势品种数量: {len(sideways)}")
     print(f"异动品种数量: {len(volatile)}")
 
     return {
