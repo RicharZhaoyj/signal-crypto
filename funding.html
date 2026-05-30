@@ -3,32 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>永续合约资金费率监控 · OKX · Signal</title>
-<meta name="description" content="实时查看 OKX 永续合约资金费率。找出高正费率和高负费率品种，辅助永续合约交易决策。">
+<title>永续合约资金费率监控 · 多交易所 · Signal</title>
+<meta name="description" content="实时查看 OKX、Binance 永续合约资金费率。结合横盘信号找出高价值交易机会。">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;min-height:100vh;padding:20px}
 .container{max-width:1100px;margin:0 auto}
-header{text-align:center;padding:30px 20px 20px}
-h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.subtitle{color:#aaa;font-size:.95em;margin-bottom:15px}
-.back-link{color:#667eea;text-decoration:none;font-size:.85em}
-.back-link:hover{text-decoration:underline}
-.nav{display:flex;gap:15px;justify-content:center;margin-bottom:25px;flex-wrap:wrap}
-.nav a{color:#aaa;text-decoration:none;font-size:.9em;padding:6px 14px;border-radius:8px}
-.nav a.active{color:#fff;background:rgba(102,126,234,.15)}
-.section{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;margin-bottom:25px}
-h2{font-size:1.25em;margin-bottom:16px;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:10px}
+header{text-align:center;padding:25px 20px 15px}
+h1{font-size:1.9em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+.subtitle{color:#aaa;font-size:.9em;margin-bottom:12px}
+.back-link{color:#667eea;text-decoration:none;font-size:.82em}
+.nav{display:flex;gap:12px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.nav a{color:#aaa;text-decoration:none;font-size:.85em;padding:6px 12px;border-radius:6px}
+.nav a.active{color:#fff;background:rgba(102,126,234,.18)}
+.controls{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.controls input,.controls select{padding:8px 12px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.06);color:#e0e0e0;font-size:.9em}
+.controls input{flex:1;min-width:180px}
+.exchange-tabs{display:flex;gap:8px;margin-bottom:16px}
+.exchange-tab{padding:8px 18px;border-radius:8px;background:rgba(255,255,255,.05);cursor:pointer;font-size:.9em;border:1px solid rgba(255,255,255,.08)}
+.exchange-tab.active{background:rgba(102,126,234,.2);border-color:#667eea;color:#fff}
+.section{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:20px;margin-bottom:22px}
+h2{font-size:1.15em;margin-bottom:14px;color:#fff}
 .table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:.9em}
-thead th{background:rgba(255,255,255,.06);padding:12px 10px;text-align:center;font-weight:600;color:#aaa;border-bottom:1px solid rgba(255,255,255,.08)}
-tbody td{padding:11px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,.05)}
-tbody tr:hover{background:rgba(255,255,255,.03)}
+table{width:100%;border-collapse:collapse;font-size:.88em}
+thead th{background:rgba(255,255,255,.06);padding:10px 8px;text-align:center;font-weight:600;color:#aaa;border-bottom:1px solid rgba(255,255,255,.08)}
+tbody td{padding:9px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.05)}
+tbody tr:hover{background:rgba(255,255,255,.025)}
 .positive{color:#ff4d4f;font-weight:600}
 .negative{color:#52c41a;font-weight:600}
-.loading{color:#888;text-align:center;padding:30px}
+.badge{display:inline-block;background:rgba(82,196,26,.15);color:#52c41a;font-size:.72em;padding:1px 6px;border-radius:4px;margin-left:6px}
+.loading{color:#888;text-align:center;padding:25px}
 .error{color:#ff4d4f}
-.update-time{text-align:center;color:#666;font-size:.8em;margin-top:15px}
+.update-time{text-align:center;color:#666;font-size:.78em;margin-top:12px}
+@media (max-width:600px){table{font-size:.82em}tbody td{padding:7px 4px}}
 </style>
 </head>
 <body>
@@ -37,7 +44,7 @@ tbody tr:hover{background:rgba(255,255,255,.03)}
   
   <header>
     <h1>💰 资金费率监控</h1>
-    <p class="subtitle">OKX 永续合约实时费率 · 高正费率 = 做空更划算 · 高负费率 = 做多更划算</p>
+    <p class="subtitle">多交易所实时费率 · 结合横盘信号发现机会</p>
   </header>
 
   <div class="nav">
@@ -47,90 +54,128 @@ tbody tr:hover{background:rgba(255,255,255,.03)}
     <a href="/funding" class="active">💰 资金费率</a>
   </div>
 
-  <!-- 正费率 Top -->
+  <!-- 交易所切换 -->
+  <div class="exchange-tabs">
+    <div class="exchange-tab active" data-exchange="okx">OKX</div>
+    <div class="exchange-tab" data-exchange="binance">Binance</div>
+  </div>
+
+  <!-- 搜索和排序 -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="搜索币种（如 BTC）">
+    <select id="sortSelect">
+      <option value="rate-desc">费率从高到低</option>
+      <option value="rate-asc">费率从低到高</option>
+      <option value="symbol">币种 A-Z</option>
+    </select>
+  </div>
+
+  <!-- 正费率 -->
   <div class="section">
     <h2>📈 正费率最高（适合做空）</h2>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>合约</th>
-            <th>资金费率</th>
-            <th>预估年化</th>
-            <th>更新时间</th>
-          </tr>
-        </thead>
-        <tbody id="positiveTable">
-          <tr><td colspan="5" class="loading">加载中...</td></tr>
-        </tbody>
+        <thead><tr><th>#</th><th>合约</th><th>费率</th><th>年化</th><th>更新</th></tr></thead>
+        <tbody id="positiveTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody>
       </table>
     </div>
   </div>
 
-  <!-- 负费率 Top -->
+  <!-- 负费率 -->
   <div class="section">
     <h2>📉 负费率最高（适合做多）</h2>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>合约</th>
-            <th>资金费率</th>
-            <th>预估年化</th>
-            <th>更新时间</th>
-          </tr>
-        </thead>
-        <tbody id="negativeTable">
-          <tr><td colspan="5" class="loading">加载中...</td></tr>
-        </tbody>
+        <thead><tr><th>#</th><th>合约</th><th>费率</th><th>年化</th><th>更新</th></tr></thead>
+        <tbody id="negativeTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody>
       </table>
     </div>
   </div>
 
   <div class="update-time" id="updateTime"></div>
-
-  <footer style="text-align:center;margin-top:40px;color:#555;font-size:.8em">
-    数据来源：OKX 公开 API · 每 5 分钟更新
-  </footer>
 </div>
 
 <script>
-async function fetchFundingRates() {
+// 存储横盘品种列表（用于联动提示）
+let sidewaysSymbols = new Set();
+
+async function loadSidewaysList() {
   try {
-    const res = await fetch('https://www.okx.com/api/v5/public/funding-rate?instType=SWAP');
+    const res = await fetch('/data.json');
     const data = await res.json();
-    
-    if (data.code !== '0' || !data.data) {
-      throw new Error('数据获取失败');
+    if (data.sideways) {
+      data.sideways.forEach(item => {
+        const sym = item.symbol.replace('-USDT', '');
+        sidewaysSymbols.add(sym);
+      });
+    }
+  } catch(e){}
+}
+
+let currentExchange = 'okx';
+let allRates = [];
+
+function getApiUrl(exchange) {
+  if (exchange === 'okx') {
+    return 'https://www.okx.com/api/v5/public/funding-rate?instType=SWAP';
+  } else {
+    return 'https://fapi.binance.com/fapi/v1/premiumIndex';
+  }
+}
+
+async function fetchFundingRates(exchange) {
+  currentExchange = exchange;
+  const tbodyPos = document.getElementById('positiveTable');
+  const tbodyNeg = document.getElementById('negativeTable');
+  tbodyPos.innerHTML = '<tr><td colspan="5" class="loading">加载中...</td></tr>';
+  tbodyNeg.innerHTML = '<tr><td colspan="5" class="loading">加载中...</td></tr>';
+
+  try {
+    const url = getApiUrl(exchange);
+    const res = await fetch(url);
+    const data = await res.json();
+
+    let rates = [];
+
+    if (exchange === 'okx') {
+      if (data.code !== '0') throw new Error();
+      rates = data.data.map(item => ({
+        symbol: item.instId.replace('-SWAP', '').replace('-USDT', ''),
+        fundingRate: parseFloat(item.fundingRate) * 100,
+        ts: item.fundingTime
+      })).filter(r => !isNaN(r.fundingRate));
+    } else {
+      rates = data.map(item => ({
+        symbol: item.symbol.replace('USDT', ''),
+        fundingRate: parseFloat(item.lastFundingRate) * 100,
+        ts: Date.now()
+      })).filter(r => !isNaN(r.fundingRate));
     }
 
-    const rates = data.data
-      .map(item => ({
-        symbol: item.instId.replace('-SWAP', ''),
-        fundingRate: parseFloat(item.fundingRate) * 100,
-        nextFunding: item.nextFundingTime,
-        ts: item.fundingTime
-      }))
-      .filter(item => !isNaN(item.fundingRate));
+    allRates = rates;
+    renderTables();
 
-    // 正费率排序（从高到低）
-    const positive = [...rates].sort((a, b) => b.fundingRate - a.fundingRate).slice(0, 15);
-    // 负费率排序（从低到高，即最负的排前面）
-    const negative = [...rates].sort((a, b) => a.fundingRate - b.fundingRate).slice(0, 15);
-
-    renderTable('positiveTable', positive, true);
-    renderTable('negativeTable', negative, false);
-
-    // 更新时间
     const now = new Date();
-    document.getElementById('updateTime').innerHTML = `最后更新：${now.toLocaleTimeString('zh-CN')}`;
+    document.getElementById('updateTime').innerHTML = 
+      `数据来源：${exchange.toUpperCase()} · 更新于 ${now.toLocaleTimeString('zh-CN')}`;
 
   } catch (err) {
-    document.getElementById('positiveTable').innerHTML = '<tr><td colspan="5" class="error">数据加载失败，请稍后重试</td></tr>';
-    document.getElementById('negativeTable').innerHTML = '<tr><td colspan="5" class="error">数据加载失败，请稍后重试</td></tr>';
+    tbodyPos.innerHTML = '<tr><td colspan="5" class="error">加载失败</td></tr>';
+    tbodyNeg.innerHTML = '<tr><td colspan="5" class="error">加载失败</td></tr>';
   }
+}
+
+function renderTables(filteredRates = null) {
+  const list = filteredRates || allRates;
+  if (!list.length) return;
+
+  // 正费率
+  const positive = [...list].sort((a,b) => b.fundingRate - a.fundingRate).slice(0, 18);
+  // 负费率
+  const negative = [...list].sort((a,b) => a.fundingRate - b.fundingRate).slice(0, 18);
+
+  renderTable('positiveTable', positive, true);
+  renderTable('negativeTable', negative, false);
 }
 
 function renderTable(tbodyId, list, isPositive) {
@@ -140,25 +185,62 @@ function renderTable(tbodyId, list, isPositive) {
   list.forEach((item, i) => {
     const colorClass = isPositive ? 'positive' : 'negative';
     const sign = item.fundingRate >= 0 ? '+' : '';
-    const annualized = (item.fundingRate * 3 * 365).toFixed(1); // 粗略年化（每天3次）
+    const annualized = (item.fundingRate * 3 * 365).toFixed(1);
+    const isSideways = sidewaysSymbols.has(item.symbol);
+    const badge = isSideways ? `<span class="badge">横盘</span>` : '';
 
     html += `<tr>
-      <td>${i + 1}</td>
-      <td style="font-weight:600;color:#fff">${item.symbol}</td>
+      <td>${i+1}</td>
+      <td style="font-weight:600;color:#fff">${item.symbol}${badge}</td>
       <td class="${colorClass}">${sign}${item.fundingRate.toFixed(4)}%</td>
       <td class="${colorClass}">${sign}${annualized}%</td>
-      <td style="font-size:0.8em;color:#888">${new Date(parseInt(item.ts)).toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'})}</td>
+      <td style="font-size:0.75em;color:#888">${new Date(parseInt(item.ts)).toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})}</td>
     </tr>`;
   });
 
   tbody.innerHTML = html;
 }
 
-// 初始加载
-fetchFundingRates();
+// 搜索和排序
+function applyFilters() {
+  const keyword = document.getElementById('searchInput').value.toUpperCase();
+  const sortType = document.getElementById('sortSelect').value;
 
-// 每 5 分钟自动刷新
-setInterval(fetchFundingRates, 5 * 60 * 1000);
+  let filtered = allRates.filter(r => r.symbol.includes(keyword));
+
+  if (sortType === 'rate-desc') {
+    filtered.sort((a,b) => b.fundingRate - a.fundingRate);
+  } else if (sortType === 'rate-asc') {
+    filtered.sort((a,b) => a.fundingRate - b.fundingRate);
+  } else if (sortType === 'symbol') {
+    filtered.sort((a,b) => a.symbol.localeCompare(b.symbol));
+  }
+
+  renderTables(filtered);
+}
+
+// 事件绑定
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+document.getElementById('sortSelect').addEventListener('change', applyFilters);
+
+// 交易所切换
+document.querySelectorAll('.exchange-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.exchange-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const exchange = tab.dataset.exchange;
+    fetchFundingRates(exchange);
+  });
+});
+
+// 初始化
+async function init() {
+  await loadSidewaysList();
+  await fetchFundingRates('okx');
+  setInterval(() => fetchFundingRates(currentExchange), 5 * 60 * 1000);
+}
+
+init();
 </script>
 </body>
 </html>
