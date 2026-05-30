@@ -1,324 +1,324 @@
 {
-  "timestamp": "2026-05-30T17:03:08.779040",
+  "timestamp": "2026-05-30T18:58:38.889186",
   "totalPairs": 300,
-  "upCount": 191,
-  "downCount": 104,
-  "totalVolume": 1243839097.8933284,
+  "upCount": 244,
+  "downCount": 51,
+  "totalVolume": 1144378555.4041724,
   "sentiment": "bullish",
   "btc": {
-    "price": 73936.4,
-    "change24h": -0.12,
-    "volume": 562333103.2353419
+    "price": 74062.5,
+    "change24h": 0.96,
+    "volume": 504399537.94018507
   },
   "eth": {
-    "price": 2026.79,
-    "change24h": -0.55,
-    "volume": 93559320.03150122
+    "price": 2028.2,
+    "change24h": 0.87,
+    "volume": 79976684.11425984
   },
   "volatile": [
     {
+      "symbol": "WLD-USDT",
+      "price": 0.3688,
+      "change": 22.89,
+      "volume": 17153500.1498272
+    },
+    {
       "symbol": "ZEUS-USDT",
-      "price": 0.003007,
-      "change": -22.4,
-      "volume": 1558012.8975534483
+      "price": 0.00303,
+      "change": -22.07,
+      "volume": 1510927.7701215337
     },
     {
       "symbol": "XLM-USDT",
-      "price": 0.25346,
-      "change": 19.99,
-      "volume": 64094464.495859906
+      "price": 0.24857,
+      "change": 13.66,
+      "volume": 63486422.692916304
     },
     {
-      "symbol": "CAT-USDT",
-      "price": 2e-06,
-      "change": 15.73,
-      "volume": 202928.342636012
+      "symbol": "BASED-USDT",
+      "price": 0.07935,
+      "change": 13.16,
+      "volume": 8662026.4999012
     },
     {
-      "symbol": "WLD-USDT",
-      "price": 0.3409,
-      "change": 12.58,
-      "volume": 15923433.8040956
+      "symbol": "LIT-USDT",
+      "price": 1.43,
+      "change": 12.39,
+      "volume": 8962790.73232
     },
     {
-      "symbol": "ALGO-USDT",
-      "price": 0.13133,
-      "change": 12.21,
-      "volume": 3125648.865219497
-    },
-    {
-      "symbol": "NIGHT-USDT",
-      "price": 0.039745,
-      "change": 11.98,
-      "volume": 2369940.6570424
-    },
-    {
-      "symbol": "ZAMA-USDT",
-      "price": 0.03415,
-      "change": -10.34,
-      "volume": 2006042.287507
+      "symbol": "BNB-USDT",
+      "price": 715.9,
+      "change": 11.91,
+      "volume": 23483996.6456674
     },
     {
       "symbol": "BABYDOGE-USDT",
       "price": 0.0,
-      "change": 10.31,
-      "volume": 159806.02117840727
+      "change": 11.49,
+      "volume": 215286.40248060098
     },
     {
-      "symbol": "BNB-USDT",
-      "price": 709.8,
-      "change": 10.29,
-      "volume": 16917958.4678786
+      "symbol": "CAT-USDT",
+      "price": 2e-06,
+      "change": 10.9,
+      "volume": 222926.179891531
     },
     {
-      "symbol": "NEAR-USDT",
-      "price": 2.352,
-      "change": -9.5,
-      "volume": 14724083.90885038
+      "symbol": "NIGHT-USDT",
+      "price": 0.03866,
+      "change": 10.33,
+      "volume": 2617412.0516568
     },
     {
-      "symbol": "FET-USDT",
-      "price": 0.2686,
-      "change": 9.01,
-      "volume": 4064681.6964329
-    },
-    {
-      "symbol": "PENDLE-USDT",
-      "price": 1.325,
-      "change": -8.81,
-      "volume": 222390.58215
-    },
-    {
-      "symbol": "J-USDT",
-      "price": 0.003,
-      "change": -8.65,
-      "volume": 97921.543638932
-    },
-    {
-      "symbol": "DEGEN-USDT",
-      "price": 0.000865,
-      "change": -8.15,
-      "volume": 150145.8117804
-    },
-    {
-      "symbol": "BASED-USDT",
-      "price": 0.0749,
-      "change": 7.74,
-      "volume": 9004059.4948372
-    },
-    {
-      "symbol": "DYDX-USDT",
-      "price": 0.18699,
-      "change": 7.48,
-      "volume": 1281914.7513577933
+      "symbol": "ID-USDT",
+      "price": 0.03967,
+      "change": 10.04,
+      "volume": 4131022.61381323
     },
     {
       "symbol": "ASTER-USDT",
-      "price": 0.728,
-      "change": 7.37,
-      "volume": 2021705.1920835
+      "price": 0.7434,
+      "change": 9.81,
+      "volume": 3364573.5188288
     },
     {
-      "symbol": "HBAR-USDT",
-      "price": 0.09836,
-      "change": 7.24,
-      "volume": 6585300.451483487
+      "symbol": "AVNT-USDT",
+      "price": 0.1486,
+      "change": 9.18,
+      "volume": 1067214.4098543
+    },
+    {
+      "symbol": "NEAR-USDT",
+      "price": 2.331,
+      "change": -8.87,
+      "volume": 13292610.592415906
     },
     {
       "symbol": "AI-USDT",
-      "price": 0.02904,
-      "change": -7.01,
-      "volume": 17252079.944637
+      "price": 0.02885,
+      "change": -8.62,
+      "volume": 15170059.184806
     },
     {
-      "symbol": "ONDO-USDT",
-      "price": 0.3435,
-      "change": -6.89,
-      "volume": 3273005.2123017
+      "symbol": "ALGO-USDT",
+      "price": 0.1284,
+      "change": 8.55,
+      "volume": 3215569.453882908
+    },
+    {
+      "symbol": "DEGEN-USDT",
+      "price": 0.000859,
+      "change": -7.84,
+      "volume": 142305.0919466
+    },
+    {
+      "symbol": "J-USDT",
+      "price": 0.003002,
+      "change": -7.66,
+      "volume": 87053.87944192
+    },
+    {
+      "symbol": "FET-USDT",
+      "price": 0.2719,
+      "change": 7.6,
+      "volume": 3793853.5978028
+    },
+    {
+      "symbol": "XTZ-USDT",
+      "price": 0.327,
+      "change": 7.25,
+      "volume": 331550.6816349714
+    },
+    {
+      "symbol": "GMX-USDT",
+      "price": 6.735,
+      "change": 7.18,
+      "volume": 52573.9549991
     }
   ],
   "sideways": [
     {
       "symbol": "PYUSD-USDT",
-      "price": 1.0013,
-      "change": 0.01,
-      "volume": 69401.30497346,
+      "price": 1.001,
+      "change": -0.05,
+      "volume": 28214.50817779,
       "vola_7d": 0.5,
-      "position_7d": 16.0
+      "position_7d": 10.0
     },
     {
       "symbol": "AUDF-USDT",
       "price": 0.7156,
-      "change": -1.28,
-      "volume": 999.2452344,
+      "change": 0.0,
+      "volume": 0.0,
       "vola_7d": 1.3,
       "position_7d": 0.0
     },
     {
       "symbol": "ZENT-USDT",
-      "price": 0.002941,
-      "change": -1.93,
-      "volume": 23968.9059041,
+      "price": 0.002947,
+      "change": -1.73,
+      "volume": 23723.9159453,
       "vola_7d": 4.44,
-      "position_7d": 8.5
-    },
-    {
-      "symbol": "TRA-USDT",
-      "price": 0.1941,
-      "change": 0.31,
-      "volume": 5994.8245136252,
-      "vola_7d": 6.47,
-      "position_7d": 33.3
+      "position_7d": 13.1
     },
     {
       "symbol": "PI-USDT",
-      "price": 0.1451,
-      "change": 0.14,
-      "volume": 2906870.2531846,
+      "price": 0.145,
+      "change": 0.76,
+      "volume": 2767178.6956337,
       "vola_7d": 6.74,
-      "position_7d": 43.2
+      "position_7d": 42.1
+    },
+    {
+      "symbol": "TRA-USDT",
+      "price": 0.1894,
+      "change": -2.02,
+      "volume": 9806.6483808614,
+      "vola_7d": 6.81,
+      "position_7d": 0.0
     },
     {
       "symbol": "BTC-USDT",
-      "price": 73936.4,
-      "change": -0.12,
-      "volume": 562333103.2353419,
+      "price": 74062.5,
+      "change": 0.96,
+      "volume": 504399537.94018507,
       "vola_7d": 7.69,
-      "position_7d": 25.9
-    },
-    {
-      "symbol": "ADA-USDT",
-      "price": 0.2372,
-      "change": 1.02,
-      "volume": 4536133.99316482,
-      "vola_7d": 8.77,
-      "position_7d": 46.0
+      "position_7d": 27.9
     },
     {
       "symbol": "BNT-USDT",
-      "price": 0.3261,
-      "change": -0.37,
-      "volume": 272.7114107419,
+      "price": 0.3297,
+      "change": 0.73,
+      "volume": 286.2258757005,
       "vola_7d": 8.94,
-      "position_7d": 33.6
+      "position_7d": 46.3
     },
     {
       "symbol": "AERGO-USDT",
-      "price": 0.04833,
-      "change": 0.23,
-      "volume": 37974.08287082226,
+      "price": 0.04835,
+      "change": 0.94,
+      "volume": 33348.15538853784,
       "vola_7d": 10.32,
-      "position_7d": 27.4
+      "position_7d": 27.8
     },
     {
       "symbol": "NEO-USDT",
-      "price": 2.726,
-      "change": -0.87,
-      "volume": 103612.449165872,
+      "price": 2.713,
+      "change": -0.11,
+      "volume": 105633.386984687,
       "vola_7d": 10.44,
-      "position_7d": 33.8
+      "position_7d": 29.1
     },
     {
       "symbol": "TRX-USDT",
-      "price": 0.34847,
-      "change": 1.17,
-      "volume": 17438589.544284567,
+      "price": 0.34764,
+      "change": 0.99,
+      "volume": 16798791.21144388,
       "vola_7d": 11.03,
-      "position_7d": 23.3
+      "position_7d": 21.1
     },
     {
       "symbol": "DOT-USDT",
-      "price": 1.2,
-      "change": -1.72,
-      "volume": 966964.153268024,
+      "price": 1.199,
+      "change": -0.33,
+      "volume": 966444.054510132,
       "vola_7d": 11.21,
-      "position_7d": 17.4
+      "position_7d": 16.7
     },
     {
       "symbol": "KNC-USDT",
-      "price": 0.1406,
-      "change": 0.93,
-      "volume": 12657.983815218,
+      "price": 0.1402,
+      "change": 1.52,
+      "volume": 12930.2360695454,
       "vola_7d": 11.32,
-      "position_7d": 35.9
+      "position_7d": 33.3
     },
     {
       "symbol": "PEPE-USDT",
       "price": 3e-06,
-      "change": 0.41,
-      "volume": 2510051.455739225,
+      "change": 1.8,
+      "volume": 2407979.393652064,
       "vola_7d": 11.59,
-      "position_7d": 44.5
+      "position_7d": 44.7
     },
     {
       "symbol": "TRB-USDT",
-      "price": 16.62,
-      "change": -0.72,
-      "volume": 78273.84925252,
+      "price": 16.78,
+      "change": 1.64,
+      "volume": 73438.28081623,
       "vola_7d": 11.9,
-      "position_7d": 29.8
+      "position_7d": 38.2
+    },
+    {
+      "symbol": "ARB-USDT",
+      "price": 0.10506,
+      "change": 1.26,
+      "volume": 883937.957448767,
+      "vola_7d": 12.39,
+      "position_7d": 36.1
     }
   ],
   "topVolume": [
     {
       "symbol": "BTC-USDT",
-      "price": 73936.4,
-      "change": -0.12,
-      "volume": 562333103.2353419
+      "price": 74062.5,
+      "change": 0.96,
+      "volume": 504399537.94018507
     },
     {
       "symbol": "ETH-USDT",
-      "price": 2026.79,
-      "change": -0.55,
-      "volume": 93559320.03150122
+      "price": 2028.2,
+      "change": 0.87,
+      "volume": 79976684.11425984
     },
     {
       "symbol": "XLM-USDT",
-      "price": 0.25346,
-      "change": 19.99,
-      "volume": 64094464.495859906
+      "price": 0.24857,
+      "change": 13.66,
+      "volume": 63486422.692916304
+    },
+    {
+      "symbol": "HYPE-USDT",
+      "price": 68.207,
+      "change": 4.94,
+      "volume": 49830805.4277228
     },
     {
       "symbol": "USDC-USDT",
       "price": 1.0011,
-      "change": 0.0,
-      "volume": 59346868.55316589
-    },
-    {
-      "symbol": "HYPE-USDT",
-      "price": 66.874,
-      "change": -0.4,
-      "volume": 56211484.1440627
-    },
-    {
-      "symbol": "SOL-USDT",
-      "price": 82.92,
-      "change": -0.04,
-      "volume": 25913041.67137849
-    },
-    {
-      "symbol": "XRP-USDT",
-      "price": 1.3481,
-      "change": 1.66,
-      "volume": 25241447.956689484
+      "change": 0.01,
+      "volume": 48597373.52554424
     },
     {
       "symbol": "USDG-USDT",
       "price": 1.0013,
       "change": 0.01,
-      "volume": 25104252.79621367
+      "volume": 26058678.99477656
+    },
+    {
+      "symbol": "XRP-USDT",
+      "price": 1.3528,
+      "change": 2.59,
+      "volume": 25225885.03487514
+    },
+    {
+      "symbol": "BNB-USDT",
+      "price": 715.9,
+      "change": 11.91,
+      "volume": 23483996.6456674
+    },
+    {
+      "symbol": "SOL-USDT",
+      "price": 83.06,
+      "change": 1.23,
+      "volume": 22907151.42638752
     },
     {
       "symbol": "DOGE-USDT",
       "price": 0.10157,
-      "change": 0.92,
-      "volume": 18339054.961624667
-    },
-    {
-      "symbol": "TRX-USDT",
-      "price": 0.34847,
-      "change": 1.17,
-      "volume": 17438589.544284567
+      "change": 1.92,
+      "volume": 17276389.835127905
     }
   ]
 }
