@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>永续合约资金费率监控 · 多交易所 · Signal</title>
-<meta name="description" content="实时查看 OKX、Binance 永续合约资金费率。结合横盘信号找出高价值交易机会。">
+<meta name="description" content="实时查看 OKX、Binance、Bitget 永续合约资金费率。结合横盘信号找出高价值交易机会。">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;min-height:100vh;padding:20px}
@@ -58,6 +58,7 @@ tbody tr:hover{background:rgba(255,255,255,.025)}
   <div class="exchange-tabs">
     <div class="exchange-tab active" data-exchange="okx">OKX</div>
     <div class="exchange-tab" data-exchange="binance">Binance</div>
+    <div class="exchange-tab" data-exchange="bitget">Bitget</div>
   </div>
 
   <!-- 搜索和排序 -->
@@ -96,7 +97,7 @@ tbody tr:hover{background:rgba(255,255,255,.025)}
 </div>
 
 <script>
-// 存储横盘品种列表（用于联动提示）
+// 存储横盘品种列表
 let sidewaysSymbols = new Set();
 
 async function loadSidewaysList() {
@@ -115,14 +116,6 @@ async function loadSidewaysList() {
 let currentExchange = 'okx';
 let allRates = [];
 
-function getApiUrl(exchange) {
-  if (exchange === 'okx') {
-    return 'https://www.okx.com/api/v5/public/funding-rate?instType=SWAP';
-  } else {
-    return 'https://fapi.binance.com/fapi/v1/premiumIndex';
-  }
-}
-
 async function fetchFundingRates(exchange) {
   currentExchange = exchange;
   const tbodyPos = document.getElementById('positiveTable');
@@ -131,28 +124,13 @@ async function fetchFundingRates(exchange) {
   tbodyNeg.innerHTML = '<tr><td colspan="5" class="loading">加载中...</td></tr>';
 
   try {
-    const url = getApiUrl(exchange);
-    const res = await fetch(url);
-    const data = await res.json();
+    // 调用本站 API 代理
+    const res = await fetch(`/api/funding?exchange=${exchange}`);
+    const json = await res.json();
 
-    let rates = [];
+    if (!json.success || !json.rates) throw new Error('数据获取失败');
 
-    if (exchange === 'okx') {
-      if (data.code !== '0') throw new Error();
-      rates = data.data.map(item => ({
-        symbol: item.instId.replace('-SWAP', '').replace('-USDT', ''),
-        fundingRate: parseFloat(item.fundingRate) * 100,
-        ts: item.fundingTime
-      })).filter(r => !isNaN(r.fundingRate));
-    } else {
-      rates = data.map(item => ({
-        symbol: item.symbol.replace('USDT', ''),
-        fundingRate: parseFloat(item.lastFundingRate) * 100,
-        ts: Date.now()
-      })).filter(r => !isNaN(r.fundingRate));
-    }
-
-    allRates = rates;
+    allRates = json.rates;
     renderTables();
 
     const now = new Date();
@@ -160,8 +138,8 @@ async function fetchFundingRates(exchange) {
       `数据来源：${exchange.toUpperCase()} · 更新于 ${now.toLocaleTimeString('zh-CN')}`;
 
   } catch (err) {
-    tbodyPos.innerHTML = '<tr><td colspan="5" class="error">加载失败</td></tr>';
-    tbodyNeg.innerHTML = '<tr><td colspan="5" class="error">加载失败</td></tr>';
+    tbodyPos.innerHTML = '<tr><td colspan="5" class="error">加载失败，请稍后重试</td></tr>';
+    tbodyNeg.innerHTML = '<tr><td colspan="5" class="error">加载失败，请稍后重试</td></tr>';
   }
 }
 
@@ -169,9 +147,7 @@ function renderTables(filteredRates = null) {
   const list = filteredRates || allRates;
   if (!list.length) return;
 
-  // 正费率
   const positive = [...list].sort((a,b) => b.fundingRate - a.fundingRate).slice(0, 18);
-  // 负费率
   const negative = [...list].sort((a,b) => a.fundingRate - b.fundingRate).slice(0, 18);
 
   renderTable('positiveTable', positive, true);
@@ -201,7 +177,6 @@ function renderTable(tbodyId, list, isPositive) {
   tbody.innerHTML = html;
 }
 
-// 搜索和排序
 function applyFilters() {
   const keyword = document.getElementById('searchInput').value.toUpperCase();
   const sortType = document.getElementById('sortSelect').value;
@@ -219,21 +194,17 @@ function applyFilters() {
   renderTables(filtered);
 }
 
-// 事件绑定
 document.getElementById('searchInput').addEventListener('input', applyFilters);
 document.getElementById('sortSelect').addEventListener('change', applyFilters);
 
-// 交易所切换
 document.querySelectorAll('.exchange-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.exchange-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
-    const exchange = tab.dataset.exchange;
-    fetchFundingRates(exchange);
+    fetchFundingRates(tab.dataset.exchange);
   });
 });
 
-// 初始化
 async function init() {
   await loadSidewaysList();
   await fetchFundingRates('okx');
