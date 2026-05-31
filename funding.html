@@ -52,6 +52,7 @@ tbody td{padding:9px 8px;text-align:center;border-bottom:1px solid rgba(255,255,
   <div class="exchange-tabs">
     <div class="exchange-tab active" data-exchange="binance">Binance</div>
     <div class="exchange-tab" data-exchange="okx">OKX</div>
+    <div class="exchange-tab" data-exchange="bitget">Bitget</div>
   </div>
 
   <div class="controls">
@@ -106,6 +107,7 @@ async function fetchFundingRates(exchange) {
 
   try {
     let rates = [];
+
     if (exchange === 'okx') {
       const res = await fetch('https://www.okx.com/api/v5/public/funding-rate?instType=SWAP');
       const data = await res.json();
@@ -116,7 +118,8 @@ async function fetchFundingRates(exchange) {
           ts: item.fundingTime || Date.now()
         })).filter(r => r.symbol && !isNaN(r.fundingRate));
       }
-    } else {
+    } 
+    else if (exchange === 'binance') {
       const res = await fetch('https://fapi.binance.com/fapi/v1/premiumIndex');
       const data = await res.json();
       if (Array.isArray(data)) {
@@ -126,10 +129,27 @@ async function fetchFundingRates(exchange) {
           ts: Date.now()
         })).filter(r => r.symbol && !isNaN(r.fundingRate));
       }
+    } 
+    else if (exchange === 'bitget') {
+      // Bitget USDT 永续
+      const res = await fetch('https://api.bitget.com/api/mix/v1/market/tickers?productType=USDT-FUTURES');
+      const data = await res.json();
+      if (data.code === '00000' && data.data) {
+        rates = data.data
+          .filter(item => item.symbol && item.symbol.endsWith('USDT_UMCBL'))
+          .map(item => ({
+            symbol: item.symbol.replace('USDT_UMCBL', ''),
+            fundingRate: parseFloat(item.fundingRate) * 100,
+            ts: Date.now()
+          }))
+          .filter(r => r.symbol && !isNaN(r.fundingRate));
+      }
     }
+
     allRates = rates;
     renderTables();
     document.getElementById('updateTime').innerHTML = `数据来源：${exchange.toUpperCase()} · 更新于 ${new Date().toLocaleTimeString('zh-CN')}`;
+
   } catch (err) {
     const errHtml = '<tr><td colspan="5" class="error">加载失败（浏览器拦截）</td></tr>';
     document.getElementById('positiveTable').innerHTML = errHtml;
