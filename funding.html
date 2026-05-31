@@ -145,7 +145,12 @@ async function fetchFundingRates(exchange) {
 
 function renderTables(filteredRates = null) {
   const list = filteredRates || allRates;
-  if (!list.length) return;
+  if (!list.length) {
+    const emptyHtml = '<tr><td colspan="5" style="color:#888;text-align:center;padding:20px">当前暂无费率数据</td></tr>';
+    document.getElementById('positiveTable').innerHTML = emptyHtml;
+    document.getElementById('negativeTable').innerHTML = emptyHtml;
+    return;
+  }
 
   const positive = [...list].sort((a,b) => b.fundingRate - a.fundingRate).slice(0, 18);
   const negative = [...list].sort((a,b) => a.fundingRate - b.fundingRate).slice(0, 18);
