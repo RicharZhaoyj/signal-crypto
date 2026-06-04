@@ -1,212 +1,239 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>加密货币实用工具 · 合约计算器 · 仓位计算器 · Signal</title>
-<meta name="description" content="加密货币合约计算器、仓位计算器、止损止盈计算器、资金费率计算器 — 免费在线使用，帮助您管理交易风险。">
-<meta name="keywords" content="合约计算器,仓位计算器,止损计算器,资金费率计算器,加密货币工具,Signal">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;min-height:100vh;padding:20px}
-.container{max-width:1100px;margin:0 auto}
-header{text-align:center;padding:40px 20px 25px}
-h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.subtitle{color:#aaa;font-size:.95em;margin-bottom:10px}
-.back-link{color:#667eea;text-decoration:none;font-size:.85em}
-.back-link:hover{text-decoration:underline}
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin:20px 0}
-.tool-card{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px}
-h3{font-size:1.15em;margin-bottom:6px;color:#fff}
-.tool-desc{font-size:.85em;color:#888;margin-bottom:18px}
-.form-group{margin-bottom:14px}
-label{display:block;font-size:.85em;color:#aaa;margin-bottom:4px}
-.form-group select,.form-group input{width:100%;padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.06);color:#e0e0e0;font-size:.95em;outline:none;transition:border .2s}
-.form-group select:focus,.form-group input:focus{border-color:#667eea}
-.form-group select option{background:#1a1a3e;color:#e0e0e0}
-.form-row{display:flex;gap:12px}
-.form-row>.form-group{flex:1}
-.calc-btn{width:100%;padding:12px;background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:10px;color:#fff;font-size:1em;font-weight:600;cursor:pointer;margin-top:8px}
-.calc-btn:hover{opacity:0.95}
-.result-box{margin-top:16px;padding:14px;background:rgba(0,0,0,.2);border-radius:10px;font-size:.95em;line-height:1.6}
-.result-box .val{color:#fff;font-weight:600}
-.red{color:#ff4d4f;font-weight:600}
-.green{color:#52c41a;font-weight:600}
-.promo-section{margin-top:30px;text-align:center}
-.promo-title{font-size:1.1em;margin-bottom:10px}
-.promo-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.promo-btn{padding:10px 20px;border-radius:10px;text-decoration:none;font-size:.9em;font-weight:600}
-.promo-btn.okx{background:#1e3a5f;color:#fff}
-.promo-btn.bitget{background:#2a3f2f;color:#fff}
-.promo-btn.binance{background:#3a2f1f;color:#fff}
-footer{text-align:center;margin-top:40px;color:#666;font-size:.8em}
-</style>
-</head>
-<body>
-<div class="container">
-<header>
-  <a href="/" class="back-link">← 返回首页</a>
-  <h1>🧮 交易工具箱</h1>
-  <p class="subtitle">免费实用计算器 · 帮助你更好地控制风险</p>
-</header>
-
-<div class="tool-grid">
-
-<!-- 工具1：合约计算器 -->
-<div class=tool-card>
-  <h3>📈 合约盈亏计算器</h3>
-  <p class=tool-desc>计算做多/做空的预期盈亏和ROI</p>
-  <div class=form-group><label>交易方向</label><select id=contractDir><option value=long>做多 (Long)</option><option value=short>做空 (Short)</option></select></div>
-  <div class=form-row>
-    <div class=form-group><label>开仓价 (USDT)</label><input id=entryPrice type=number placeholder="如 65000" step=any></div>
-    <div class=form-group><label>平仓价 (USDT)</label><input id=exitPrice type=number placeholder="如 68000" step=any></div>
-  </div>
-  <div class=form-row>
-    <div class=form-group><label>本金 (USDT)</label><input id=capital type=number placeholder="如 100" step=any></div>
-    <div class=form-group><label>杠杆 (x)</label><input id=leverage type=number placeholder="如 10" step=any></div>
-  </div>
-  <button class=calc-btn onclick=calcContract()>计算盈亏</button>
-  <div class=result-box id=contractResult>输入参数后点击计算</div>
-</div>
-
-<!-- 工具2：仓位计算器 -->
-<div class=tool-card>
-  <h3>🛡️ 仓位大小计算器</h3>
-  <p class=tool-desc>基于风险比例计算建议仓位</p>
-  <div class=form-group><label>账户余额 (USDT)</label><input id=balance type=number placeholder="如 1000" step=any></div>
-  <div class=form-row>
-    <div class=form-group><label>单笔风险 (%)</label><input id=riskPct type=number placeholder="如 2" step=any value=2></div>
-    <div class=form-group><label>止损幅度 (%)</label><input id=stopPct type=number placeholder="如 5" step=any value=5></div>
-  </div>
-  <div class=form-group><label>杠杆 (x)</label><input id=levPos type=number placeholder="如 10" step=any value=10></div>
-  <button class=calc-btn onclick=calcPosition()>计算仓位</button>
-  <div class=result-box id=posResult>输入参数后点击计算</div>
-</div>
-
-<!-- 工具3：止损止盈计算器 -->
-<div class=tool-card>
-  <h3>🎯 止损止盈价格计算</h3>
-  <p class=tool-desc>根据开仓价和百分比计算目标价</p>
-  <div class=form-group><label>交易方向</label><select id=tpDir><option value=long>做多 (Long)</option><option value=short>做空 (Short)</option></select></div>
-  <div class=form-group><label>开仓价 (USDT)</label><input id=tpEntry type=number placeholder="如 65000" step=any></div>
-  <div class=form-row>
-    <div class=form-group><label>止损 (%)</label><input id=slPct type=number placeholder="如 5" step=any value=5></div>
-    <div class=form-group><label>止盈 (%)</label><input id=tpPct type=number placeholder="如 15" step=any value=15></div>
-  </div>
-  <button class=calc-btn onclick=calcTP()>计算目标价</button>
-  <div class=result-box id=tpResult>输入参数后点击计算</div>
-</div>
-
-<!-- 工具4：资金费率计算器 -->
-<div class=tool-card>
-  <h3>💸 资金费率影响计算器</h3>
-  <p class=tool-desc>计算永续合约持仓的每日/每周资金费成本</p>
-  <div class=form-group><label>持仓价值 (USDT)</label><input id=fundingPos type=number placeholder="如 10000" step=any></div>
-  <div class=form-row>
-    <div class=form-group><label>当前资金费率 (%)</label><input id=fundingRate type=number placeholder="如 0.012" step=0.001 value=0.012></div>
-    <div class=form-group><label>持仓天数</label><input id=fundingDays type=number placeholder="如 7" value=7></div>
-  </div>
-  <button class=calc-btn onclick=calcFunding()>计算费用</button>
-  <div class=result-box id=fundingResult>输入参数后点击计算</div>
-</div>
-
-</div>
-
-<!-- 返佣引导 -->
-<div class=promo-section>
-  <h2 class=promo-title>💰 推荐交易所</h2>
-  <p style="font-size:.85em;color:#888;margin-bottom:6px">通过以下链接注册，获得手续费折扣并支持本站运营</p>
-  <div class=promo-btns>
-    <a class="promo-btn okx" href="https://www.kxmqpwrlvjt.com/join/72697785" target=_blank rel=nofollow>OKX 注册 → 享返佣</a>
-    <a class="promo-btn bitget" href="https://partner.hdmune.cn/bg/GD38XZ" target=_blank rel=nofollow>Bitget 注册 → 享返佣</a>
-    <a class="promo-btn binance" href="https://www.binance.com/activity/referral/offers/claim?ref=SIGNAL" target=_blank rel=nofollow>Binance 注册</a>
-  </div>
-</div>
-
-<footer>
-  <p>Powered by <strong>Signal</strong> · <a href="/">signal.link.cn</a></p>
-</footer>
-</div>
-
-<script>
-function n(v){return parseFloat(v)||0}
-function fmt(n){if(Math.abs(n)>=1e6)return (n/1e6).toFixed(2)+'M';if(Math.abs(n)>=1e3)return (n/1e3).toFixed(2)+'K';return n.toFixed(2)}
-
-// 合约计算器
-function calcContract(){
-  const dir=document.getElementById('contractDir').value;
-  const entry=n(document.getElementById('entryPrice').value);
-  const exit=n(document.getElementById('exitPrice').value);
-  const cap=n(document.getElementById('capital').value);
-  const lev=n(document.getElementById('leverage').value);
-  if(!entry||!exit||!cap||!lev){document.getElementById('contractResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';return}
-  const posSize=cap*lev;
-  const priceDiff=dir==='long'?exit-entry:entry-exit;
-  const pnl=priceDiff/entry*posSize;
-  const roi=pnl/cap*100;
-  const pnlColor=pnl>=0?'green':'red';
-  const roiColor=roi>=0?'green':'red';
-  document.getElementById('contractResult').innerHTML=
-    `<div>开仓价值: <span class=val>$${fmt(posSize)}</span> (本金 $${fmt(cap)} × ${lev}x)</div>`+
-    `<div>盈亏: <span class=${pnlColor}>${pnl>=0?'+':''}$${fmt(Math.abs(pnl))}</span></div>`+
-    `<div>ROI: <span class=${roiColor}>${roi>=0?'+':''}${roi.toFixed(2)}%</span></div>`+
-    `<div style=font-size:.85em;color:#888;margin-top:6px>方向: ${dir==='long'?'做多':'做空'} | 价差: $${Math.abs(exit-entry).toFixed(2)}</div>`;
-}
-
-// 仓位计算器
-function calcPosition(){
-  const bal=n(document.getElementById('balance').value);
-  const rp=n(document.getElementById('riskPct').value);
-  const sp=n(document.getElementById('stopPct').value);
-  const lev=n(document.getElementById('levPos').value);
-  if(!bal||!rp||!sp||!lev){document.getElementById('posResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';return}
-  const maxLoss=bal*rp/100;
-  const posSize=maxLoss/(sp/100);
-  const usedCap=posSize/lev;
-  const riskPct=bal?maxLoss/bal*100:0;
-  document.getElementById('posResult').innerHTML=
-    `<div>建议仓位价值: <span class=val>$${fmt(posSize)}</span></div>`+
-    `<div>占用保证金: <span class=val>$${fmt(usedCap)}</span> (${lev}x杠杆)</div>`+
-    `<div>最大亏损: <span class=red>-$${fmt(maxLoss)}</span> (${riskPct.toFixed(1)}% 账户)</div>`+
-    `<div style=font-size:.85em;color:#888;margin-top:6px>建议: 单笔风险不超过账户 ${rp}%</div>`;
-}
-
-// 止损止盈计算器
-function calcTP(){
-  const dir=document.getElementById('tpDir').value;
-  const entry=n(document.getElementById('tpEntry').value);
-  const sl=n(document.getElementById('slPct').value);
-  const tp=n(document.getElementById('tpPct').value);
-  if(!entry||!sl||!tp){document.getElementById('tpResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';return}
-  let slPrice,tpPrice;
-  if(dir==='long'){slPrice=entry*(1-sl/100);tpPrice=entry*(1+tp/100)}
-  else{slPrice=entry*(1+sl/100);tpPrice=entry*(1-tp/100)}
-  const slDir=dir==='long'?'低于':'高于';
-  const tpDir=dir==='long'?'高于':'低于';
-  document.getElementById('tpResult').innerHTML=
-    `<div>🛑 止损价: <span class=red>$${slPrice.toFixed(2)}</span> (${slDir}开仓价 ${sl}%)</div>`+
-    `<div>✅ 止盈价: <span class=green>$${tpPrice.toFixed(2)}</span> (${tpDir}开仓价 ${tp}%)</div>`+
-    `<div style=font-size:.85em;color:#888;margin-top:6px>风报比: 1:${(tp/sl).toFixed(2)}</div>`;
-}
-
-// 资金费率计算器
-function calcFunding(){
-  const pos = n(document.getElementById('fundingPos').value);
-  const rate = n(document.getElementById('fundingRate').value);
-  const days = n(document.getElementById('fundingDays').value);
-  if(!pos || !rate || !days){
-    document.getElementById('fundingResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';
-    return;
-  }
-  const dailyFee = pos * (rate / 100);
-  const totalFee = dailyFee * days;
-  const weeklyFee = dailyFee * 7;
-
-  document.getElementById('fundingResult').innerHTML =
-    `<div>每日资金费: <span class=red>-$${dailyFee.toFixed(2)}</span></div>` +
-    `<div>持仓 ${days} 天预计费用: <span class=red>-$${totalFee.toFixed(2)}</span></div>` +
-    `<div style=font-size:.85em;color:#888;margin-top:6px>周均费用参考: $${weeklyFee.toFixed(2)}</div>`;
-}
-</script>
-</body>
-</html>
+     1|<!DOCTYPE html>
+     2|<html lang="zh-CN">
+     3|<head>
+     4|<meta charset="UTF-8">
+     5|<meta name="viewport" content="width=device-width,initial-scale=1">
+     6|<title>加密货币实用工具 · 合约计算器 · 仓位计算器 · Signal</title>
+     7|<meta name="description" content="加密货币合约计算器、仓位计算器、止损止盈计算器、资金费率计算器 — 免费在线使用，帮助您管理交易风险。">
+     8|<meta name="keywords" content="合约计算器,仓位计算器,止损计算器,资金费率计算器,加密货币工具,Signal">
+     9|<style>
+    10|*{margin:0;padding:0;box-sizing:border-box}
+    11|body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;min-height:100vh;padding:20px}
+    12|.container{max-width:1100px;margin:0 auto}
+    13|header{text-align:center;padding:40px 20px 25px}
+    14|h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+    15|.subtitle{color:#aaa;font-size:.95em;margin-bottom:10px}
+    16|.back-link{color:#667eea;text-decoration:none;font-size:.85em}
+    17|.back-link:hover{text-decoration:underline}
+    18|.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin:20px 0}
+    19|.tool-card{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px}
+    20|h3{font-size:1.15em;margin-bottom:6px;color:#fff}
+    21|.tool-desc{font-size:.85em;color:#888;margin-bottom:18px}
+    22|.form-group{margin-bottom:14px}
+    23|label{display:block;font-size:.85em;color:#aaa;margin-bottom:4px}
+    24|.form-group select,.form-group input{width:100%;padding:10px 14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.06);color:#e0e0e0;font-size:.95em;outline:none;transition:border .2s}
+    25|.form-group select:focus,.form-group input:focus{border-color:#667eea}
+    26|.form-group select option{background:#1a1a3e;color:#e0e0e0}
+    27|.form-row{display:flex;gap:12px}
+    28|.form-row>.form-group{flex:1}
+    29|.calc-btn{width:100%;padding:12px;background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:10px;color:#fff;font-size:1em;font-weight:600;cursor:pointer;margin-top:8px}
+    30|.calc-btn:hover{opacity:0.95}
+    31|.result-box{margin-top:16px;padding:14px;background:rgba(0,0,0,.2);border-radius:10px;font-size:.95em;line-height:1.6}
+    32|.result-box .val{color:#fff;font-weight:600}
+    33|.red{color:#ff4d4f;font-weight:600}
+    34|.green{color:#52c41a;font-weight:600}
+    35|.promo-section{margin-top:30px;text-align:center}
+    36|.promo-title{font-size:1.1em;margin-bottom:10px}
+    37|.promo-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    38|.promo-btn{padding:10px 20px;border-radius:10px;text-decoration:none;font-size:.9em;font-weight:600}
+    39|.promo-btn.okx{background:#1e3a5f;color:#fff}
+    40|.promo-btn.bitget{background:#2a3f2f;color:#fff}
+    41|.promo-btn.binance{background:#3a2f1f;color:#fff}
+    42|footer{text-align:center;margin-top:40px;color:#666;font-size:.8em}
+    43|</style>
+    44|</head>
+    45|<body>
+    46|<div class="container">
+    47|<header>
+    48|  <a href="/" class="back-link">← 返回首页</a>
+    49|  <h1>🧮 交易工具箱</h1>
+    50|  <p class="subtitle">免费实用计算器 · 帮助你更好地控制风险</p>
+    51|</header>
+    52|
+    53|<div class="tool-grid">
+    54|
+    55|<!-- 工具1：合约计算器 -->
+    56|<div class=tool-card>
+    57|  <h3>📈 合约盈亏计算器</h3>
+    58|  <p class=tool-desc>计算做多/做空的预期盈亏和ROI</p>
+    59|  <div class=form-group><label>交易方向</label><select id=contractDir><option value=long>做多 (Long)</option><option value=short>做空 (Short)</option></select></div>
+    60|  <div class=form-row>
+    61|    <div class=form-group><label>开仓价 (USDT)</label><input id=entryPrice type=number placeholder="如 65000" step=any></div>
+    62|    <div class=form-group><label>平仓价 (USDT)</label><input id=exitPrice type=number placeholder="如 68000" step=any></div>
+    63|  </div>
+    64|  <div class=form-row>
+    65|    <div class=form-group><label>本金 (USDT)</label><input id=capital type=number placeholder="如 100" step=any></div>
+    66|    <div class=form-group><label>杠杆 (x)</label><input id=leverage type=number placeholder="如 10" step=any></div>
+    67|  </div>
+    68|  <button class=calc-btn onclick=calcContract()>计算盈亏</button>
+    69|  <div class=result-box id=contractResult>输入参数后点击计算</div>
+    70|</div>
+    71|
+    72|<!-- 工具2：仓位计算器 -->
+    73|<div class=tool-card>
+    74|  <h3>🛡️ 仓位大小计算器</h3>
+    75|  <p class=tool-desc>基于风险比例计算建议仓位</p>
+    76|  <div class=form-group><label>账户余额 (USDT)</label><input id=balance type=number placeholder="如 1000" step=any></div>
+    77|  <div class=form-row>
+    78|    <div class=form-group><label>单笔风险 (%)</label><input id=riskPct type=number placeholder="如 2" step=any value=2></div>
+    79|    <div class=form-group><label>止损幅度 (%)</label><input id=stopPct type=number placeholder="如 5" step=any value=5></div>
+    80|  </div>
+    81|  <div class=form-group><label>杠杆 (x)</label><input id=levPos type=number placeholder="如 10" step=any value=10></div>
+    82|  <button class=calc-btn onclick=calcPosition()>计算仓位</button>
+    83|  <div class=result-box id=posResult>输入参数后点击计算</div>
+    84|</div>
+    85|
+    86|<!-- 工具3：止损止盈计算器 -->
+    87|<div class=tool-card>
+    88|  <h3>🎯 止损止盈价格计算</h3>
+    89|  <p class=tool-desc>根据开仓价和百分比计算目标价</p>
+    90|  <div class=form-group><label>交易方向</label><select id=tpDir><option value=long>做多 (Long)</option><option value=short>做空 (Short)</option></select></div>
+    91|  <div class=form-group><label>开仓价 (USDT)</label><input id=tpEntry type=number placeholder="如 65000" step=any></div>
+    92|  <div class=form-row>
+    93|    <div class=form-group><label>止损 (%)</label><input id=slPct type=number placeholder="如 5" step=any value=5></div>
+    94|    <div class=form-group><label>止盈 (%)</label><input id=tpPct type=number placeholder="如 15" step=any value=15></div>
+    95|  </div>
+    96|  <button class=calc-btn onclick=calcTP()>计算目标价</button>
+    97|  <div class=result-box id=tpResult>输入参数后点击计算</div>
+    98|</div>
+    99|
+   100|<!-- 工具4：资金费率影响计算器 -->
+   101|<div class=tool-card>
+   102|  <h3>💸 资金费率影响计算器</h3>
+   103|  <p class=tool-desc>计算永续合约持仓的每日/每周资金费成本</p>
+   104|  <div class=form-group><label>持仓价值 (USDT)</label><input id=fundingPos type=number placeholder="如 10000" step=any></div>
+   105|  <div class=form-row>
+   106|    <div class=form-group><label>当前资金费率 (%)</label><input id=fundingRate type=number placeholder="如 0.012" step=0.001 value=0.012></div>
+   107|    <div class=form-group><label>持仓天数</label><input id=fundingDays type=number placeholder="如 7" value=7></div>
+   108|  </div>
+   109|  <button class=calc-btn onclick=calcFunding()>计算费用</button>
+   110|  <div class=result-box id=fundingResult>输入参数后点击计算</div>
+   111|</div>
+   112|
+   113|<!-- 工具5：资金费率套利计算器（新增） -->
+   114|<div class=tool-card>
+   115|  <h3>⚡ 资金费率套利计算器</h3>
+   116|  <p class=tool-desc>计算做空正费率或做多负费率的潜在收益</p>
+   117|  
+   118|  <div class=form-group>
+   119|    <label>交易方向</label>
+   120|    <select id=arbDir>
+   121|      <option value=short>做空（吃正费率）</option>
+   122|      <option value=long>做多（吃负费率）</option>
+   123|    </select>
+   124|  </div>
+   125|  
+   126|  <div class=form-row>
+   127|    <div class=form-group><label>本金 (USDT)</label><input id=arbCapital type=number placeholder="如 5000" step=any></div>
+   128|    <div class=form-group><label>杠杆 (x)</label><input id=arbLeverage type=number placeholder="如 10" value=10 step=any></div>
+   129|  </div>
+   130|  
+   131|  <div class=form-row>
+   132|    <div class=form-group><label>当前资金费率 (%)</label><input id=arbRate type=number placeholder="如 0.025" step=0.001 value=0.025></div>
+   133|    <div class=form-group><label>预计持仓天数</label><input id=arbDays type=number placeholder="如 14" value=14></div>
+   134|  </div>
+   135|  
+   136|  <button class=calc-btn onclick=calcArbitrage()>计算套利收益</button>
+   137|  <div class=result-box id=arbResult>输入参数后点击计算</div>
+   138|</div>
+   139|
+   140|</div>
+   141|
+   142|<!-- 返佣引导 -->
+   143|<div class=promo-section>
+   144|  <h2 class=promo-title>💰 推荐交易所</h2>
+   145|  <p style="font-size:.85em;color:#888;margin-bottom:6px">通过以下链接注册，获得手续费折扣并支持本站运营</p>
+   146|  <div class=promo-btns>
+   147|    <a class="promo-btn okx" href="https://www.kxmqpwrlvjt.com/join/72697785" target=_blank rel=nofollow>OKX 注册 → 享返佣</a>
+   148|    <a class="promo-btn bitget" href="https://partner.hdmune.cn/bg/GD38XZ" target=_blank rel=nofollow>Bitget 注册 → 享返佣</a>
+   149|    <a class="promo-btn binance" href="https://www.binance.com/activity/referral/offers/claim?ref=SIGNAL" target=_blank rel=nofollow>Binance 注册</a>
+   150|  </div>
+   151|</div>
+   152|
+   153|<footer>
+   154|  <p>Powered by <strong>Signal</strong> · <a href="/">signal.link.cn</a></p>
+   155|</footer>
+   156|</div>
+   157|
+   158|<script>
+   159|function n(v){return parseFloat(v)||0}
+   160|function fmt(n){if(Math.abs(n)>=1e6)return (n/1e6).toFixed(2)+'M';if(Math.abs(n)>=1e3)return (n/1e3).toFixed(2)+'K';return n.toFixed(2)}
+   161|
+   162|// 合约计算器
+   163|function calcContract(){
+   164|  const dir=document.getElementById('contractDir').value;
+   165|  const entry=n(document.getElementById('entryPrice').value);
+   166|  const exit=n(document.getElementById('exitPrice').value);
+   167|  const cap=n(document.getElementById('capital').value);
+   168|  const lev=n(document.getElementById('leverage').value);
+   169|  if(!entry||!exit||!cap||!lev){document.getElementById('contractResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';return}
+   170|  const posSize=cap*lev;
+   171|  const priceDiff=dir==='long'?exit-entry:entry-exit;
+   172|  const pnl=priceDiff/entry*posSize;
+   173|  const roi=pnl/cap*100;
+   174|  const pnlColor=pnl>=0?'green':'red';
+   175|  const roiColor=roi>=0?'green':'red';
+   176|  document.getElementById('contractResult').innerHTML=
+   177|    `<div>开仓价值: <span class=val>$${fmt(posSize)}</span> (本金 $${fmt(cap)} × ${lev}x)</div>`+
+   178|    `<div>盈亏: <span class=${pnlColor}>${pnl>=0?'+':''}$${fmt(Math.abs(pnl))}</span></div>`+
+   179|    `<div>ROI: <span class=${roiColor}>${roi>=0?'+':''}${roi.toFixed(2)}%</span></div>`+
+   180|    `<div style=font-size:.85em;color:#888;margin-top:6px>方向: ${dir==='long'?'做多':'做空'} | 价差: $${Math.abs(exit-entry).toFixed(2)}</div>`;
+   181|}
+   182|
+   183|// 仓位计算器
+   184|function calcPosition(){
+   185|  const bal=n(document.getElementById('balance').value);
+   186|  const rp=n(document.getElementById('riskPct').value);
+   187|  const sp=n(document.getElementById('stopPct').value);
+   188|  const lev=n(document.getElementById('levPos').value);
+   189|  if(!bal||!rp||!sp||!lev){document.getElementById('posResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';return}
+   190|  const maxLoss=bal*rp/100;
+   191|  const posSize=maxLoss/(sp/100);
+   192|  const usedCap=posSize/lev;
+   193|  const riskPct=bal?maxLoss/bal*100:0;
+   194|  document.getElementById('posResult').innerHTML=
+   195|    `<div>建议仓位价值: <span class=val>$${fmt(posSize)}</span></div>`+
+   196|    `<div>占用保证金: <span class=val>$${fmt(usedCap)}</span> (${lev}x杠杆)</div>`+
+   197|    `<div>最大亏损: <span class=red>-$${fmt(maxLoss)}</span> (${riskPct.toFixed(1)}% 账户)</div>`+
+   198|    `<div style=font-size:.85em;color:#888;margin-top:6px>建议: 单笔风险不超过账户 ${rp}%</div>`;
+   199|}
+   200|
+   201|// 止损止盈计算器
+   202|function calcTP(){
+   203|  const dir=document.getElementById('tpDir').value;
+   204|  const entry=n(document.getElementById('tpEntry').value);
+   205|  const sl=n(document.getElementById('slPct').value);
+   206|  const tp=n(document.getElementById('tpPct').value);
+   207|  if(!entry||!sl||!tp){document.getElementById('tpResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';return}
+   208|  let slPrice,tpPrice;
+   209|  if(dir==='long'){slPrice=entry*(1-sl/100);tpPrice=entry*(1+tp/100)}
+   210|  else{slPrice=entry*(1+sl/100);tpPrice=entry*(1-tp/100)}
+   211|  const slDir=dir==='long'?'低于':'高于';
+   212|  const tpDir=dir==='long'?'高于':'低于';
+   213|  document.getElementById('tpResult').innerHTML=
+   214|    `<div>🛑 止损价: <span class=red>$${slPrice.toFixed(2)}</span> (${slDir}开仓价 ${sl}%)</div>`+
+   215|    `<div>✅ 止盈价: <span class=green>$${tpPrice.toFixed(2)}</span> (${tpDir}开仓价 ${tp}%)</div>`+
+   216|    `<div style=font-size:.85em;color:#888;margin-top:6px>风报比: 1:${(tp/sl).toFixed(2)}</div>`;
+   217|}
+   218|
+   219|// 资金费率计算器
+   220|function calcFunding(){
+   221|  const pos = n(document.getElementById('fundingPos').value);
+   222|  const rate = n(document.getElementById('fundingRate').value);
+   223|  const days = n(document.getElementById('fundingDays').value);
+   224|  if(!pos || !rate || !days){
+   225|    document.getElementById('fundingResult').innerHTML='<span style=color:#ff4d4f>⚠️ 请填写所有参数</span>';
+   226|    return;
+   227|  }
+   228|  const dailyFee = pos * (rate / 100);
+   229|  const totalFee = dailyFee * days;
+   230|  const weeklyFee = dailyFee * 7;
+   231|
+   232|  document.getElementById('fundingResult').innerHTML =
+   233|    `<div>每日资金费: <span class=red>-$${dailyFee.toFixed(2)}</span></div>` +
+   234|    `<div>持仓 ${days} 天预计费用: <span class=red>-$${totalFee.toFixed(2)}</span></div>` +
+   235|    `<div style=font-size:.85em;color:#888;margin-top:6px>周均费用参考: $${weeklyFee.toFixed(2)}</div>`;
+   236|}
+   237|</script>
+   238|</body>
+   239|</html>
