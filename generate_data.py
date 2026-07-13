@@ -142,6 +142,139 @@ def analyze_data(tickers):
         "topVolume": top_volume[:10]
     }
 
+def render_html(market_data):
+    def fmt_price(p):
+        if p >= 1000:
+            return f"{p:,.2f}"
+        elif p >= 1:
+            return f"{p:,.4f}"
+        elif p >= 0.001:
+            return f"{p:,.6f}"
+        else:
+            return f"{p:.8f}"
+
+    def fmt_volume(v):
+        if v >= 1e9:
+            return f"{v/1e9:.2f}B"
+        elif v >= 1e6:
+            return f"{v/1e6:.2f}M"
+        elif v >= 1e3:
+            return f"{v/1e3:.2f}K"
+        return str(int(v))
+
+    def get_change_class(c):
+        return "color:#ff4d4f" if c >= 0 else "color:#52c41a"
+
+    top_coins_html = ""
+    if market_data.get("btc"):
+        b = market_data["btc"]
+        c = b["change24h"]
+        top_coins_html += f"""
+<div class="coin-card">
+  <div class="coin-name">₿ BTC</div>
+  <div class="coin-price">${fmt_price(b["price"])}</div>
+  <div class="coin-change" style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</div>
+  <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
+</div>
+"""
+    if market_data.get("eth"):
+        e = market_data["eth"]
+        c = e["change24h"]
+        top_coins_html += f"""
+<div class="coin-card">
+  <div class="coin-name">⟠ ETH</div>
+  <div class="coin-price">${fmt_price(e["price"])}</div>
+  <div class="coin-change" style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</div>
+  <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
+</div>
+"""
+
+    overview_html = f"""
+<div class="ov-item"><div class="ov-label">总交易对</div><div class="ov-value">{market_data["totalPairs"]}</div></div>
+<div class="ov-item"><div class="ov-label">上涨数量</div><div class="ov-value" style="color:#ff4d4f">{market_data["upCount"]}</div></div>
+<div class="ov-item"><div class="ov-label">下跌数量</div><div class="ov-value" style="color:#52c41a">{market_data["downCount"]}</div></div>
+<div class="ov-item"><div class="ov-label">24h成交额</div><div class="ov-value">${fmt_volume(market_data["totalVolume"])}</div></div>
+<div class="ov-item"><div class="ov-label">市场情绪</div><div class="ov-value" style="color:{'#ff4d4f' if market_data['sentiment']=='bullish' else '#52c41a' if market_data['sentiment']=='bearish' else '#888'}">{'看涨' if market_data['sentiment']=='bullish' else '看跌' if market_data['sentiment']=='bearish' else '中性'}</div></div>
+"""
+
+    volatile_rows = ""
+    for i, item in enumerate(market_data["volatile"][:20], 1):
+        c = item["change"]
+        volatile_rows += f"""
+<tr>
+  <td>{i}</td>
+  <td>{item["symbol"]}</td>
+  <td>${fmt_price(item["price"])}</td>
+  <td style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</td>
+  <td>${fmt_volume(item["volume"])}</td>
+</tr>
+"""
+
+    sideways_rows = ""
+    for i, item in enumerate(market_data["sideways"][:15], 1):
+        c = item["change"]
+        sideways_rows += f"""
+<tr>
+  <td>{i}</td>
+  <td>{item["symbol"]}</td>
+  <td>${fmt_price(item["price"])}</td>
+  <td>{item.get("vola_7d", "N/A")}%</td>
+  <td>{item.get("position_7d", "N/A")}%</td>
+  <td style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</td>
+</tr>
+"""
+
+    volume_rows = ""
+    for i, item in enumerate(market_data["topVolume"][:10], 1):
+        c = item["change"]
+        volume_rows += f"""
+<tr>
+  <td>{i}</td>
+  <td>{item["symbol"]}</td>
+  <td>${fmt_price(item["price"])}</td>
+  <td style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</td>
+  <td>${fmt_volume(item["volume"])}</td>
+</tr>
+"""
+
+    try:
+        ts = datetime.fromisoformat(market_data["timestamp"])
+        time_str = ts.strftime("%m-%d %H:%M")
+    except:
+        time_str = "刚刚"
+
+    return {
+        "top_coins": top_coins_html,
+        "overview": overview_html,
+        "volatile": volatile_rows,
+        "sideways": sideways_rows,
+        "volume": volume_rows,
+        "update_time": f"⏰ {time_str}",
+    }
+
+
+def inject_data_into_html(market_data):
+    try:
+        with open("index.html", "r", encoding="utf-8") as f:
+            html = f.read()
+
+        rendered = render_html(market_data)
+
+        html = html.replace('<!-- SSR_DATA_TOP_COINS --><div class="loading">加载中...</div><!-- /SSR_DATA_TOP_COINS -->', rendered["top_coins"])
+        html = html.replace('<!-- SSR_DATA_OVERVIEW --><div class="loading">加载中...</div><!-- /SSR_DATA_OVERVIEW -->', rendered["overview"])
+        html = html.replace('<!-- SSR_DATA_VOLATILE --><tr><td colspan="5" class="loading">加载中...</td></tr><!-- /SSR_DATA_VOLATILE -->', rendered["volatile"])
+        html = html.replace('<!-- SSR_DATA_SIDEWAYS --><tr><td colspan="6" class="loading">加载中...</td></tr><!-- /SSR_DATA_SIDEWAYS -->', rendered["sideways"])
+        html = html.replace('<!-- SSR_DATA_VOLUME --><tr><td colspan="5" class="loading">加载中...</td></tr><!-- /SSR_DATA_VOLUME -->', rendered["volume"])
+        html = html.replace('<div class="update-time" id="updateTime">⏰ 加载中...</div>', f'<div class="update-time" id="updateTime">{rendered["update_time"]}</div>')
+
+        with open("index.html", "w", encoding="utf-8") as f:
+            f.write(html)
+
+        print("index.html 数据注入成功")
+    except Exception as e:
+        print(f"注入HTML失败: {e}")
+
+
 def main():
     print("开始拉取 OKX 数据...")
     tickers = fetch_okx_data()
@@ -157,6 +290,8 @@ def main():
         json.dump(market_data, f, ensure_ascii=False, indent=2)
 
     print("data.json 生成成功")
+
+    inject_data_into_html(market_data)
 
 if __name__ == "__main__":
     main()
