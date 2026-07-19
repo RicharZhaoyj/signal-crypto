@@ -123,33 +123,428 @@ footer a{color:#667eea;text-decoration:none}
 <header>
 <h1>📡 Signal 加密分析</h1>
 <p class="subtitle">智能识别异动品种与横盘启动机会 · 每小时自动更新</p>
-<div class="update-time" id="updateTime">⏰ 07-14 04:11</div>
+<div class="update-time" id="updateTime">⏰ 07-13 16:17</div>
 </header>
 
 <div class="top-coins" id="topCoins">
-<div class="loading">加载中...</div>
+
+<div class="coin-card">
+  <div class="coin-name">₿ BTC</div>
+  <div class="coin-price">$63,032.60</div>
+  <div class="coin-change" style="color:#52c41a">-1.56%</div>
+  <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
+</div>
+
+<div class="coin-card">
+  <div class="coin-name">⟠ ETH</div>
+  <div class="coin-price">$1,785.95</div>
+  <div class="coin-change" style="color:#52c41a">-1.15%</div>
+  <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
+</div>
+
 </div>
 
 <div class="section">
 <h2>📊 市场概览</h2>
 <div class="ov-grid" id="overview">
-<div class="loading">加载中...</div>
+
+<div class="ov-item"><div class="ov-label">总交易对</div><div class="ov-value">303</div></div>
+<div class="ov-item"><div class="ov-label">上涨数量</div><div class="ov-value" style="color:#ff4d4f">55</div></div>
+<div class="ov-item"><div class="ov-label">下跌数量</div><div class="ov-value" style="color:#52c41a">245</div></div>
+<div class="ov-item"><div class="ov-label">24h成交额</div><div class="ov-value">$976.34M</div></div>
+<div class="ov-item"><div class="ov-label">市场情绪</div><div class="ov-value" style="color:#52c41a">看跌</div></div>
+
 </div>
 </div>
 
 <div class="section">
 <h2>⚡ 异动品种 (24h涨跌 ≥ ±5%)</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volatileTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volatileTable">
+<tr>
+  <td>1</td>
+  <td>ASP-USDT</td>
+  <td>$0.016030</td>
+  <td style="color:#52c41a">-20.68%</td>
+  <td>$209.24K</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>KITE-USDT</td>
+  <td>$0.135100</td>
+  <td style="color:#ff4d4f">+19.45%</td>
+  <td>$1.25M</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>LAT-USDT</td>
+  <td>$0.00058900</td>
+  <td style="color:#52c41a">-12.55%</td>
+  <td>$1.20M</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>JTO-USDT</td>
+  <td>$0.663000</td>
+  <td style="color:#ff4d4f">+12.24%</td>
+  <td>$1.52M</td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <td>PI-USDT</td>
+  <td>$0.085400</td>
+  <td style="color:#52c41a">-11.96%</td>
+  <td>$6.36M</td>
+</tr>
+
+<tr>
+  <td>6</td>
+  <td>T-USDT</td>
+  <td>$0.004856</td>
+  <td style="color:#52c41a">-11.87%</td>
+  <td>$917.65K</td>
+</tr>
+
+<tr>
+  <td>7</td>
+  <td>MMT-USDT</td>
+  <td>$0.163500</td>
+  <td style="color:#52c41a">-11.81%</td>
+  <td>$269.75K</td>
+</tr>
+
+<tr>
+  <td>8</td>
+  <td>ALLO-USDT</td>
+  <td>$0.377030</td>
+  <td style="color:#ff4d4f">+11.36%</td>
+  <td>$2.71M</td>
+</tr>
+
+<tr>
+  <td>9</td>
+  <td>ID-USDT</td>
+  <td>$0.034670</td>
+  <td style="color:#52c41a">-10.34%</td>
+  <td>$92.74K</td>
+</tr>
+
+<tr>
+  <td>10</td>
+  <td>LIT-USDT</td>
+  <td>$2.3787</td>
+  <td style="color:#52c41a">-9.13%</td>
+  <td>$5.88M</td>
+</tr>
+
+<tr>
+  <td>11</td>
+  <td>RE-USDT</td>
+  <td>$0.532510</td>
+  <td style="color:#52c41a">-8.82%</td>
+  <td>$2.50M</td>
+</tr>
+
+<tr>
+  <td>12</td>
+  <td>CHIP-USDT</td>
+  <td>$0.030010</td>
+  <td style="color:#52c41a">-8.70%</td>
+  <td>$108.59K</td>
+</tr>
+
+<tr>
+  <td>13</td>
+  <td>SLX-USDT</td>
+  <td>$0.143300</td>
+  <td style="color:#52c41a">-8.61%</td>
+  <td>$108.31M</td>
+</tr>
+
+<tr>
+  <td>14</td>
+  <td>ARG-USDT</td>
+  <td>$0.149900</td>
+  <td style="color:#52c41a">-8.49%</td>
+  <td>$73.44K</td>
+</tr>
+
+<tr>
+  <td>15</td>
+  <td>VINE-USDT</td>
+  <td>$0.008761</td>
+  <td style="color:#52c41a">-8.03%</td>
+  <td>$137.64K</td>
+</tr>
+
+<tr>
+  <td>16</td>
+  <td>PUMP-USDT</td>
+  <td>$0.001505</td>
+  <td style="color:#ff4d4f">+7.81%</td>
+  <td>$3.46M</td>
+</tr>
+
+<tr>
+  <td>17</td>
+  <td>AI-USDT</td>
+  <td>$0.024730</td>
+  <td style="color:#52c41a">-7.79%</td>
+  <td>$967.91K</td>
+</tr>
+
+<tr>
+  <td>18</td>
+  <td>ZEUS-USDT</td>
+  <td>$0.002711</td>
+  <td style="color:#ff4d4f">+6.90%</td>
+  <td>$373.88K</td>
+</tr>
+
+<tr>
+  <td>19</td>
+  <td>SKL-USDT</td>
+  <td>$0.004450</td>
+  <td style="color:#52c41a">-6.00%</td>
+  <td>$293.12K</td>
+</tr>
+
+<tr>
+  <td>20</td>
+  <td>SAFE-USDT</td>
+  <td>$0.118780</td>
+  <td style="color:#ff4d4f">+5.98%</td>
+  <td>$199.50K</td>
+</tr>
+</tbody></table></div>
 </div>
 
 <div class="section">
 <h2>🕒 长期横盘启动关注（蓄势品种）</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>7d波动率</th><th>7d位置</th><th>24h涨跌</th></tr></thead><tbody id="sidewaysTable"><tr><td colspan="6" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>7d波动率</th><th>7d位置</th><th>24h涨跌</th></tr></thead><tbody id="sidewaysTable">
+<tr>
+  <td>1</td>
+  <td>AUDM-USDT</td>
+  <td>$0.692800</td>
+  <td>0.62%</td>
+  <td>7.0%</td>
+  <td style="color:#52c41a">-0.19%</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>TRX-USDT</td>
+  <td>$0.329920</td>
+  <td>2.08%</td>
+  <td>45.1%</td>
+  <td style="color:#ff4d4f">+0.04%</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>XAUT-USDT</td>
+  <td>$4,068.60</td>
+  <td>3.71%</td>
+  <td>34.4%</td>
+  <td style="color:#52c41a">-0.65%</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>BTC-USDT</td>
+  <td>$63,032.60</td>
+  <td>5.13%</td>
+  <td>47.2%</td>
+  <td style="color:#52c41a">-1.56%</td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <td>ETC-USDT</td>
+  <td>$6.9590</td>
+  <td>5.63%</td>
+  <td>35.7%</td>
+  <td style="color:#ff4d4f">+1.22%</td>
+</tr>
+
+<tr>
+  <td>6</td>
+  <td>KAIA-USDT</td>
+  <td>$0.034380</td>
+  <td>5.9%</td>
+  <td>32.2%</td>
+  <td style="color:#52c41a">-0.75%</td>
+</tr>
+
+<tr>
+  <td>7</td>
+  <td>KNC-USDT</td>
+  <td>$0.109000</td>
+  <td>6.26%</td>
+  <td>28.4%</td>
+  <td style="color:#52c41a">-1.54%</td>
+</tr>
+
+<tr>
+  <td>8</td>
+  <td>SATS-USDT</td>
+  <td>$0.00000000</td>
+  <td>7.88%</td>
+  <td>46.6%</td>
+  <td style="color:#52c41a">-0.37%</td>
+</tr>
+
+<tr>
+  <td>9</td>
+  <td>WLFI-USDT</td>
+  <td>$0.057990</td>
+  <td>8.32%</td>
+  <td>23.5%</td>
+  <td style="color:#ff4d4f">+0.49%</td>
+</tr>
+
+<tr>
+  <td>10</td>
+  <td>NEO-USDT</td>
+  <td>$1.9440</td>
+  <td>8.44%</td>
+  <td>44.9%</td>
+  <td style="color:#52c41a">-1.37%</td>
+</tr>
+
+<tr>
+  <td>11</td>
+  <td>BNT-USDT</td>
+  <td>$0.271900</td>
+  <td>8.55%</td>
+  <td>43.7%</td>
+  <td style="color:#52c41a">-0.95%</td>
+</tr>
+
+<tr>
+  <td>12</td>
+  <td>ENS-USDT</td>
+  <td>$4.1190</td>
+  <td>8.64%</td>
+  <td>39.5%</td>
+  <td style="color:#52c41a">-0.70%</td>
+</tr>
+
+<tr>
+  <td>13</td>
+  <td>NAVX-USDT</td>
+  <td>$0.007034</td>
+  <td>8.82%</td>
+  <td>39.0%</td>
+  <td style="color:#52c41a">-0.45%</td>
+</tr>
+
+<tr>
+  <td>14</td>
+  <td>GAS-USDT</td>
+  <td>$1.0432</td>
+  <td>8.94%</td>
+  <td>42.8%</td>
+  <td style="color:#52c41a">-1.31%</td>
+</tr>
+
+<tr>
+  <td>15</td>
+  <td>STRK-USDT</td>
+  <td>$0.029980</td>
+  <td>8.94%</td>
+  <td>22.4%</td>
+  <td style="color:#52c41a">-1.80%</td>
+</tr>
+</tbody></table></div>
 </div>
 
 <div class="section">
 <h2>🔥 成交量 Top 10</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volumeTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volumeTable">
+<tr>
+  <td>1</td>
+  <td>BTC-USDT</td>
+  <td>$63,032.60</td>
+  <td style="color:#52c41a">-1.56%</td>
+  <td>$290.50M</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>ETH-USDT</td>
+  <td>$1,785.95</td>
+  <td style="color:#52c41a">-1.15%</td>
+  <td>$193.62M</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>SLX-USDT</td>
+  <td>$0.143300</td>
+  <td style="color:#52c41a">-8.61%</td>
+  <td>$108.31M</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>TAO-USDT</td>
+  <td>$207.8000</td>
+  <td style="color:#52c41a">-1.05%</td>
+  <td>$88.91M</td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <td>SOL-USDT</td>
+  <td>$76.4800</td>
+  <td style="color:#52c41a">-0.29%</td>
+  <td>$35.97M</td>
+</tr>
+
+<tr>
+  <td>6</td>
+  <td>USDC-USDT</td>
+  <td>$1.0006</td>
+  <td style="color:#ff4d4f">+0.01%</td>
+  <td>$27.83M</td>
+</tr>
+
+<tr>
+  <td>7</td>
+  <td>HYPE-USDT</td>
+  <td>$65.4600</td>
+  <td style="color:#52c41a">-2.80%</td>
+  <td>$16.75M</td>
+</tr>
+
+<tr>
+  <td>8</td>
+  <td>DOGE-USDT</td>
+  <td>$0.072440</td>
+  <td style="color:#52c41a">-0.97%</td>
+  <td>$15.59M</td>
+</tr>
+
+<tr>
+  <td>9</td>
+  <td>ZEC-USDT</td>
+  <td>$520.7900</td>
+  <td style="color:#52c41a">-0.50%</td>
+  <td>$15.40M</td>
+</tr>
+
+<tr>
+  <td>10</td>
+  <td>XRP-USDT</td>
+  <td>$1.0801</td>
+  <td style="color:#52c41a">-1.24%</td>
+  <td>$15.22M</td>
+</tr>
+</tbody></table></div>
 </div>
 
 <div class="promo">
@@ -199,43 +594,6 @@ footer a{color:#667eea;text-decoration:none}
 <div style="font-size:1.1em;font-weight:600;color:#fff;margin-bottom:6px">AI工具LTD</div>
 <div style="font-size:.85em;color:#888">AI工具终身特惠，一次性买断永久使用</div>
 <div style="margin-top:12px;color:#06b6d4;font-size:.85em;font-weight:500">前往 tool.link.cn →</div>
-</a>
-</div>
-</div>
-
-<div class="section" id="guide" style="margin-top:25px">
-<h2>📚 交易指南</h2>
-<p style="color:#aaa;font-size:.9em;margin-bottom:18px">系统学习加密货币交易方法论，从入门到精通</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
-<a href="https://signal.link.cn/guide/btc-analysis" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-<div style="font-size:1.5em;margin-bottom:8px">₿</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">比特币(BTC)行情分析</div>
-<div style="color:#888;font-size:.8em">技术面+链上数据+衍生品多维度解析</div>
-</a>
-<a href="https://signal.link.cn/guide/eth-analysis" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-<div style="font-size:1.5em;margin-bottom:8px">Ξ</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">以太坊(ETH)生态解读</div>
-<div style="color:#888;font-size:.8em">Gas费+DeFi TVL+Layer2+通缩机制</div>
-</a>
-<a href="https://signal.link.cn/guide/contract-trading" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-<div style="font-size:1.5em;margin-bottom:8px">📈</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">合约交易入门</div>
-<div style="color:#888;font-size:.8em">永续合约+杠杆+资金费率+风险控制</div>
-</a>
-<a href="https://signal.link.cn/guide/spot-strategy" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-<div style="font-size:1.5em;margin-bottom:8px">💼</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">现货交易策略</div>
-<div style="color:#888;font-size:.8em">定投DCA+网格+HODL+仓位管理</div>
-</a>
-<a href="https://signal.link.cn/guide/market-indicators" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
-<div style="font-size:1.5em;margin-bottom:8px">📊</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">市场指标解读</div>
-<div style="color:#888;font-size:.8em">MVRV+NUPL+SOPR+恐惧贪婪指数</div>
-</a>
-<a href="https://signal.link.cn/tools" style="display:block;background:linear-gradient(135deg,rgba(102,126,234,.1),rgba(118,75,162,.1));border:1px solid rgba(102,126,234,.2);border-radius:12px;padding:18px;text-decoration:none">
-<div style="font-size:1.5em;margin-bottom:8px">🛠️</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">交易工具</div>
-<div style="color:#888;font-size:.8em">合约计算器+仓位管理器</div>
 </a>
 </div>
 </div>

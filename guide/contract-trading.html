@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>加密货币合约交易入门指南 | Signal</title>
+<meta name="description" content="加密货币合约交易入门：永续合约、交割合约、杠杆、保证金、资金费率、止损止盈全解析，新手必读风险指南。">
+<meta name="keywords" content="合约交易,永续合约,交割合约,杠杆交易,保证金,资金费率,止损,加密货币入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="加密货币合约交易入门指南 | Signal">
+<meta property="og:description" content="新手必读：合约交易基础与风险控制">
+<meta property="og:url" content="https://signal.link.cn/guide/contract-trading">
+<link rel="canonical" href="https://signal.link.cn/guide/contract-trading">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K9K8BTVSVD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-K9K8BTVSVD');</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"加密货币合约交易入门指南","description":"新手必读：合约交易基础与风险控制","author":{"@type":"Organization","name":"Signal"},"publisher":{"@type":"Organization","name":"Signal","url":"https://signal.link.cn"},"datePublished":"2026-07-19","dateModified":"2026-07-19","mainEntityOfPage":{"@type":"WebPage","@id":"https://signal.link.cn/guide/contract-trading"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://signal.link.cn/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://signal.link.cn/#guide"},{"@type":"ListItem","position":3,"name":"合约交易入门"}]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;line-height:1.7;padding:20px}.container{max-width:900px;margin:0 auto}header{padding:30px 0 20px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:30px}.breadcrumb{font-size:.85em;color:#888;margin-bottom:12px}.breadcrumb a{color:#667eea;text-decoration:none}.breadcrumb a:hover{text-decoration:underline}h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}.meta{color:#888;font-size:.9em}h2{font-size:1.4em;color:#fff;margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}h3{font-size:1.1em;color:#a8b1ff;margin:20px 0 10px}p{margin-bottom:14px;color:#ccc}ul,ol{margin:0 0 14px 22px;color:#ccc}li{margin-bottom:6px}.section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;margin-bottom:20px}.disclaimer{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:14px 18px;border-radius:8px;font-size:.85em;color:#bbb;margin-top:30px}footer{text-align:center;padding:30px 0;color:#555;font-size:.85em}footer a{color:#667eea;text-decoration:none}.nav-links{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}.nav-link{flex:1;min-width:200px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;text-decoration:none;color:#ccc;transition:border .2s}.nav-link:hover{border-color:#667eea}.nav-link-label{font-size:.75em;color:#888;display:block;margin-bottom:4px}.nav-link-title{color:#a8b1ff;font-weight:600}@media(max-width:600px){h1{font-size:1.5em}.section{padding:16px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="breadcrumb"><a href="https://signal.link.cn/">首页</a> › <a href="https://signal.link.cn/#guide">指南</a> › 合约交易入门</div>
+<h1>加密货币合约交易入门指南</h1>
+<div class="meta">更新于 2026-07-19 · 阅读时间约 10 分钟</div>
+</header>
+
+<div class="section">
+<h2>一、什么是合约交易</h2>
+<p>合约交易是不实际持有加密货币，而是通过合约押注价格涨跌的交易方式。使用杠杆可以放大收益，但同时放大风险。新手必须充分理解机制后再参与。</p>
+<h3>合约类型</h3>
+<ul>
+<li><strong>永续合约</strong>：无交割日，可长期持有，通过资金费率机制使合约价格锚定现货</li>
+<li><strong>交割合约</strong>：有固定交割日（周度、季度），到期自动结算</li>
+<li><strong>期权合约</strong>：买方支付权利金获得以约定价格买卖的权利，风险有限</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>二、核心概念</h2>
+<h3>1. 杠杆与保证金</h3>
+<p>10倍杠杆意味着1%的价格波动会带来10%的盈亏。保证金分为：</p>
+<ul>
+<li><strong>初始保证金</strong>：开仓所需资金</li>
+<li><strong>维持保证金</strong>：维持仓位所需的最低保证金</li>
+<li><strong>可用保证金</strong>：可用于抵抗浮亏的余额</li>
+</ul>
+<h3>2. 全仓 vs 逐仓</h3>
+<ul>
+<li><strong>全仓</strong>：整个账户余额作为保证金，抗波动能力强，但爆仓会损失全部</li>
+<li><strong>逐仓</strong>：仅使用开仓时投入的资金，损失有限，但更易爆仓</li>
+</ul>
+<h3>3. 资金费率</h3>
+<p>永续合约通过资金费率使合约价格与现货接近：多头付给空头（正费率）或空头付给多头（负费率），每8小时结算一次。本站提供<a href="https://signal.link.cn/funding">资金费率监控</a>。</p>
+</div>
+
+<div class="section">
+<h2>三、订单类型</h2>
+<ul>
+<li><strong>限价单</strong>：以指定价格成交，可能无法成交</li>
+<li><strong>市价单</strong>：以当前市场价立即成交</li>
+<li><strong>止损单</strong>：价格触及止损价时自动市价平仓</li>
+<li><strong>止盈止损单</strong>：预设止盈止损，达到条件自动执行</li>
+<li><strong>追踪止损</strong>：止损价跟随价格移动，锁定利润</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>四、风险控制（最重要）</h2>
+<h3>1. 仓位管理</h3>
+<ul>
+<li>单笔交易风险不超过账户<strong>2%</strong>（即爆仓损失不超过总资金2%）</li>
+<li>同时持有仓位不超过3-5个，避免相关性风险</li>
+<li>新手建议杠杆不超过5倍</li>
+</ul>
+<h3>2. 止损必设</h3>
+<p>开仓时必须设置止损价，避免情绪化扛单。止损位放在关键技术位之外（如支撑位下方）。</p>
+<h3>3. 爆仓价计算</h3>
+<p>爆仓价=开仓价×(1-1/杠杆×保证金比例)。建议使用本站<a href="https://signal.link.cn/tools">合约计算器</a>精确计算。</p>
+<h3>4. 避免常见错误</h3>
+<ul>
+<li>不要逆势加仓摊平（马丁格尔策略风险极高）</li>
+<li>不要在重大消息公布前持有高杠杆仓位</li>
+<li>不要使用过夜高杠杆（跳空风险）</li>
+<li>不要把全部资金用于合约</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>五、交易策略入门</h2>
+<h3>1. 趋势跟踪</h3>
+<p>顺势而为：上升趋势做多，下降趋势做空。用MA20/MA50判断趋势方向，回调到均线附近入场。</p>
+<h3>2. 区间交易</h3>
+<p>横盘市场在支撑位做多、阻力位做空。需要明确区间边界，突破则止损。</p>
+<h3>3. 突破交易</h3>
+<p>价格突破关键阻力/支撑位时跟进。需要成交量配合，假突破较多需谨慎。</p>
+</div>
+
+<div class="section">
+<h2>六、新手操作流程</h2>
+<ol>
+<li>选择合规交易所（OKX、Binance、Bybit等）</li>
+<li>完成KYC认证，开启二次验证</li>
+<li>先在模拟盘练习1-2周</li>
+<li>小额实盘（建议$100以内）</li>
+<li>记录每笔交易的理由与结果</li>
+<li>定期复盘，建立自己的交易系统</li>
+</ol>
+</div>
+
+<div class="disclaimer">⚠️ 风险警告：合约交易风险极高，约70%散户亏损。新手务必小额起步，严格执行止损。本文不构成投资建议。</div>
+
+<div class="nav-links">
+<a class="nav-link" href="https://signal.link.cn/guide/eth-analysis">
+<span class="nav-link-label">← 上一篇</span>
+<span class="nav-link-title">ETH行情分析</span>
+</a>
+<a class="nav-link" href="https://signal.link.cn/guide/spot-strategy">
+<span class="nav-link-label">下一篇 →</span>
+<span class="nav-link-title">现货策略</span>
+</a>
+</div>
+
+<footer><a href="https://signal.link.cn/">Signal</a> · <a href="https://signal.link.cn/tools">交易工具</a> · <a href="https://signal.link.cn/compare">品种对比</a> · <a href="https://ai.link.cn">AI资讯</a></footer>
+</div>
+</body>
+</html>
