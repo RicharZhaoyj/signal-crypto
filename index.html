@@ -123,33 +123,33 @@ footer a{color:#667eea;text-decoration:none}
 <header>
 <h1>📡 Signal 加密分析</h1>
 <p class="subtitle">智能识别异动品种与横盘启动机会 · 每小时自动更新</p>
-<div class="update-time" id="updateTime">⏰ 07-14 04:11</div>
+<div class="update-time" id="updateTime">⏰ 加载中...</div>
 </header>
 
 <div class="top-coins" id="topCoins">
-<div class="loading">加载中...</div>
+<!-- SSR_DATA_TOP_COINS --><div class="loading">加载中...</div><!-- /SSR_DATA_TOP_COINS -->
 </div>
 
 <div class="section">
 <h2>📊 市场概览</h2>
 <div class="ov-grid" id="overview">
-<div class="loading">加载中...</div>
+<!-- SSR_DATA_OVERVIEW --><div class="loading">加载中...</div><!-- /SSR_DATA_OVERVIEW -->
 </div>
 </div>
 
 <div class="section">
 <h2>⚡ 异动品种 (24h涨跌 ≥ ±5%)</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volatileTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volatileTable"><!-- SSR_DATA_VOLATILE --><tr><td colspan="5" class="loading">加载中...</td></tr><!-- /SSR_DATA_VOLATILE --></tbody></table></div>
 </div>
 
 <div class="section">
 <h2>🕒 长期横盘启动关注（蓄势品种）</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>7d波动率</th><th>7d位置</th><th>24h涨跌</th></tr></thead><tbody id="sidewaysTable"><tr><td colspan="6" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>7d波动率</th><th>7d位置</th><th>24h涨跌</th></tr></thead><tbody id="sidewaysTable"><!-- SSR_DATA_SIDEWAYS --><tr><td colspan="6" class="loading">加载中...</td></tr><!-- /SSR_DATA_SIDEWAYS --></tbody></table></div>
 </div>
 
 <div class="section">
 <h2>🔥 成交量 Top 10</h2>
-<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volumeTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volumeTable"><!-- SSR_DATA_VOLUME --><tr><td colspan="5" class="loading">加载中...</td></tr><!-- /SSR_DATA_VOLUME --></tbody></table></div>
 </div>
 
 <div class="promo">
@@ -297,6 +297,7 @@ async function loadData() {
     updateEl.innerHTML = '⏰ 数据加载失败';
     const msg = '<div class="error">数据正在更新中，请稍后刷新</div>';
     document.getElementById('topCoins').innerHTML = msg;
+    document.getElementById('overview').innerHTML = msg;
     document.getElementById('volatileTable').innerHTML = `<tr><td colspan="5" class="error">更新中...</td></tr>`;
     document.getElementById('sidewaysTable').innerHTML = `<tr><td colspan="6" class="error">更新中...</td></tr>`;
     document.getElementById('volumeTable').innerHTML = `<tr><td colspan="5" class="error">更新中...</td></tr>`;
