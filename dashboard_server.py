@@ -112,7 +112,7 @@ class DashboardHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(json.dumps(response, ensure_ascii=False).encode('utf-8'))
 
     def log_message(self, format, *args):
-        if '/api/' in args[0]:
+        if args and isinstance(args[0], str) and '/api/' in args[0]:
             log(args[0])
 
     def handle_error(self, request, client_address):
