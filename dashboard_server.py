@@ -7,6 +7,7 @@ import sys
 import traceback
 import urllib.parse
 from datetime import datetime
+from socketserver import ThreadingMixIn
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ga4_data import get_all_sites_data, format_duration
@@ -119,13 +120,18 @@ class DashboardHandler(http.server.SimpleHTTPRequestHandler):
         log(f'ERROR from {client_address}: {traceback.format_exc()}')
 
 
+class ThreadingHTTPServer(ThreadingMixIn, http.server.HTTPServer):
+    """多线程HTTP服务器，避免单个请求阻塞整个服务。"""
+    daemon_threads = True
+
+
 def main():
     if is_port_in_use(PORT):
         log(f'端口 {PORT} 已被占用，请检查是否已有服务器在运行')
         log(f'尝试使用现有服务器: http://localhost:{PORT}/dashboard.html')
         sys.exit(1)
 
-    server = http.server.HTTPServer(('0.0.0.0', PORT), DashboardHandler)
+    server = ThreadingHTTPServer(('0.0.0.0', PORT), DashboardHandler)
     server.start_time = datetime.now()
 
     log('=' * 50)

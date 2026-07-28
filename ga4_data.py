@@ -11,6 +11,10 @@ import ssl
 from datetime import datetime, timedelta
 from typing import Dict, Any, Optional
 
+# 缓存：避免每次API请求都调用GA4，5分钟刷新一次
+_CACHE = {}
+_CACHE_TTL = 300  # 5分钟
+
 
 def _base64url_encode(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).rstrip(b'=').decode('ascii')
@@ -79,7 +83,7 @@ def _get_access_token_from_service_account(key_path: str, scopes: list) -> Optio
         return None
 
 
-def _https_post_with_retry(url: str, body: bytes, headers: dict = None, timeout: int = 30, max_retries: int = 3) -> Optional[bytes]:
+def _https_post_with_retry(url: str, body: bytes, headers: dict = None, timeout: int = 60, max_retries: int = 2) -> Optional[bytes]:
     """使用urllib发送HTTPS POST请求，自带重试。"""
     last_err = None
     if headers is None:
@@ -107,8 +111,8 @@ SITES = {
         'name': 'AI资讯新闻',
         'url': 'https://ai.link.cn',
         'host': 'ai.link.cn',
-        'ga4_id': 'G-2F2V94W35E',
-        'property_id': '545176332',
+        'ga4_id': 'G-RXRRTBXTJH',
+        'property_id': '547361127',
         'color': '#a855f7',
         'icon': '📰',
     },
@@ -116,8 +120,8 @@ SITES = {
         'name': '加密货币分析',
         'url': 'https://signal.link.cn',
         'host': 'signal.link.cn',
-        'ga4_id': 'G-2F2V94W35E',
-        'property_id': '545176332',
+        'ga4_id': 'G-C0PKBWYHSD',
+        'property_id': '547361127',
         'color': '#f97316',
         'icon': '₿',
     },
@@ -125,8 +129,8 @@ SITES = {
         'name': 'AI工具LTD',
         'url': 'https://tool.link.cn',
         'host': 'tool.link.cn',
-        'ga4_id': 'G-2F2V94W35E',
-        'property_id': '545176332',
+        'ga4_id': 'G-0RV8LQE4JB',
+        'property_id': '547361127',
         'color': '#06b6d4',
         'icon': '⚡',
     },
@@ -134,8 +138,8 @@ SITES = {
         'name': 'AI工具推荐',
         'url': 'https://tools.link.cn',
         'host': 'tools.link.cn',
-        'ga4_id': 'G-2F2V94W35E',
-        'property_id': '545176332',
+        'ga4_id': 'G-9GQB6S45PY',
+        'property_id': '547361127',
         'color': '#3b82f6',
         'icon': '🛠️',
     },
@@ -143,8 +147,8 @@ SITES = {
         'name': 'AI提示词市场',
         'url': 'https://prompts.link.cn',
         'host': 'prompts.link.cn',
-        'ga4_id': 'G-2F2V94W35E',
-        'property_id': '545176332',
+        'ga4_id': 'G-1BWZN3C49H',
+        'property_id': '547361127',
         'color': '#22c55e',
         'icon': '✍️',
     },
@@ -353,25 +357,83 @@ def fetch_ga4_data(credentials, site_id: str, days: int = 7) -> Optional[Dict[st
 
 
 def get_site_data(site_id: str, days: int = 7, credentials=None) -> Dict[str, Any]:
+    # 单站点也加缓存
+    cache_key = f'site_{site_id}_{days}'
+    cached = _CACHE.get(cache_key)
+    if cached and (time.time() - cached['ts']) < _CACHE_TTL:
+        return cached['data']
+
     if credentials:
-        real_data = fetch_ga4_data(credentials, site_id, days)
-        if real_data:
-            return real_data
-    
-    return generate_mock_data(site_id, days)
+        try:
+            real_data = fetch_ga4_data(credentials, site_id, days)
+            if real_data:
+                _CACHE[cache_key] = {'ts': time.time(), 'data': real_data}
+                return real_data
+        except Exception as e:
+            print(f'[GA4] {site_id} 获取失败，使用模拟数据: {e}')
+
+    mock = generate_mock_data(site_id, days)
+    _CACHE[cache_key] = {'ts': time.time(), 'data': mock}
+    return mock
+
+
+def _refresh_ga4_data_async(days: int = 7):
+    """后台线程：异步刷新GA4真实数据到缓存。"""
+    import threading
+    def _worker():
+        try:
+            print('[GA4-ASYNC] 开始后台刷新...')
+            credentials = get_ga4_client()
+            if not credentials:
+                print('[GA4-ASYNC] 令牌获取失败，跳过')
+                return
+            for site_id in SITES:
+                try:
+                    real_data = fetch_ga4_data(credentials, site_id, days)
+                    if real_data:
+                        cache_key = f'site_{site_id}_{days}'
+                        _CACHE[cache_key] = {'ts': time.time(), 'data': real_data}
+                        print(f'[GA4-ASYNC] {site_id} 数据已刷新: sessions={real_data["summary"]["sessions"]}')
+                except Exception as e:
+                    print(f'[GA4-ASYNC] {site_id} 刷新失败: {e}')
+            # 清除全站缓存，让下次请求重建
+            _CACHE.pop(f'all_sites_{days}', None)
+            print('[GA4-ASYNC] 后台刷新完成')
+        except Exception as e:
+            print(f'[GA4-ASYNC] 后台刷新异常: {e}')
+
+    t = threading.Thread(target=_worker, daemon=True)
+    t.start()
 
 
 def get_all_sites_data(days: int = 7) -> Dict[str, Any]:
+    # 检查缓存
+    cache_key = f'all_sites_{days}'
+    cached = _CACHE.get(cache_key)
+    if cached and (time.time() - cached['ts']) < _CACHE_TTL:
+        print(f'[CACHE] 使用缓存数据，{int(_CACHE_TTL - (time.time() - cached["ts"]))}s后过期')
+        return cached['data']
+
+    # 先用mock数据快速返回，同时后台异步刷新GA4真实数据
     sites_data = {}
     has_real_data = False
-    
-    credentials = get_ga4_client()
-    
+
+    # 检查各站点是否已有GA4真实数据缓存
     for site_id in SITES:
-        data = get_site_data(site_id, days, credentials)
-        sites_data[site_id] = data
-        if not data.get('is_mock', True):
-            has_real_data = True
+        site_cache_key = f'site_{site_id}_{days}'
+        site_cached = _CACHE.get(site_cache_key)
+        if site_cached and (time.time() - site_cached['ts']) < _CACHE_TTL:
+            sites_data[site_id] = site_cached['data']
+            if not site_cached['data'].get('is_mock', True):
+                has_real_data = True
+        else:
+            mock = generate_mock_data(site_id, days)
+            sites_data[site_id] = mock
+
+    # 如果没有真实数据，启动后台异步刷新
+    if not has_real_data:
+        print('[DASHBOARD] 首次加载，启动后台GA4数据刷新...')
+        _refresh_ga4_data_async(days)
     
     total_sessions = sum(d['summary']['sessions'] for d in sites_data.values())
     total_users = sum(d['summary']['users'] for d in sites_data.values())
@@ -391,11 +453,17 @@ def get_all_sites_data(days: int = 7) -> Dict[str, Any]:
         'has_real_data': has_real_data,
     }
     
-    return {
+    result = {
         'summary': summary,
         'sites': sites_data,
         'generated_at': datetime.now().isoformat(),
     }
+
+    # 写入缓存
+    _CACHE[cache_key] = {'ts': time.time(), 'data': result}
+    print(f'[CACHE] 数据已缓存，{_CACHE_TTL}s后过期')
+
+    return result
 
 
 def format_duration(seconds: int) -> str:
