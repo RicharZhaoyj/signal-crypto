@@ -40,17 +40,100 @@
 </script>
 <script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
-{"@type":"Question","name":"以太坊和比特币分析有什么不同？","acceptedAnswer":{"@type":"Answer","text":"以太坊分析除了关注价格技术指标外，还需关注DeFi TVL、Gas费用、网络升级(如EIP)、Layer2发展等以太坊生态特有因素。"}},
-{"@type":"Question","name":"ETH 2.0对价格有什么影响？","acceptedAnswer":{"@type":"Answer","text":"ETH 2.0引入了权益证明机制，减少了新增ETH的供应量，长期来看可能对价格产生积极影响，但也需关注质押解锁带来的抛压。"}}
-]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "以太坊和比特币有什么本质区别？哪个更值得投资？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BTC是『加密版黄金』，目标是价值存储+去中心化货币；ETH是『加密版AWS+纳斯达克』，目标是全球去中心化计算+资产发行平台。投资价值对比：1) BTC波动率更低、机构配置更成熟，适合压舱石；2) ETH生态活跃度更高（Defi/NFT/L2/Restaking），牛市弹性更大。建议配置比例：BTC占现货的50%，ETH占30%，两者长期都会跑赢绝大多数主动基金。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "以太坊坎昆升级、Dencun升级后对价格有什么影响？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "每次ETH重大升级短期（升级后1-4周）有『利好兑现卖事实』的回调压力，长期（3-12个月）因性能提升和生态爆发推动价格上涨。Dencun升级核心是Proto-Danksharding（Blob交易），L2手续费下降10-100倍，极大提升Optimism/Arbitrum/zkSync等L2生态活跃度，Layer2 TVL和交易量的上涨是ETH长期价值的重要催化剂。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ETH质押（Staking）值不值得参与？有哪些风险？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "非常值得参与！当前ETH质押年化收益率约3-4.5%（含执行层小费+MEV），风险极低：1) 技术风险：信标链上线3年多运行稳定，Slashing（罚没）概率极低；2) 流动性风险：上海升级后可随时解除质押（但需排队1-5天）；3) 币价风险：ETH本身波动，质押赚的是『币本位收益』，法币本位仍可能浮亏。适合长期持有ETH的投资者参与。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "怎么判断以太坊相对于比特币的强弱？ETH/BTC比率怎么用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ETH/BTC比率是加密市场『风险偏好风向标』：1) 比率上升：说明市场风险偏好高，小币种和Defi行情更活跃；2) 比率下降：市场避险情绪浓，资金回流BTC避险；3) 关键位：<0.05 BTC是ETH极度低估区，>0.08 BTC是高估区。实战用法：比率持续上升时配置更多ETH和小币种，持续下降时回BTC避险。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "以太坊Layer2是什么？OP、Arb、zkSync应该选哪个？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Layer2是ETH的扩容方案，继承ETH安全性但手续费低10-100倍。选择建议：1) 新手且资金量小：用Base（Coinbase生态，入门最友好）；2) Defi老玩家：Arbitrum（TVL最高，应用最全）；3) zk技术派：zkSync Era（ZK Rollup，技术最优）。不要把所有资金放一个L2，分散2-3个生态即可。"
+      }
+    }
+  ]
 }
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;line-height:1.7;padding:20px}.container{max-width:900px;margin:0 auto}header{padding:30px 0 20px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:30px}.breadcrumb{font-size:.85em;color:#888;margin-bottom:12px}.breadcrumb a{color:#667eea;text-decoration:none}.breadcrumb a:hover{text-decoration:underline}h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}.meta{color:#888;font-size:.9em}h2{font-size:1.4em;color:#fff;margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}h3{font-size:1.1em;color:#a8b1ff;margin:20px 0 10px}p{margin-bottom:14px;color:#ccc}ul,ol{margin:0 0 14px 22px;color:#ccc}li{margin-bottom:6px}.section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;margin-bottom:20px}.disclaimer{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:14px 18px;border-radius:8px;font-size:.85em;color:#bbb;margin-top:30px}footer{text-align:center;padding:30px 0;color:#555;font-size:.85em}footer a{color:#667eea;text-decoration:none}.nav-links{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}.nav-link{flex:1;min-width:200px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;text-decoration:none;color:#ccc;transition:border .2s}.nav-link:hover{border-color:#667eea}.nav-link-label{font-size:.75em;color:#888;display:block;margin-bottom:4px}.nav-link-title{color:#a8b1ff;font-weight:600}@media(max-width:600px){h1{font-size:1.5em}.section{padding:16px}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "评估以太坊基本面与投资时机",
+  "totalTime": "PT30M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "步骤1",
+      "text": "估值对比：计算ETH/BTC比率，与历史区间（0.04-0.1）对比，确定相对强弱和低估高估区。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "步骤2",
+      "text": "生态活跃度：查看Defi TVL、Layer2交易笔数、活跃地址、NFT交易量等数据，判断生态是否在成长。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "步骤3",
+      "text": "质押数据：关注质押总比例、激活队列长度、质押APY变化，判断长期持有者信心。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "步骤4",
+      "text": "升级周期：查看距离下一次重大硬分叉还有多久，提前1-3个月布局升级利好行情。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "步骤5",
+      "text": "技术面确认：ETH/USDT周线级别是否站稳20周均线，结合BTC大势判断当前行情阶段。"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="container">
@@ -130,6 +213,54 @@
 <li><strong>看Layer2增长</strong>：生态扩张预示未来空间</li>
 <li><strong>结合BTC周期</strong>：ETH通常跟随BTC走势，但弹性更大</li>
 </ol>
+</div>
+
+
+<div class="section" style="background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(236,72,153,.08));border:1px solid rgba(139,92,246,.25)">
+<h2 style="background:linear-gradient(90deg,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent">📚 延伸阅读 · 姊妹站点联动</h2>
+<p>以太坊是加密经济的操作系统，建议结合以下内容扩展认知：</p>
+<ul>
+<li><a href="/guide/btc-analysis.html" style="color:#c4b5fd;text-decoration:none;border-bottom:1px dashed rgba(196,181,253,.5)">比特币行情深度分析</a> → ETH无法独立走出BTC行情，务必看大盘</li>
+<li><a href="/guide/spot-strategy.html" style="color:#c4b5fd;text-decoration:none;border-bottom:1px dashed rgba(196,181,253,.5)">现货策略与仓位管理</a> → 以太坊现货+质押的配置方法</li>
+<li><a href="/guide/contract-trading.html" style="color:#c4b5fd;text-decoration:none;border-bottom:1px dashed rgba(196,181,253,.5)">合约交易入门与风控</a> → ETH合约波动大，务必先学风控</li>
+<li><a href="https://tools.link.cn/category/productivity" target="_blank" rel="noopener noreferrer" style="color:#c4b5fd;text-decoration:none;border-bottom:1px dashed rgba(196,181,253,.5)">AI效率工具推荐</a> → 用AI写合约/审计/数据监控效率翻倍</li>
+</ul>
+</div>
+
+<div class="section" id="faq-section" style="margin-top:26px">
+<h2>❓ 常见问题 FAQ</h2>
+<p style="margin-bottom:16px;color:#999">在本页找答案仍有疑问？欢迎到社群进一步交流。</p>
+
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+以太坊和比特币有什么本质区别？哪个更值得投资？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">BTC是『加密版黄金』，目标是价值存储+去中心化货币；ETH是『加密版AWS+纳斯达克』，目标是全球去中心化计算+资产发行平台。投资价值对比：1) BTC波动率更低、机构配置更成熟，适合压舱石；2) ETH生态活跃度更高（Defi/NFT/L2/Restaking），牛市弹性更大。建议配置比例：BTC占现货的50%，ETH占30%，两者长期都会跑赢绝大多数主动基金。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+以太坊坎昆升级、Dencun升级后对价格有什么影响？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">每次ETH重大升级短期（升级后1-4周）有『利好兑现卖事实』的回调压力，长期（3-12个月）因性能提升和生态爆发推动价格上涨。Dencun升级核心是Proto-Danksharding（Blob交易），L2手续费下降10-100倍，极大提升Optimism/Arbitrum/zkSync等L2生态活跃度，Layer2 TVL和交易量的上涨是ETH长期价值的重要催化剂。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+ETH质押（Staking）值不值得参与？有哪些风险？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">非常值得参与！当前ETH质押年化收益率约3-4.5%（含执行层小费+MEV），风险极低：1) 技术风险：信标链上线3年多运行稳定，Slashing（罚没）概率极低；2) 流动性风险：上海升级后可随时解除质押（但需排队1-5天）；3) 币价风险：ETH本身波动，质押赚的是『币本位收益』，法币本位仍可能浮亏。适合长期持有ETH的投资者参与。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+怎么判断以太坊相对于比特币的强弱？ETH/BTC比率怎么用？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">ETH/BTC比率是加密市场『风险偏好风向标』：1) 比率上升：说明市场风险偏好高，小币种和Defi行情更活跃；2) 比率下降：市场避险情绪浓，资金回流BTC避险；3) 关键位：<0.05 BTC是ETH极度低估区，>0.08 BTC是高估区。实战用法：比率持续上升时配置更多ETH和小币种，持续下降时回BTC避险。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+以太坊Layer2是什么？OP、Arb、zkSync应该选哪个？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">Layer2是ETH的扩容方案，继承ETH安全性但手续费低10-100倍。选择建议：1) 新手且资金量小：用Base（Coinbase生态，入门最友好）；2) Defi老玩家：Arbitrum（TVL最高，应用最全）；3) zk技术派：zkSync Era（ZK Rollup，技术最优）。不要把所有资金放一个L2，分散2-3个生态即可。</p>
+</div>
 </div>
 
 <div class="disclaimer">⚠️ 免责声明：本文为方法论分析，不构成投资建议。加密货币市场波动剧烈，投资有风险。</div>

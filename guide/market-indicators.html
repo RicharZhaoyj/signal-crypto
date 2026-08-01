@@ -40,17 +40,100 @@
 </script>
 <script type="application/ld+json">
 {
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
-{"@type":"Question","name":"加密货币市场最重要的指标有哪些？","acceptedAnswer":{"@type":"Answer","text":"关键指标包括恐惧贪婪指数、MVRV比率、活跃地址数、交易所流入流出量、稳定币市值等，这些指标帮助判断市场情绪和周期位置。"}},
-{"@type":"Question","name":"如何判断加密货币市场的牛熊周期？","acceptedAnswer":{"@type":"Answer","text":"可通过比特币减半周期、MVRV比率、200日移动平均线、恐惧贪婪指数等多个维度综合判断。历史上比特币约4年一个完整周期。"}}
-]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "加密货币市场最重要的指标有哪些？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "关键指标包括恐惧贪婪指数（情绪）、MVRV比率（估值）、活跃地址数（网络效应）、交易所净流入/流出（抛压）、稳定币市值/供给比（入场资金）、SOPR（盈亏卖出行为）、Pi Cycle顶（长周期见顶）等。新手建议先掌握恐惧贪婪+MVRV+交易所净流入三个核心指标，再逐步扩展。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "如何判断加密货币市场的牛熊周期？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可通过四大维度综合判断：1) 比特币减半周期：每减半后12-18个月进入牛市峰值；2) MVRV比率：>7为历史顶，<1为历史底；3) 200周移动平均线：跌破为长期抄底区；4) 恐惧贪婪指数：<25极度恐惧(抄底)，>85极度贪婪(逃顶)。建议至少3个指标同向时再大仓位操作。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MVRV比率和NUPL有什么区别？怎么配合使用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MVRV反映『当前市值相对所有持有人平均成本的倍率』，适合看长周期顶底；NUPL反映『当前全体持有人的平均浮盈比例』，更直观体现情绪。配合方式：MVRV<1且NUPL<0（绝对底部区）→ 重仓定投；MVRV>3.5且NUPL>0.5（过热区）→ 分批止盈。指标共振时信号更可靠。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "稳定币供给比为什么能预测牛市？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "稳定币（USDT/USDC）相当于加密市场的『场外准备金』。当稳定币总市值/BTC市值比值上升时，意味着增量资金在入场（法币→稳定币→BTC），是牛市启动的先行指标。比值在0.3以下时市场资金偏紧，0.5以上有增量牛市基础，配合交易所净流出指标确认效果更好。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "恐惧贪婪指数到了极端值就一定反转吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定！恐惧贪婪是情绪指标，不是精准计时器。极端值出现后可以持续2-4周才真正反转，极端贪婪时还会有『最后的疯狂上涨』。正确用法：1) 与MVRV、200日均线等基本面指标共振确认；2) 分批建仓/止盈，不要单指标梭哈；3) 周线级别信号比日线级别可靠3倍以上。"
+      }
+    }
+  ]
 }
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;line-height:1.7;padding:20px}.container{max-width:900px;margin:0 auto}header{padding:30px 0 20px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:30px}.breadcrumb{font-size:.85em;color:#888;margin-bottom:12px}.breadcrumb a{color:#667eea;text-decoration:none}.breadcrumb a:hover{text-decoration:underline}h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}.meta{color:#888;font-size:.9em}h2{font-size:1.4em;color:#fff;margin:32px 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}h3{font-size:1.1em;color:#a8b1ff;margin:20px 0 10px}p{margin-bottom:14px;color:#ccc}ul,ol{margin:0 0 14px 22px;color:#ccc}li{margin-bottom:6px}.section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;margin-bottom:20px}.disclaimer{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:14px 18px;border-radius:8px;font-size:.85em;color:#bbb;margin-top:30px}footer{text-align:center;padding:30px 0;color:#555;font-size:.85em}footer a{color:#667eea;text-decoration:none}.nav-links{display:flex;justify-content:space-between;gap:12px;margin-top:30px;flex-wrap:wrap}.nav-link{flex:1;min-width:200px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;text-decoration:none;color:#ccc;transition:border .2s}.nav-link:hover{border-color:#667eea}.nav-link-label{font-size:.75em;color:#888;display:block;margin-bottom:4px}.nav-link-title{color:#a8b1ff;font-weight:600}.indicator-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9em}.indicator-table th{background:rgba(255,255,255,.06);padding:10px;text-align:left;color:#999;font-weight:600}.indicator-table td{padding:10px;border-bottom:1px solid rgba(255,255,255,.05);color:#ccc}@media(max-width:600px){h1{font-size:1.5em}.section{padding:16px}.indicator-table{font-size:.8em}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "使用市场指标判断加密货币牛熊周期",
+  "totalTime": "PT30M",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "步骤1",
+      "text": "查看比特币MVRV比率：访问glassnode或替代数据平台，确认当前MVRV数值区间（<1底部区，1-3正常，>3.5过热）。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "步骤2",
+      "text": "查看恐惧贪婪指数：确认当前情绪位置（<25极度恐惧，>85极度贪婪），周线级别信号更可靠。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "步骤3",
+      "text": "检查交易所净流入数据：查看近7日BTC净流入/流出总和，持续大额净流出说明囤币党在吸筹。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "步骤4",
+      "text": "查看稳定币供给比：计算稳定币总市值/BTC市值比值，>0.5说明增量资金环境较好。"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "步骤5",
+      "text": "综合判断：至少3个指标同向时做出仓位决策，底部区加大定投频率，顶部区分批止盈。"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="container">
@@ -161,6 +244,54 @@
 <li><strong>LookIntoBitcoin</strong>：可视化图表丰富</li>
 <li><strong>alternative.me</strong>：恐惧贪婪指数</li>
 </ul>
+</div>
+
+
+<div class="section" style="background:linear-gradient(135deg,rgba(102,126,234,.08),rgba(118,75,162,.08));border:1px solid rgba(102,126,234,.25)">
+<h2 style="background:linear-gradient(90deg,#667eea,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">📚 延伸阅读 · 姊妹站点联动</h2>
+<p>掌握市场指标后，建议结合以下内容形成完整的交易系统：</p>
+<ul>
+<li><a href="/guide/spot-strategy.html" style="color:#a8b1ff;text-decoration:none;border-bottom:1px dashed rgba(168,177,255,.5)">现货策略与仓位管理指南</a> → 学会指标信号如何转化为实际买卖点位</li>
+<li><a href="/guide/contract-trading.html" style="color:#a8b1ff;text-decoration:none;border-bottom:1px dashed rgba(168,177,255,.5)">合约交易入门与风控</a> → 指标在合约高杠杆场景下的特殊用法</li>
+<li><a href="https://ai.link.cn/posts/crypto-investing-ai-tools-2026" target="_blank" rel="noopener noreferrer" style="color:#a8b1ff;text-decoration:none;border-bottom:1px dashed rgba(168,177,255,.5)">2026年AI加密投资工具盘点</a> → 用AI工具自动化监控这些核心指标</li>
+<li><a href="https://tools.link.cn/category/finance" target="_blank" rel="noopener noreferrer" style="color:#a8b1ff;text-decoration:none;border-bottom:1px dashed rgba(168,177,255,.5)">AI金融分析工具推荐</a> → 免费好用的行情分析和链上数据工具</li>
+</ul>
+</div>
+
+<div class="section" id="faq-section" style="margin-top:26px">
+<h2>❓ 常见问题 FAQ</h2>
+<p style="margin-bottom:16px;color:#999">在本页找答案仍有疑问？欢迎到社群进一步交流。</p>
+
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+加密货币市场最重要的指标有哪些？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">关键指标包括恐惧贪婪指数（情绪）、MVRV比率（估值）、活跃地址数（网络效应）、交易所净流入/流出（抛压）、稳定币市值/供给比（入场资金）、SOPR（盈亏卖出行为）、Pi Cycle顶（长周期见顶）等。新手建议先掌握恐惧贪婪+MVRV+交易所净流入三个核心指标，再逐步扩展。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+如何判断加密货币市场的牛熊周期？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">可通过四大维度综合判断：1) 比特币减半周期：每减半后12-18个月进入牛市峰值；2) MVRV比率：>7为历史顶，<1为历史底；3) 200周移动平均线：跌破为长期抄底区；4) 恐惧贪婪指数：<25极度恐惧(抄底)，>85极度贪婪(逃顶)。建议至少3个指标同向时再大仓位操作。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+MVRV比率和NUPL有什么区别？怎么配合使用？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">MVRV反映『当前市值相对所有持有人平均成本的倍率』，适合看长周期顶底；NUPL反映『当前全体持有人的平均浮盈比例』，更直观体现情绪。配合方式：MVRV<1且NUPL<0（绝对底部区）→ 重仓定投；MVRV>3.5且NUPL>0.5（过热区）→ 分批止盈。指标共振时信号更可靠。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+稳定币供给比为什么能预测牛市？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">稳定币（USDT/USDC）相当于加密市场的『场外准备金』。当稳定币总市值/BTC市值比值上升时，意味着增量资金在入场（法币→稳定币→BTC），是牛市启动的先行指标。比值在0.3以下时市场资金偏紧，0.5以上有增量牛市基础，配合交易所净流出指标确认效果更好。</p>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 22px;margin-bottom:14px">
+<h3 style="margin:0 0 10px 0;font-size:1.05em;color:#fff;padding-left:28px;position:relative">
+<span style="position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.8em;font-weight:700;display:flex;align-items:center;justify-content:center">Q</span>
+恐惧贪婪指数到了极端值就一定反转吗？</h3>
+<p style="margin:0;color:#ccc;padding-left:28px;line-height:1.75">不一定！恐惧贪婪是情绪指标，不是精准计时器。极端值出现后可以持续2-4周才真正反转，极端贪婪时还会有『最后的疯狂上涨』。正确用法：1) 与MVRV、200日均线等基本面指标共振确认；2) 分批建仓/止盈，不要单指标梭哈；3) 周线级别信号比日线级别可靠3倍以上。</p>
+</div>
 </div>
 
 <div class="disclaimer">⚠️ 免责声明：本文为指标解读，不构成投资建议。历史指标信号不保证未来有效。</div>
