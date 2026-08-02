@@ -2,13 +2,15 @@ import requests
 import json
 from datetime import datetime
 import time
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 STABLECOINS = ["USDC", "BUSD", "DAI", "TUSD", "FDUSD", "USDD", "GUSD", "USDP"]
 
 def fetch_okx_data():
     url = "https://www.okx.com/api/v5/market/tickers?instType=SPOT"
     try:
-        resp = requests.get(url, timeout=20)
+        resp = requests.get(url, timeout=20, verify=False)
         resp.raise_for_status()
     except Exception as e:
         print(f"Error fetching OKX data: {e}")
@@ -22,7 +24,7 @@ def fetch_7d_range(symbol):
     """拉取近7天日线，计算7d波动率和价格位置"""
     url = f"https://www.okx.com/api/v5/market/candles?instId={symbol}&bar=1D&limit=7"
     try:
-        resp = requests.get(url, timeout=15)
+        resp = requests.get(url, timeout=15, verify=False)
         resp.raise_for_status()
         data = resp.json()
         if data.get("code") != "0" or not data.get("data"):
