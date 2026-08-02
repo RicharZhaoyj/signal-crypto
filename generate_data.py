@@ -1,5 +1,6 @@
 import requests
 import json
+import re
 from datetime import datetime
 import time
 import urllib3
@@ -262,12 +263,19 @@ def inject_data_into_html(market_data):
 
         rendered = render_html(market_data)
 
-        html = html.replace('<!-- SSR_DATA_TOP_COINS --><div class="loading">加载中...</div><!-- /SSR_DATA_TOP_COINS -->', rendered["top_coins"])
-        html = html.replace('<!-- SSR_DATA_OVERVIEW --><div class="loading">加载中...</div><!-- /SSR_DATA_OVERVIEW -->', rendered["overview"])
-        html = html.replace('<!-- SSR_DATA_VOLATILE --><tr><td colspan="5" class="loading">加载中...</td></tr><!-- /SSR_DATA_VOLATILE -->', rendered["volatile"])
-        html = html.replace('<!-- SSR_DATA_SIDEWAYS --><tr><td colspan="6" class="loading">加载中...</td></tr><!-- /SSR_DATA_SIDEWAYS -->', rendered["sideways"])
-        html = html.replace('<!-- SSR_DATA_VOLUME --><tr><td colspan="5" class="loading">加载中...</td></tr><!-- /SSR_DATA_VOLUME -->', rendered["volume"])
-        html = html.replace('<div class="update-time" id="updateTime">⏰ 加载中...</div>', f'<div class="update-time" id="updateTime">{rendered["update_time"]}</div>')
+        # Use regex for flexible SSR_DATA replacement (handles wrapper divs between markers)
+        html = re.sub(r'<!-- SSR_DATA_TOP_COINS -->.*?<!-- /SSR_DATA_TOP_COINS -->',
+            f'<!-- SSR_DATA_TOP_COINS --><div class="top-coins" id="topCoins">{rendered["top_coins"]}</div><!-- /SSR_DATA_TOP_COINS -->', html, flags=re.DOTALL)
+        html = re.sub(r'<!-- SSR_DATA_OVERVIEW -->.*?<!-- /SSR_DATA_OVERVIEW -->',
+            f'<!-- SSR_DATA_OVERVIEW --><div class="ov-grid" id="overview">{rendered["overview"]}</div><!-- /SSR_DATA_OVERVIEW -->', html, flags=re.DOTALL)
+        html = re.sub(r'<!-- SSR_DATA_VOLATILE -->.*?<!-- /SSR_DATA_VOLATILE -->',
+            f'<!-- SSR_DATA_VOLATILE --><div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volatileTable">{rendered["volatile"]}</tbody></table></div><!-- /SSR_DATA_VOLATILE -->', html, flags=re.DOTALL)
+        html = re.sub(r'<!-- SSR_DATA_SIDEWAYS -->.*?<!-- /SSR_DATA_SIDEWAYS -->',
+            f'<!-- SSR_DATA_SIDEWAYS --><div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>7d波动率</th><th>7d位置</th><th>24h涨跌</th></tr></thead><tbody id="sidewaysTable">{rendered["sideways"]}</tbody></table></div><!-- /SSR_DATA_SIDEWAYS -->', html, flags=re.DOTALL)
+        html = re.sub(r'<!-- SSR_DATA_VOLUME -->.*?<!-- /SSR_DATA_VOLUME -->',
+            f'<!-- SSR_DATA_VOLUME --><div class="table-wrap"><table><thead><tr><th>#</th><th>币种</th><th>价格</th><th>24h涨跌</th><th>24h成交</th></tr></thead><tbody id="volumeTable">{rendered["volume"]}</tbody></table></div><!-- /SSR_DATA_VOLUME -->', html, flags=re.DOTALL)
+        html = re.sub(r'<div class="update-time" id="updateTime">.*?</div>',
+            f'<div class="update-time" id="updateTime">{rendered["update_time"]}</div>', html, flags=re.DOTALL)
 
         with open("index.html", "w", encoding="utf-8") as f:
             f.write(html)
