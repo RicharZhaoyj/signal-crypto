@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- 加密货币分析 网站地图 -->
+    <!-- 更新时间: 2026-08-02 -->
+    <!-- 共 2 个URL -->
+
     <url>
         <loc>https://signal.link.cn/</loc>
         <lastmod>2026-08-02</lastmod>
@@ -7,51 +15,9 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://signal.link.cn/tools</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/compare</loc>
+        <loc>https://signal.link.cn/sitemap.html</loc>
         <lastmod>2026-08-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/funding</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/guide/btc-analysis</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/guide/eth-analysis</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/guide/contract-trading</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/guide/spot-strategy</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://signal.link.cn/guide/market-indicators</loc>
-        <lastmod>2026-08-02</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
     </url>
 </urlset>
