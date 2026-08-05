@@ -97,6 +97,9 @@ def _https_post_with_retry(url: str, body: bytes, headers: dict = None, timeout:
                 method='POST',
             )
             ctx = ssl.create_default_context()
+            # 解决部分TLS服务器协商时UNEXPECTED_EOF错误
+            if hasattr(ssl, 'OP_LEGACY_SERVER_CONNECT'):
+                ctx.options |= ssl.OP_LEGACY_SERVER_CONNECT
             with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
                 return resp.read()
         except (urllib.error.URLError, ssl.SSLError, ConnectionError, TimeoutError) as e:
