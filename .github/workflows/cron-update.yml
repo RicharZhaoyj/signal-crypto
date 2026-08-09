@@ -27,11 +27,14 @@ jobs:
       - name: Generate latest data
         run: python generate_data.py
 
+      - name: Generate coin pages
+        run: python generate_coin_pages.py
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          git add index.html data.json
-          git diff --cached --quiet || git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M') [SSR]"
+
+          git add index.html data.json coin/ sitemap.xml coin_history.json
+          git diff --cached --quiet || git commit -m "Auto update: $(date '+%Y-%m-%d %H:%M') [SSR+Coin Pages]"
           git push

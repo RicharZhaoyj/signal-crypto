@@ -6,12 +6,14 @@
     {"src": "*.txt", "use": "@vercel/static"},
     {"src": "*.json", "use": "@vercel/static"},
     {"src": "guide/*.html", "use": "@vercel/static"},
+    {"src": "coin/*.html", "use": "@vercel/static"},
     {"src": "api/*.js", "use": "@vercel/node"}
   ],
   "rewrites": [
     { "source": "/tools", "destination": "/tools.html" },
     { "source": "/compare", "destination": "/compare.html" },
     { "source": "/funding", "destination": "/funding.html" },
+    { "source": "/coin/:symbol", "destination": "/coin/:symbol.html" },
     { "source": "/guide/btc-analysis", "destination": "/guide/btc-analysis.html" },
     { "source": "/guide/eth-analysis", "destination": "/guide/eth-analysis.html" },
     { "source": "/guide/contract-trading", "destination": "/guide/contract-trading.html" },
