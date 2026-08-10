@@ -56,6 +56,9 @@ tr:hover td{background:rgba(255,255,255,.03)}
 .sym{font-weight:500;color:#fff}
 .promo{background:linear-gradient(135deg,rgba(102,126,234,.12),rgba(118,75,162,.12));border:1px solid rgba(102,126,234,.2);border-radius:16px;padding:30px;margin-bottom:25px;text-align:center}
 .disclaimer{background:rgba(255,193,7,.08);border-left:3px solid #ffc107;padding:14px 18px;border-radius:8px;font-size:.85em;color:#bbb;margin-bottom:25px}
+.daily-links{display:flex;flex-direction:column;gap:8px;max-width:500px;margin:0 auto}
+.daily-link{display:block;padding:10px 16px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#a8b1ff;text-decoration:none;font-size:.88em;transition:background .2s}
+.daily-link:hover{background:rgba(102,126,234,.12);border-color:rgba(102,126,234,.3)}
 footer{text-align:center;padding:30px;color:#555;font-size:.8em}
 footer a{color:#667eea;text-decoration:none}
 .trade-btn{display:inline-block;padding:8px 18px;border-radius:20px;background:linear-gradient(90deg,#667eea,#764ba2);color:#fff;text-decoration:none;font-size:.8em;font-weight:600;margin-top:8px;transition:opacity .2s}
@@ -635,6 +638,17 @@ footer a{color:#667eea;text-decoration:none}
 </a>
 </div>
 </div>
+
+<!-- SSR_DAILY_REPORTS -->
+<div class="section" id="daily-reports">
+  <h2>📰 最近 7 天异动日报</h2>
+  <p style="color:#888;font-size:.85em;margin-bottom:18px">每日 0:00 自动生成前一日的市场异动快照，可点击查看历史行情</p>
+  <div class="daily-links">
+<a href="/daily/2026-08-10" class="daily-link">📅 2026-08-10 (周一) →</a>
+  </div>
+</div>
+
+<!-- /SSR_DAILY_REPORTS -->
 
 <div class="disclaimer"><strong>⚠️ 风险提示：</strong>本分析仅供参考，不构成投资建议。加密货币风险极高，仅用闲钱参与。</div>
 

@@ -484,12 +484,27 @@ def update_sitemap(coin_symbols):
     for sym in sorted(coin_symbols):
         xml += f"  <url>\n    <loc>{SITE_URL}/coin/{sym}</loc>\n    <lastmod>{now}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>0.7</priority>\n  </url>\n"
 
+    # 每日异动日报页面（从 daily_index.json 读取）
+    daily_count = 0
+    daily_index_path = os.path.join(BASE_DIR, "daily_index.json")
+    if os.path.exists(daily_index_path):
+        try:
+            with open(daily_index_path, "r", encoding="utf-8") as f:
+                daily_index = json.load(f)
+            xml += "\n  <!-- daily-pages-start -->\n"
+            for d in daily_index.get("dates", []):
+                xml += f"  <url>\n    <loc>{SITE_URL}/daily/{d['date']}</loc>\n    <lastmod>{now}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n"
+                daily_count += 1
+            xml += "  <!-- daily-pages-end -->\n"
+        except Exception as e:
+            print(f"读取 daily_index.json 失败: {e}")
+
     xml += '</urlset>\n'
 
     sitemap_path = os.path.join(BASE_DIR, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(xml)
-    print(f"sitemap.xml 已更新: {len(static_urls)} 固定 + {len(coin_symbols)} 币种 = {len(static_urls) + len(coin_symbols)} URL")
+    print(f"sitemap.xml 已更新: {len(static_urls)} 固定 + {len(coin_symbols)} 币种 + {daily_count} 日报 = {len(static_urls) + len(coin_symbols) + daily_count} URL")
 
 # ── IndexNow 提交 ──
 def submit_indexnow(urls):
