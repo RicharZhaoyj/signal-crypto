@@ -540,6 +540,10 @@ def update_sitemap_daily(dates):
 
         now = datetime.now().strftime("%Y-%m-%d")
         daily_block = "\n  <!-- daily-pages-start -->\n"
+        # 日报汇总页
+        daily_block += f"  <url>\n    <loc>{SITE_URL}/daily/</loc>\n    <lastmod>{now}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>\n"
+        # RSS Feed
+        daily_block += f"  <url>\n    <loc>{SITE_URL}/feed.xml</loc>\n    <lastmod>{now}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>\n"
         for d in sorted(dates):
             daily_block += f"  <url>\n    <loc>{SITE_URL}/daily/{d}</loc>\n    <lastmod>{now}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n"
         daily_block += "  <!-- daily-pages-end -->\n"
@@ -714,6 +718,146 @@ def generate_rss_feed():
     with open(feed_path, "w", encoding="utf-8") as f:
         f.write(rss)
     print(f"feed.xml 已生成: {len(dates)} 日报 + {len(coin_items)} 币种 = {len(dates) + len(coin_items)} 条")
+
+
+def generate_daily_index_page():
+    """生成 /daily/index.html 日报汇总页（hub page）"""
+    index = load_daily_index()
+    dates = index.get("dates", [])
+    if not dates:
+        print("无日报数据，跳过汇总页生成")
+        return
+
+    # 按日期倒序（最新在前）
+    dates_sorted = sorted(dates, key=lambda x: x["date"], reverse=True)
+
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    # 构建日报列表行
+    rows_html = ""
+    for d in dates_sorted:
+        date_obj = datetime.strptime(d["date"], "%Y-%m-%d")
+        weekday_cn = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"][date_obj.weekday()]
+        vol = d.get("volatile_count", 0)
+        side = d.get("sideways_count", 0)
+        top_sym = d.get("top_symbol", "")
+        top_chg = d.get("top_change", 0)
+        direction = "上涨" if top_chg >= 0 else "下跌"
+        chg_color = "#ff4d4f" if top_chg >= 0 else "#52c41a"
+
+        top_cell = ""
+        if top_sym:
+            top_cell = f'<a href="/coin/{top_sym}" style="color:{chg_color};text-decoration:none">{top_sym} {direction}{abs(top_chg):.2f}%</a>'
+
+        rows_html += f"""        <tr>
+          <td><a href="/daily/{d['date']}" style="color:#a8b1ff;text-decoration:none;font-weight:600">{d['date']}</a> <span style="color:#666;font-size:.85em">{weekday_cn}</span></td>
+          <td style="text-align:center">{vol}</td>
+          <td style="text-align:center">{side}</td>
+          <td>{top_cell}</td>
+        </tr>
+"""
+
+    # BreadcrumbList 结构化数据
+    breadcrumb_json = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首页", "item": f"{SITE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "每日异动日报", "item": f"{SITE_URL}/daily/"},
+        ]
+    }, ensure_ascii=False)
+
+    html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每日异动日报汇总 | Signal 加密货币分析</title>
+<meta name="description" content="Signal 加密货币每日异动日报汇总页，包含每日市场异动排行榜、横盘启动关注列表、成交量变化分析。每日 0:00 自动生成前一日的市场快照。">
+<meta name="keywords" content="加密货币日报,每日异动汇总,币圈日报,crypto daily report,异动排行榜,横盘启动">
+<link rel="canonical" href="{SITE_URL}/daily/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="每日异动日报汇总 | Signal 加密货币分析">
+<meta property="og:description" content="每日市场异动排行榜、横盘启动关注列表、成交量变化分析">
+<meta property="og:url" content="{SITE_URL}/daily/">
+<meta property="og:site_name" content="Signal">
+<link rel="alternate" type="application/rss+xml" title="Signal 异动日报 RSS" href="{SITE_URL}/feed.xml" />
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA4_ID}');
+</script>
+<script type="application/ld+json">{breadcrumb_json}</script>
+<style>
+*{{margin:0;padding:0;box-sizing:border-box}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;min-height:100vh;padding:20px}}
+.container{{max-width:1000px;margin:0 auto}}
+header{{text-align:center;padding:40px 20px 20px}}
+h1{{font-size:1.8em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}}
+.subtitle{{color:#aaa;font-size:.9em;margin-bottom:15px}}
+.breadcrumb{{color:#666;font-size:.82em;margin-bottom:20px}}
+.breadcrumb a{{color:#a8b1ff;text-decoration:none}}
+.section{{background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:25px;margin-bottom:25px}}
+h2{{font-size:1.3em;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}}
+.table-wrap{{overflow-x:auto}}
+table{{width:100%;border-collapse:collapse;font-size:.9em}}
+th{{background:rgba(255,255,255,.06);padding:10px 12px;text-align:left;font-weight:600;color:#999;font-size:.85em;white-space:nowrap}}
+td{{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04)}}
+tr:hover td{{background:rgba(102,126,234,.06)}}}
+.ref-links{{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}}
+.ref-btn{{display:inline-block;padding:10px 24px;border-radius:10px;text-decoration:none;font-size:.88em;font-weight:600}}
+.back-home{{display:inline-block;margin-top:20px;padding:10px 24px;background:rgba(102,126,234,.15);color:#a8b1ff;border-radius:10px;text-decoration:none;font-size:.88em}}
+.disclaimer{{color:#666;font-size:.8em;text-align:center;margin:20px 0;padding:0 20px}}
+.update-info{{color:#666;font-size:.8em;text-align:center;margin-bottom:15px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>📰 每日异动日报汇总</h1>
+<p class="subtitle">每日 0:00 自动生成前一日加密货币市场异动快照 · 数据来源 OKX</p>
+<div class="breadcrumb"><a href="/">首页</a> / 每日异动日报</div>
+</header>
+
+<div class="section">
+<h2>📅 历史日报列表（共 {len(dates_sorted)} 篇）</h2>
+<p class="update-info">最后更新: {now_str} (北京时间)</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>日期</th><th style="text-align:center">异动数</th><th style="text-align:center">横盘数</th><th>最大异动</th></tr>
+</thead>
+<tbody>
+{rows_html}</tbody>
+</table>
+</div>
+</div>
+
+<div class="section">
+<h2>🏦 交易所注册（返佣支持本站运营）</h2>
+<div class="ref-links">
+<a href="{OKX_REF}" target="_blank" class="ref-btn" style="background:rgba(0,0,0,.3);color:#fff">OKX 注册</a>
+<a href="{BITGET_REF}" target="_blank" class="ref-btn" style="background:rgba(0,195,255,.15);color:#00c3ff">Bitget 注册</a>
+<a href="{BINANCE_REF}" target="_blank" class="ref-btn" style="background:rgba(243,186,26,.15);color:#f3ba1a">Binance 注册</a>
+</div>
+</div>
+
+<div style="text-align:center">
+<a href="/" class="back-home">← 返回首页</a>
+<a href="/feed.xml" class="back-home" style="margin-left:10px">📡 RSS 订阅</a>
+</div>
+
+<div class="disclaimer"><strong>⚠️ 风险提示：</strong>本分析仅供参考，不构成投资建议。加密货币风险极高，仅用闲钱参与。</div>
+</div>
+</body>
+</html>"""
+
+    index_path = os.path.join(DAILY_DIR, "index.html")
+    with open(index_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"/daily/index.html 已生成: {len(dates_sorted)} 篇日报")
 
 
 def update_homepage_recent_section(dates):

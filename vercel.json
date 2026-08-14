@@ -15,6 +15,8 @@
     { "source": "/compare", "destination": "/compare.html" },
     { "source": "/funding", "destination": "/funding.html" },
     { "source": "/coin/:symbol", "destination": "/coin/:symbol.html" },
+    { "source": "/daily", "destination": "/daily/index.html" },
+    { "source": "/daily/", "destination": "/daily/index.html" },
     { "source": "/daily/:date", "destination": "/daily/:date.html" },
     { "source": "/guide/btc-analysis", "destination": "/guide/btc-analysis.html" },
     { "source": "/guide/eth-analysis", "destination": "/guide/eth-analysis.html" },
