@@ -805,7 +805,7 @@ h2{{font-size:1.3em;margin-bottom:18px;padding-bottom:10px;border-bottom:1px sol
 table{{width:100%;border-collapse:collapse;font-size:.9em}}
 th{{background:rgba(255,255,255,.06);padding:10px 12px;text-align:left;font-weight:600;color:#999;font-size:.85em;white-space:nowrap}}
 td{{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04)}}
-tr:hover td{{background:rgba(102,126,234,.06)}}}
+tr:hover td{{background:rgba(102,126,234,.06)}}
 .ref-links{{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}}
 .ref-btn{{display:inline-block;padding:10px 24px;border-radius:10px;text-decoration:none;font-size:.88em;font-weight:600}}
 .back-home{{display:inline-block;margin-top:20px;padding:10px 24px;background:rgba(102,126,234,.15);color:#a8b1ff;border-radius:10px;text-decoration:none;font-size:.88em}}
@@ -993,6 +993,7 @@ def backfill_missing_days(days=7):
         all_final = sorted(existing_dates)
         update_sitemap_daily(all_final)
         update_homepage_recent_section(all_final)
+        generate_daily_index_page()
         generate_rss_feed()
         submit_indexnow([f"{SITE_URL}/daily/{d}" for d in generated])
     else:
@@ -1047,6 +1048,7 @@ def main():
     final_dates = [d for d in all_dates if d not in removed]
     update_sitemap_daily(final_dates)
     update_homepage_recent_section(final_dates)
+    generate_daily_index_page()
     generate_rss_feed()
     submit_indexnow([f"{SITE_URL}/daily/{target_date}"])
     ping_google_sitemap()
