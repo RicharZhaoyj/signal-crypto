@@ -37,6 +37,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add index.html data.json coin/ sitemap.xml coin_history.json daily/ daily_index.json
+          git add index.html data.json coin/ sitemap.xml coin_history.json daily/ daily_index.json feed.xml daily_data/
           git diff --cached --quiet || git commit -m "Daily report: $(date -u -d '+8 hours' '+%Y-%m-%d') [Daily Page]"
           git push

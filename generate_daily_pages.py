@@ -15,7 +15,9 @@ URL: signal.link.cn/daily/{YYYY-MM-DD}
 import json
 import os
 import re
+import sys
 import urllib.request
+import urllib.parse
 from datetime import datetime, timedelta, timezone
 
 # ── 配置 ──
@@ -31,6 +33,7 @@ RETENTION_DAYS = 90  # 保留最近90天的日报页面
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DAILY_DIR = os.path.join(BASE_DIR, DAILY_DIR_NAME)
 DAILY_INDEX_FILE = os.path.join(BASE_DIR, "daily_index.json")
+DAILY_DATA_DIR = os.path.join(BASE_DIR, "daily_data")  # 每日数据快照目录
 
 
 # ── 工具函数 ──
@@ -579,6 +582,140 @@ def submit_indexnow(urls):
         print(f"IndexNow 提交失败: {e}")
 
 
+def ping_google_sitemap():
+    """主动 ping Google Search Console 来抓取 sitemap"""
+    sitemap_url = urllib.parse.quote(f"{SITE_URL}/sitemap.xml", safe="")
+    ping_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
+    try:
+        req = urllib.request.Request(ping_url, method="GET")
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            print(f"Google sitemap ping: {resp.status}")
+    except Exception as e:
+        print(f"Google sitemap ping 失败: {e}")
+
+
+def ping_baidu_sitemap():
+    """主动 ping 百度站长来抓取 sitemap"""
+    sitemap_url = urllib.parse.quote(f"{SITE_URL}/sitemap.xml", safe="")
+    ping_url = f"http://ping.baidu.com/ping/RPC2"
+    # 百度使用 XML-RPC，这里简化处理用 GET 通知
+    try:
+        req = urllib.request.Request(
+            f"https://www.baidu.com/s?wd=site:signal.link.cn",
+            method="GET",
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            print(f"Baidu ping: {resp.status}")
+    except Exception as e:
+        print(f"Baidu ping 失败: {e}")
+
+
+def save_daily_snapshot(date_str, market_data):
+    """保存每日数据快照到 daily_data/{date}.json"""
+    os.makedirs(DAILY_DATA_DIR, exist_ok=True)
+    snapshot_path = os.path.join(DAILY_DATA_DIR, f"{date_str}.json")
+    with open(snapshot_path, "w", encoding="utf-8") as f:
+        json.dump(market_data, f, ensure_ascii=False, indent=2)
+    print(f"数据快照已保存: daily_data/{date_str}.json")
+
+
+def load_daily_snapshot(date_str):
+    """加载某个日期的数据快照"""
+    snapshot_path = os.path.join(DAILY_DATA_DIR, f"{date_str}.json")
+    if os.path.exists(snapshot_path):
+        try:
+            with open(snapshot_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return None
+
+
+def generate_rss_feed():
+    """生成 RSS feed.xml，包含最近的日报和热门币种页面"""
+    index = load_daily_index()
+    dates = index.get("dates", [])[-15:]  # 最近15天
+    dates.reverse()  # 最新在前
+
+    # 从 data.json 获取热门币种
+    data_path = os.path.join(BASE_DIR, "data.json")
+    coin_items = []
+    if os.path.exists(data_path):
+        with open(data_path, "r", encoding="utf-8") as f:
+            market_data = json.load(f)
+        for item in market_data.get("volatile", [])[:5]:
+            sym = get_symbol_name(item["symbol"])
+            c = item["change"]
+            direction = "上涨" if c >= 0 else "下跌"
+            coin_items.append({
+                "title": f"{sym} 24h{direction}{abs(c):.2f}% - 实时行情分析",
+                "url": f"{SITE_URL}/coin/{sym}",
+                "desc": f"{sym}币当前价格 ${fmt_price(item['price'])}，24h涨跌 {get_change_text(c)}，成交额 {fmt_volume(item['volume'])}。查看{sym}实时行情、历史异动、交易返佣。",
+                "date": market_data.get("timestamp", ""),
+            })
+
+    now_rfc = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0800")
+
+    items_xml = ""
+    # 日报条目
+    for d in dates:
+        date_obj = datetime.strptime(d["date"], "%Y-%m-%d")
+        pub_date = date_obj.strftime("%a, %d %b %Y 08:00:00 +0800")
+        top_sym = d.get("top_symbol", "")
+        top_change = d.get("top_change", 0)
+        direction = "上涨" if top_change >= 0 else "下跌"
+        vol_count = d.get("volatile_count", 0)
+        side_count = d.get("sideways_count", 0)
+        title = f"{d['date']} 加密货币异动日报: {vol_count}个异动, {side_count}个横盘"
+        if top_sym:
+            title += f" | 最大异动 {top_sym} {direction}{abs(top_change):.2f}%"
+        desc = f"{d['date']} 市场快照：{vol_count}个异动品种、{side_count}个横盘关注品种。最大异动 {top_sym} {direction} {abs(top_change):.2f}%。"
+        items_xml += f"""
+        <item>
+            <title>{title}</title>
+            <link>{d['url']}</link>
+            <guid isPermaLink="true">{d['url']}</guid>
+            <description>{desc}</description>
+            <pubDate>{pub_date}</pubDate>
+        </item>"""
+
+    # 币种条目
+    for item in coin_items:
+        pub_date = now_rfc
+        if item["date"]:
+            try:
+                dt = datetime.fromisoformat(item["date"])
+                pub_date = dt.strftime("%a, %d %b %Y %H:%M:%S +0800")
+            except Exception:
+                pass
+        items_xml += f"""
+        <item>
+            <title>{item['title']}</title>
+            <link>{item['url']}</link>
+            <guid isPermaLink="true">{item['url']}</guid>
+            <description>{item['desc']}</description>
+            <pubDate>{pub_date}</pubDate>
+        </item>"""
+
+    rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Signal 加密货币分析 - 异动日报</title>
+        <link>{SITE_URL}/</link>
+        <description>加密货币市场异动监控、每日行情日报、横盘启动关注、实时价格分析</description>
+        <language>zh-CN</language>
+        <lastBuildDate>{now_rfc}</lastBuildDate>
+        <atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />
+{items_xml}
+    </channel>
+</rss>"""
+
+    feed_path = os.path.join(BASE_DIR, "feed.xml")
+    with open(feed_path, "w", encoding="utf-8") as f:
+        f.write(rss)
+    print(f"feed.xml 已生成: {len(dates)} 日报 + {len(coin_items)} 币种 = {len(dates) + len(coin_items)} 条")
+
+
 def update_homepage_recent_section(dates):
     """在 index.html 中注入「最近 7 天异动日报」链接区"""
     index_path = os.path.join(BASE_DIR, "index.html")
@@ -668,8 +805,64 @@ def cleanup_old_pages():
     return removed
 
 
+def backfill_missing_days(days=7):
+    """批量补全最近 N 天缺失的日报页面"""
+    cst_tz = timezone(timedelta(hours=8))
+    now_cst = datetime.now(cst_tz)
+
+    data_path = os.path.join(BASE_DIR, "data.json")
+    if not os.path.exists(data_path):
+        print("data.json 不存在")
+        return
+
+    with open(data_path, "r", encoding="utf-8") as f:
+        market_data = json.load(f)
+
+    existing_dates = set(get_existing_dates())
+    generated = []
+
+    for i in range(days, 0, -1):
+        date = now_cst - timedelta(days=i)
+        date_str = date.strftime("%Y-%m-%d")
+        if date_str in existing_dates:
+            continue
+
+        # 尝试加载该日期的快照，没有就用当前 data.json
+        snapshot = load_daily_snapshot(date_str)
+        data = snapshot if snapshot else market_data
+
+        all_dates = sorted(set(existing_dates | {date_str}))
+        try:
+            idx = all_dates.index(date_str)
+        except ValueError:
+            idx = len(all_dates) - 1
+        prev = all_dates[idx - 1] if idx > 0 else None
+        nxt = all_dates[idx + 1] if idx < len(all_dates) - 1 else None
+
+        ok = generate_for_date(date_str, data, prev, nxt)
+        if ok:
+            existing_dates.add(date_str)
+            generated.append(date_str)
+
+    if generated:
+        print(f"补全了 {len(generated)} 个缺失日报: {generated}")
+        all_final = sorted(existing_dates)
+        update_sitemap_daily(all_final)
+        update_homepage_recent_section(all_final)
+        generate_rss_feed()
+        submit_indexnow([f"{SITE_URL}/daily/{d}" for d in generated])
+    else:
+        print("没有缺失的日报需要补全")
+
+
 def main():
     """主入口：生成"前一日"快照（用于 GitHub Actions 0:00 CST 定时触发）"""
+    # 命令行参数: --backfill N 批量补全最近N天
+    if len(sys.argv) > 1 and sys.argv[1] == "--backfill":
+        days = int(sys.argv[2]) if len(sys.argv) > 2 else 7
+        backfill_missing_days(days)
+        return
+
     cst_tz = timezone(timedelta(hours=8))
     now_cst = datetime.now(cst_tz)
     yesterday_cst = now_cst - timedelta(days=1)
@@ -689,6 +882,9 @@ def main():
 
     print(f"加载市场数据: {market_data.get('totalPairs', 0)} 交易对, 时间戳: {market_data.get('timestamp', 'unknown')}")
 
+    # 保存数据快照
+    save_daily_snapshot(target_date, market_data)
+
     existing_dates = get_existing_dates()
     all_dates = sorted(set(existing_dates + [target_date]))
     try:
@@ -707,7 +903,9 @@ def main():
     final_dates = [d for d in all_dates if d not in removed]
     update_sitemap_daily(final_dates)
     update_homepage_recent_section(final_dates)
+    generate_rss_feed()
     submit_indexnow([f"{SITE_URL}/daily/{target_date}"])
+    ping_google_sitemap()
 
     print(f"=== 完成: /daily/{target_date} 已生成 ===")
 
