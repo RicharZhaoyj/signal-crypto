@@ -511,33 +511,34 @@ def update_sitemap(coin_symbols):
 
 # ── IndexNow 提交 ──
 def submit_indexnow(urls):
-    """通过IndexNow协议提交URL到Bing/Yandex"""
+    """通过IndexNow协议提交URL（直连Bing/Naver，聚合端点会403）"""
     if not urls:
         return
-
-    payload = {
-        "host": "signal.link.cn",
-        "key": INDEXNOW_KEY,
-        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
-        "urlList": urls[:200]  # IndexNow限制每次200个URL
-    }
 
     # 写入key验证文件
     key_file = os.path.join(BASE_DIR, f"{INDEXNOW_KEY}.txt")
     with open(key_file, "w") as f:
         f.write(INDEXNOW_KEY)
 
-    try:
-        req = urllib.request.Request(
-            "https://api.indexnow.org/IndexNow",
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            print(f"IndexNow 提交: {resp.status} ({len(urls[:200])} URLs)")
-    except Exception as e:
-        print(f"IndexNow 提交失败: {e}")
+    targets = urls[:20]  # 只提交最新URL，避免触发限流
+    for engine in ("https://www.bing.com/indexnow", "https://searchadvisor.naver.com/indexnow"):
+        success = 0
+        for url in targets:
+            try:
+                req = urllib.request.Request(
+                    f"{engine}?url={urllib.parse.quote(url, safe='')}&key={INDEXNOW_KEY}",
+                    method="GET",
+                )
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    if resp.status in (200, 202):
+                        success += 1
+            except Exception:
+                pass
+            time.sleep(0.3)
+        if success:
+            print(f"IndexNow [{engine.split('/')[2]}]: {success}/{len(targets)} 提交成功")
+        else:
+            print(f"IndexNow [{engine.split('/')[2]}]: 提交失败（可能被限流）")
 
 # ── 主流程 ──
 def main():
