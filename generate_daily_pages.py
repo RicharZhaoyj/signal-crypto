@@ -558,7 +558,7 @@ def update_sitemap_daily(dates):
 
 
 def submit_indexnow(urls):
-    """通过 IndexNow 协议提交 URL（直连各搜索引擎，聚合端点会 403）"""
+    """通过 IndexNow 协议提交 URL（直连各搜索引擎；只提交新增 URL，避免触发限流）"""
     if not urls:
         return
 
@@ -566,10 +566,12 @@ def submit_indexnow(urls):
     with open(key_file, "w") as f:
         f.write(INDEXNOW_KEY)
 
+    import time
+    targets = urls[:30]  # IndexNow 有频率限制，只提交最新的少量 URL
     ok_count = 0
     for engine in ("https://www.bing.com/indexnow", "https://searchadvisor.naver.com/indexnow"):
         success = 0
-        for url in urls[:100]:  # IndexNow GET 单条提交，限制总量
+        for url in targets:
             try:
                 req = urllib.request.Request(
                     f"{engine}?url={urllib.parse.quote(url, safe='')}&key={INDEXNOW_KEY}",
@@ -580,9 +582,12 @@ def submit_indexnow(urls):
                         success += 1
             except Exception:
                 pass
+            time.sleep(0.3)  # 避免触发搜索引擎限流
         if success:
             ok_count += 1
-            print(f"IndexNow [{engine.split('/')[2]}]: {success}/{min(len(urls), 100)} 提交成功")
+            print(f"IndexNow [{engine.split('/')[2]}]: {success}/{len(targets)} 提交成功")
+        else:
+            print(f"IndexNow [{engine.split('/')[2]}]: 提交失败（可能被限流，次日自动恢复）")
     if not ok_count:
         print("IndexNow 提交全部失败")
 

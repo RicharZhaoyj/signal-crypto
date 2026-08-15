@@ -472,6 +472,9 @@ def update_sitemap(coin_symbols):
         (f"{SITE_URL}/guide/spot-strategy.html", "0.8", "weekly"),
         (f"{SITE_URL}/guide/contract-trading.html", "0.8", "weekly"),
         (f"{SITE_URL}/guide/market-indicators.html", "0.8", "weekly"),
+        (f"{SITE_URL}/guide/okx-rebate.html", "0.9", "weekly"),
+        (f"{SITE_URL}/guide/bitget-rebate.html", "0.9", "weekly"),
+        (f"{SITE_URL}/guide/meme-coin.html", "0.9", "weekly"),
     ]
 
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
