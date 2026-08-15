@@ -558,32 +558,33 @@ def update_sitemap_daily(dates):
 
 
 def submit_indexnow(urls):
-    """通过 IndexNow 协议提交 URL"""
+    """通过 IndexNow 协议提交 URL（直连各搜索引擎，聚合端点会 403）"""
     if not urls:
         return
-
-    payload = {
-        "host": "signal.link.cn",
-        "key": INDEXNOW_KEY,
-        "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
-        "urlList": urls[:200]
-    }
 
     key_file = os.path.join(BASE_DIR, f"{INDEXNOW_KEY}.txt")
     with open(key_file, "w") as f:
         f.write(INDEXNOW_KEY)
 
-    try:
-        req = urllib.request.Request(
-            "https://api.indexnow.org/IndexNow",
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
-            method="POST",
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            print(f"IndexNow 提交: {resp.status} ({len(urls)} URLs)")
-    except Exception as e:
-        print(f"IndexNow 提交失败: {e}")
+    ok_count = 0
+    for engine in ("https://www.bing.com/indexnow", "https://searchadvisor.naver.com/indexnow"):
+        success = 0
+        for url in urls[:100]:  # IndexNow GET 单条提交，限制总量
+            try:
+                req = urllib.request.Request(
+                    f"{engine}?url={urllib.parse.quote(url, safe='')}&key={INDEXNOW_KEY}",
+                    method="GET",
+                )
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    if resp.status in (200, 202):
+                        success += 1
+            except Exception:
+                pass
+        if success:
+            ok_count += 1
+            print(f"IndexNow [{engine.split('/')[2]}]: {success}/{min(len(urls), 100)} 提交成功")
+    if not ok_count:
+        print("IndexNow 提交全部失败")
 
 
 def ping_google_sitemap():
