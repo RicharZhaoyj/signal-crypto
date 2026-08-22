@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>市场看板 · Signal 加密货币行情</title>
+<meta name="description" content="Signal 市场看板：用市场宽度、主流币表现、异动榜和成交量观察当前加密货币市场状态。">
+<meta name="keywords" content="加密货币市场看板,比特币行情,市场宽度,异动榜,成交量排行">
+<link rel="canonical" href="https://signal.link.cn/market-board">
+<meta property="og:type" content="website">
+<meta property="og:title" content="市场看板 · Signal 加密货币行情">
+<meta property="og:description" content="用数据看市场：市场宽度、主流币表现、异动榜和风险观察。">
+<meta property="og:url" content="https://signal.link.cn/market-board">
+<meta property="og:image" content="https://signal.link.cn/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="市场看板 · Signal">
+<meta name="twitter:description" content="用数据看市场：市场宽度、主流币表现、异动榜和风险观察。">
+<meta name="twitter:image" content="https://signal.link.cn/og-image.jpg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C0PKBWYHSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C0PKBWYHSD');
+  function trackSignalEvent(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+  document.addEventListener('click', function(event) {
+    const link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    let destination = '';
+    if (href.indexOf('kxmqpwrlvjt.com') !== -1) destination = 'okx';
+    else if (href.indexOf('partner.bitget.cafe') !== -1) destination = 'bitget';
+    else if (href.indexOf('bsmkweb.cc') !== -1) destination = 'binance';
+    if (destination) trackSignalEvent('affiliate_click', {site: 'signal', destination: destination, placement: 'market_board'});
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Signal 市场看板",
+  "url":"https://signal.link.cn/market-board",
+  "description":"用市场宽度、主流币表现、异动榜和成交量观察当前加密货币市场状态。",
+  "isPartOf":{"@type":"WebSite","name":"Signal","url":"https://signal.link.cn"},
+  "inLanguage":"zh-CN"
+}
+</script>
+<style>
+:root{
+  --bg:#080d18;--panel:#101827;--panel2:#151f32;--line:#22324d;--text:#eef4ff;
+  --muted:#8492ad;--cyan:#1dd6f3;--gold:#f4c84a;--up:#45e6a2;--down:#ff7d8a;--blue:#58a6ff;
+  --shadow:0 18px 50px rgba(0,0,0,.22)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",Arial,sans-serif;background:radial-gradient(circle at 50% -10%,rgba(18,76,112,.28),transparent 38%),var(--bg);color:var(--text);min-height:100vh;padding:18px}
+a{color:inherit}
+.board-shell{max-width:1540px;margin:0 auto}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 4px 18px;border-bottom:1px solid rgba(68,103,144,.28);flex-wrap:wrap}
+.nav-links,.nav-siblings{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:.86rem;transition:color .2s}
+.nav a:hover,.nav a.active{color:var(--cyan)}
+.nav .brand{font-weight:800;color:var(--text);letter-spacing:.02em}
+.masthead{position:relative;overflow:hidden;margin:18px 0 12px;padding:30px 28px 34px;border:1px solid rgba(72,108,151,.45);border-radius:12px;background:linear-gradient(120deg,rgba(15,29,50,.98),rgba(12,18,33,.98));box-shadow:var(--shadow);text-align:center}
+.masthead:after{content:"";position:absolute;width:260px;height:260px;right:3%;top:-115px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(29,214,243,.35),transparent 58%);filter:blur(4px);pointer-events:none}
+.eyebrow{position:relative;z-index:1;display:inline-block;padding:8px 20px;border:1px solid rgba(29,214,243,.42);border-radius:6px;color:var(--cyan);font-size:1.05rem;font-weight:700;letter-spacing:.08em;background:rgba(13,47,64,.5)}
+.masthead h1{position:relative;z-index:1;margin:22px 0 8px;font-size:clamp(2rem,4vw,3.75rem);letter-spacing:-.04em;color:var(--gold);line-height:1.12}
+.masthead p{position:relative;z-index:1;color:#9aaacc;font-size:clamp(.9rem,1.5vw,1.2rem)}
+.data-status{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--muted);font-size:.82rem}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 12px var(--up)}
+.board-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.panel{min-width:0;padding:18px;border:1px solid rgba(72,108,151,.42);border-radius:11px;background:linear-gradient(145deg,rgba(16,24,39,.98),rgba(11,18,31,.98));box-shadow:var(--shadow)}
+.panel.wide{grid-column:1/-1}
+.panel-heading{display:flex;align-items:center;gap:12px;padding-bottom:13px;margin-bottom:14px;border-bottom:1px solid rgba(75,105,141,.3)}
+.panel-number{display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:32px;border:1px solid rgba(29,214,243,.42);border-radius:20px;color:var(--cyan);font-size:.9rem;font-weight:800;background:rgba(19,69,87,.36)}
+.panel-heading h2{font-size:1.12rem;letter-spacing:.02em;color:#edf3ff}
+.metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.metric{padding:18px 14px;text-align:center;border:1px solid rgba(61,87,123,.35);border-radius:9px;background:var(--panel2)}
+.metric-label{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+.metric-value{font-size:clamp(1.65rem,3vw,2.45rem);font-weight:800;line-height:1.05;color:var(--gold);font-variant-numeric:tabular-nums}
+.metric-value.up{color:var(--up)}.metric-value.down{color:var(--down)}.metric-value.cyan{color:var(--cyan)}
+.metric-note{margin-top:7px;color:var(--muted);font-size:.73rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tag{padding:7px 11px;border:1px solid rgba(47,105,164,.55);border-radius:5px;color:#74b7ff;background:rgba(20,56,100,.3);font-size:.78rem}
+.risk-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.risk-card{display:flex;flex-direction:column;justify-content:space-between;min-height:128px;padding:15px;border-radius:9px;background:var(--panel2);border:1px solid rgba(61,87,123,.35)}
+.risk-icon{font-size:1.55rem;margin-bottom:10px}.risk-title{font-size:.84rem;font-weight:700}.risk-value{margin-top:8px;color:var(--gold);font-weight:800;font-size:1.05rem;line-height:1.25}.risk-note{margin-top:5px;color:var(--muted);font-size:.72rem}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:center}
+.flow-card{position:relative;padding:16px 15px;text-align:center;border:1px solid rgba(29,214,243,.34);border-radius:8px;background:rgba(13,36,59,.55)}
+.flow-card:not(:last-child):after{content:"→";position:absolute;right:-22px;top:50%;transform:translateY(-50%);color:var(--cyan);font-size:1.45rem;font-weight:800;z-index:2}
+.flow-card strong{display:block;color:var(--cyan);font-size:1rem}.flow-card span{display:block;color:var(--muted);font-size:.75rem;margin-top:6px}
+.leader-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.leader{padding:15px;border-radius:9px;background:var(--panel2);border:1px solid rgba(61,87,123,.35)}
+.leader-symbol{font-weight:800;color:#f4f8ff}.leader-price{margin:10px 0 4px;color:#fff;font-size:1.25rem;font-weight:800;font-variant-numeric:tabular-nums}.leader-change{font-size:.9rem;font-weight:800}.leader-meta{margin-top:6px;color:var(--muted);font-size:.72rem}
+.breadth{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}
+.breadth-bar{display:flex;height:24px;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:6px;background:#1a263a}.breadth-bar span{display:block;height:100%;transition:width .3s}.breadth-up{background:var(--up)}.breadth-down{background:var(--down)}.breadth-flat{background:#65738d}
+.legend{display:flex;justify-content:space-between;gap:10px;margin-top:10px;color:var(--muted);font-size:.78rem}.legend b{color:var(--text)}
+.conclusion{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;border:1px solid rgba(244,200,74,.34);border-radius:9px;background:linear-gradient(105deg,rgba(82,65,24,.4),rgba(22,31,47,.7))}.conclusion h3{color:var(--gold);font-size:1.1rem;margin-bottom:6px}.conclusion p{color:#b8c4d9;font-size:.87rem;line-height:1.65}.conclusion-action{flex-shrink:0;display:inline-block;padding:10px 16px;border:1px solid rgba(29,214,243,.45);border-radius:6px;color:var(--cyan);text-decoration:none;font-size:.82rem;font-weight:700;white-space:nowrap}.conclusion-action:hover{background:rgba(29,214,243,.1)}
+.table-wrap{overflow-x:auto}.data-table{width:100%;border-collapse:collapse;min-width:540px;font-size:.84rem}.data-table th{padding:10px 12px;text-align:left;color:var(--muted);font-size:.74rem;font-weight:600;background:rgba(255,255,255,.035);white-space:nowrap}.data-table td{padding:11px 12px;border-bottom:1px solid rgba(72,99,133,.22);white-space:nowrap}.data-table tr:hover td{background:rgba(29,214,243,.045)}.data-table .symbol{color:#fff;font-weight:700}.data-table .num{text-align:right;font-variant-numeric:tabular-nums}.data-table .up{color:var(--up);font-weight:700}.data-table .down{color:var(--down);font-weight:700}
+.disclaimer{margin:14px 0 22px;padding:12px 15px;border-left:3px solid var(--gold);border-radius:5px;color:#aeb9cc;background:rgba(244,200,74,.07);font-size:.78rem;line-height:1.6}
+footer{padding:20px 4px 8px;color:#65738d;text-align:center;font-size:.76rem}footer a{color:#8aa7d0;text-decoration:none}footer a:hover{color:var(--cyan)}
+.loading{color:var(--muted);text-align:center;padding:25px}.error{color:var(--down);text-align:center;padding:25px}
+@media(max-width:900px){.risk-grid{grid-template-columns:repeat(2,1fr)}.leader-list{grid-template-columns:repeat(2,1fr)}.breadth{grid-template-columns:1fr}}
+@media(max-width:680px){body{padding:10px}.board-grid{grid-template-columns:1fr}.panel.wide{grid-column:auto}.masthead{padding:24px 15px 28px}.eyebrow{font-size:.88rem}.nav{padding-bottom:12px}.nav-links,.nav-siblings{gap:11px}.metric-grid{gap:8px}.metric{padding:15px 8px}.metric-value{font-size:1.55rem}.risk-grid,.leader-list{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr;gap:8px}.flow-card:not(:last-child):after{content:"↓";right:auto;top:auto;bottom:-24px;left:50%;transform:translateX(-50%)}.conclusion{align-items:flex-start;flex-direction:column}.conclusion-action{width:100%;text-align:center}}
+@media(max-width:390px){.risk-grid,.leader-list{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.metric-value{font-size:1.38rem}}
+</style>
+</head>
+<body>
+<div class="board-shell">
+  <nav class="nav" aria-label="主导航">
+    <div class="nav-links">
+      <a class="brand" href="/">📡 Signal</a>
+      <a href="/">行情首页</a>
+      <a class="active" href="/market-board" aria-current="page">市场看板</a>
+      <a href="/tools">交易工具</a>
+      <a href="/funding">资金费率</a>
+      <a href="/daily">异动日报</a>
+    </div>
+    <div class="nav-siblings">
+      <a href="https://ai.link.cn" target="_blank" rel="noopener">AI资讯</a>
+      <a href="https://tools.link.cn" target="_blank" rel="noopener">AI工具</a>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="eyebrow">市场看板 · 资金与风险</div>
+    <h1>今天市场在定价什么？</h1>
+    <p>用市场宽度、主流币表现、异动榜与成交量，快速建立当日市场观察框架</p>
+    <div class="data-status"><span class="status-dot" aria-hidden="true"></span><span id="dataStatus">正在读取最新行情快照…</span></div>
+  </header>
+
+  <main class="board-grid">
+    <section class="panel" aria-labelledby="snapshot-title">
+      <div class="panel-heading"><span class="panel-number">01</span><h2 id="snapshot-title">市场快照 · 同涨逻辑</h2></div>
+      <div class="metric-grid" id="leaders"><div class="loading">加载中…</div></div>
+      <div class="tag-row" id="snapshotTags"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="risk-title">
+      <div class="panel-heading"><span class="panel-number">02</span><h2 id="risk-title">数据风险观察</h2></div>
+      <div class="risk-grid" id="riskGrid"><div class="loading">加载中…</div></div>
+    </section>
+
+    <section class="panel" aria-labelledby="movers-title">
+      <div class="panel-heading"><span class="panel-number">03</span><h2 id="movers-title">异动链 · 先看成交再看涨幅</h2></div>
+      <div class="leader-list" id="moverCards"><div class="loading">加载中…</div></div>
+      <div class="flow" style="margin-top:16px">
+        <div class="flow-card"><strong>价格异动</strong><span>筛选 24h 变化</span></div>
+        <div class="flow-card"><strong>成交确认</strong><span>观察资金是否跟随</span></div>
+        <div class="flow-card"><strong>风险控制</strong><span>再决定是否参与</span></div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="breadth-title">
+      <div class="panel-heading"><span class="panel-number">04</span><h2 id="breadth-title">上涨与下跌 · 市场宽度</h2></div>
+      <div class="breadth">
+        <div>
+          <div class="breadth-bar" aria-label="市场上涨、下跌和持平比例"><span class="breadth-up" id="upBar"></span><span class="breadth-down" id="downBar"></span><span class="breadth-flat" id="flatBar"></span></div>
+          <div class="legend"><span>上涨 <b id="upCount">—</b></span><span>下跌 <b id="downCount">—</b></span><span>其他 <b id="flatCount">—</b></span></div>
+        </div>
+        <div class="metric"><div class="metric-label">市场宽度</div><div class="metric-value cyan" id="breadthValue">—</div><div class="metric-note">上涨数量 ÷ 监控数量</div></div>
+      </div>
+      <div class="tag-row" id="breadthTags"></div>
+    </section>
+
+    <section class="panel wide" aria-labelledby="volume-title">
+      <div class="panel-heading"><span class="panel-number">05</span><h2 id="volume-title">成交量主线 · 资金集中在哪里</h2></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>#</th><th>交易对</th><th class="num">价格</th><th class="num">24h涨跌</th><th class="num">24h成交</th></tr></thead><tbody id="volumeTable"><tr><td colspan="5" class="loading">加载中…</td></tr></tbody></table></div>
+    </section>
+
+    <section class="panel" aria-labelledby="compare-title">
+      <div class="panel-heading"><span class="panel-number">06</span><h2 id="compare-title">主流币 · 强弱对比</h2></div>
+      <div class="metric-grid" id="compareCards"><div class="loading">加载中…</div></div>
+      <div class="tag-row"><span class="tag">不追逐单一涨幅</span><span class="tag">等待成交确认</span></div>
+    </section>
+
+    <section class="panel" aria-labelledby="playbook-title">
+      <div class="panel-heading"><span class="panel-number">07</span><h2 id="playbook-title">观察框架 · 先保护本金</h2></div>
+      <div class="flow">
+        <div class="flow-card"><strong>确认方向</strong><span>市场宽度与主流币</span></div>
+        <div class="flow-card"><strong>核对波动</strong><span>异动幅度与成交量</span></div>
+        <div class="flow-card"><strong>小仓验证</strong><span>止损与仓位先行</span></div>
+      </div>
+    </section>
+
+    <section class="panel wide" aria-labelledby="conclusion-title">
+      <div class="panel-heading"><span class="panel-number">08</span><h2 id="conclusion-title">今日观察结论</h2></div>
+      <div class="conclusion">
+        <div><h3 id="conclusionHeadline">正在生成市场摘要…</h3><p id="conclusionText">数据加载完成后，这里会给出基于当前快照的观察重点，不构成买卖建议。</p></div>
+        <a class="conclusion-action" href="/" data-growth-placement="market_board_home">查看完整行情 →</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="disclaimer"><strong>风险提示：</strong>本页面为公开行情数据的结构化观察工具，数据存在延迟、缺失或异常可能，不构成投资、交易或收益承诺。加密资产波动极高，请自行核实数据并控制风险。</div>
+  <footer>Powered by <strong>Signal</strong> · 数据来源：OKX 公共行情快照 · <a href="/">返回 signal.link.cn</a></footer>
+</div>
+
+<script>
+const OKX_URL = 'https://www.kxmqpwrlvjt.com/join/72697785?utm_source=signal&utm_medium=market_board&utm_campaign=market_board';
+const $ = (id) => document.getElementById(id);
+const number = (value) => Number(value) || 0;
+const changeOf = (item) => number(item && (item.change24h ?? item.change));
+const symbolOf = (item) => String((item && (item.symbol || item.pair)) || '—').replace('-USDT','');
+const sign = (value) => value >= 0 ? '+' : '';
+const trendClass = (value) => value >= 0 ? 'up' : 'down';
+function price(value) {
+  const n = number(value);
+  if (!n) return '—';
+  const digits = n >= 1000 ? 0 : n >= 1 ? 2 : n >= .01 ? 4 : 8;
+  return '$' + n.toLocaleString('en-US', {minimumFractionDigits: digits, maximumFractionDigits: digits});
+}
+function compact(value) {
+  const n = number(value);
+  if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+  if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+  if (n >= 1e3) return '$' + (n / 1e3).toFixed(1) + 'K';
+  return '$' + n.toFixed(0);
+}
+function change(value) { return sign(value) + value.toFixed(2) + '%'; }
+function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
+function formatTime(value) {
+  if (!value) return '时间未知';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '时间未知';
+  return date.toLocaleString('zh-CN', {timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+}
+function renderLeader(item, label) {
+  const c = changeOf(item);
+  return `<div class="metric"><div class="metric-label">${label}</div><div class="metric-value ${trendClass(c)}">${price(item && item.price)}</div><div class="metric-note">${escapeHtml(symbolOf(item))} · <span class="${trendClass(c)}">${change(c)}</span></div></div>`;
+}
+function renderRisk(d, breadth) {
+  const movers = (d.volatile || []).slice().sort((a,b) => Math.abs(changeOf(b)) - Math.abs(changeOf(a)));
+  const leader = (d.topVolume || [])[0];
+  const sentiment = d.sentiment === 'bullish' ? '偏强' : d.sentiment === 'bearish' ? '偏弱' : '中性';
+  $('riskGrid').innerHTML = [
+    ['◈','市场情绪',sentiment,'基于当前快照'],
+    ['↗','市场宽度',breadth.toFixed(1) + '%','上涨数量占比'],
+    ['⚡','最大异动',movers[0] ? change(changeOf(movers[0])) : '—',movers[0] ? symbolOf(movers[0]) : '暂无数据'],
+    ['▣','成交主线',leader ? symbolOf(leader) : '—',leader ? compact(leader.volume) : '暂无数据']
+  ].map(([icon,title,value,note]) => `<div class="risk-card"><div class="risk-icon">${icon}</div><div class="risk-title">${title}</div><div class="risk-value">${escapeHtml(value)}</div><div class="risk-note">${escapeHtml(note)}</div></div>`).join('');
+}
+function renderMovers(list) {
+  const rows = list.slice(0,4);
+  $('moverCards').innerHTML = rows.length ? rows.map((item) => {
+    const c = changeOf(item);
+    return `<div class="leader"><div class="leader-symbol">${escapeHtml(symbolOf(item))}</div><div class="leader-price">${price(item.price)}</div><div class="leader-change ${trendClass(c)}">${change(c)}</div><div class="leader-meta">24h成交 ${compact(item.volume)}</div></div>`;
+  }).join('') : '<div class="loading">暂无异动数据</div>';
+}
+function renderVolume(list) {
+  $('volumeTable').innerHTML = list.slice(0,10).map((item, index) => {
+    const c = changeOf(item);
+    return `<tr><td>${index + 1}</td><td class="symbol">${escapeHtml(symbolOf(item))}</td><td class="num">${price(item.price)}</td><td class="num ${trendClass(c)}">${change(c)}</td><td class="num">${compact(item.volume)}</td></tr>`;
+  }).join('') || '<tr><td colspan="5" class="loading">暂无成交量数据</td></tr>';
+}
+function renderConclusion(d, breadth, movers) {
+  const mood = d.sentiment === 'bullish' ? '偏强' : d.sentiment === 'bearish' ? '偏弱' : '震荡';
+  const leader = movers[0] ? symbolOf(movers[0]) + ' ' + change(changeOf(movers[0])) : '暂无明显异动';
+  $('conclusionHeadline').textContent = `当前市场宽度 ${breadth.toFixed(1)}%，整体节奏${mood}`;
+  $('conclusionText').textContent = `上涨 ${number(d.upCount)} 个、下跌 ${number(d.downCount)} 个；最大异动为 ${leader}。下一步优先观察成交量是否延续，避免仅凭单日涨幅追价。`;
+}
+async function loadBoard() {
+  try {
+    const response = await fetch('/data.json?t=' + Date.now(), {cache:'no-store'});
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const d = await response.json();
+    const total = number(d.totalPairs) || number(d.upCount) + number(d.downCount);
+    const flat = Math.max(0, total - number(d.upCount) - number(d.downCount));
+    const breadth = total ? number(d.upCount) / total * 100 : 0;
+    const movers = (d.volatile || []).slice().sort((a,b) => Math.abs(changeOf(b)) - Math.abs(changeOf(a)));
+    const btc = d.btc || {};
+    const eth = d.eth || {};
+    $('dataStatus').textContent = `数据更新时间：${formatTime(d.timestamp)} · 监控 ${total} 个交易对`;
+    $('leaders').innerHTML = renderLeader(btc, 'BTC 现价') + renderLeader(eth, 'ETH 现价');
+    $('snapshotTags').innerHTML = `<span class="tag">24h成交 ${compact(d.totalVolume)}</span><span class="tag">上涨 ${number(d.upCount)} / 下跌 ${number(d.downCount)}</span><span class="tag">${d.sentiment === 'bullish' ? '市场偏强' : d.sentiment === 'bearish' ? '市场偏弱' : '市场中性'}</span>`;
+    renderRisk(d, breadth);
+    renderMovers(movers);
+    $('upBar').style.width = (total ? number(d.upCount) / total * 100 : 0) + '%';
+    $('downBar').style.width = (total ? number(d.downCount) / total * 100 : 0) + '%';
+    $('flatBar').style.width = (total ? flat / total * 100 : 0) + '%';
+    $('upCount').textContent = number(d.upCount); $('downCount').textContent = number(d.downCount); $('flatCount').textContent = flat;
+    $('breadthValue').textContent = breadth.toFixed(1) + '%';
+    $('breadthTags').innerHTML = `<span class="tag">上涨占比 ${breadth.toFixed(1)}%</span><span class="tag">跌涨比 ${number(d.upCount) ? (number(d.downCount) / number(d.upCount)).toFixed(2) : '—'}</span>`;
+    renderVolume(d.topVolume || []);
+    $('compareCards').innerHTML = renderLeader(btc, 'BTC · 24h表现') + renderLeader(eth, 'ETH · 24h表现');
+    renderConclusion(d, breadth, movers);
+  } catch (error) {
+    console.error(error);
+    $('dataStatus').textContent = '行情快照暂时不可用，请稍后刷新';
+    document.querySelectorAll('.loading').forEach((el) => { el.textContent = '数据加载失败'; el.className = 'error'; });
+  }
+}
+loadBoard();
+</script>
+</body>
+</html>
