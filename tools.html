@@ -13,6 +13,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica N
 header{text-align:center;padding:40px 20px 25px}
 h1{font-size:2em;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .subtitle{color:#aaa;font-size:.95em;margin-bottom:10px}
+.market-board-cta{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:10px 16px;border:1px solid rgba(102,126,234,.55);border-radius:10px;background:rgba(102,126,234,.14);color:#d9ddff;text-decoration:none;font-size:.88em;font-weight:600;transition:background .2s,border-color .2s,transform .2s}
+.market-board-cta:hover{background:rgba(102,126,234,.25);border-color:#8c9bff;transform:translateY(-1px)}
 .back-link{color:#667eea;text-decoration:none;font-size:.85em}
 .back-link:hover{text-decoration:underline}
 .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin:20px 0}
@@ -79,6 +81,7 @@ footer{text-align:center;margin-top:40px;color:#666;font-size:.8em}
   <a href="/" class="back-link">← 返回首页</a>
   <h1>🧮 交易工具箱</h1>
   <p class="subtitle">免费实用计算器 · 帮助你更好地控制风险</p>
+  <a class="market-board-cta" href="/market-board?utm_source=signal&utm_medium=tools&utm_campaign=market_board&utm_content=tools_intro" onclick="gtag('event','market_board_click',{event_category:'content_growth',site:'signal',placement:'tools_intro',destination:'/market-board'});">📊 先看市场宽度与主流币强弱 →</a>
 </header>
 
 <div class="tool-grid">
