@@ -8,7 +8,7 @@ URL: signal.link.cn/daily/{YYYY-MM-DD}
 1. 当日异动 Top 10 排行榜
 2. 横盘启动关注列表
 3. 成交量 Top 10 变化
-4. 交易所返佣链接
+4. 交易平台合作、邀请与官网链接
 5. 上一日/下一日导航
 6. Schema.org Article 结构化数据
 """
@@ -25,7 +25,7 @@ SITE_URL = "https://signal.link.cn"
 GA4_ID = "G-C0PKBWYHSD"
 OKX_REF = "https://www.kxmqpwrlvjt.com/join/72697785"
 BITGET_REF = "https://partner.bitget.cafe/bg/GD38XZ"
-BINANCE_REF = "https://www.bsmkweb.cc/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_DUO1O&utm_source=referral_entrance"
+BINANCE_REF = "https://www.binance.com/"
 INDEXNOW_KEY = "signalcrypto2026indexnow"
 DAILY_DIR_NAME = "daily"
 RETENTION_DAYS = 90  # 保留最近90天的日报页面
@@ -230,15 +230,15 @@ def generate_daily_html(date_str, market_data, prev_date, next_date):
   </div>
 </div>"""
 
-    # 模块4: 交易所返佣链接
+    # 模块4: 交易所链接（合作、邀请和普通官网分开归因）
     promo_section = f"""
 <div class="section promo-section">
-  <h2>🏦 交易所注册（返佣支持本站运营）</h2>
-  <p class="section-desc">通过以下链接注册交易，你将获得手续费折扣，本站也能获得返佣支持</p>
+  <h2>🏦 交易平台入口</h2>
+  <p class="section-desc">奖励和地区资格会变化，请先核对注册页；Bitget 为合作链接，OKX 为邀请活动链接，Binance 为普通官网链接</p>
   <div class="promo-grid">
-    <a class="trade-btn okx" href="{OKX_REF}" target="_blank" rel="nofollow noopener">OKX 注册 → 享返佣</a>
-    <a class="trade-btn bitget" href="{BITGET_REF}" target="_blank" rel="nofollow noopener">Bitget 注册 → 享返佣</a>
-    <a class="trade-btn binance" href="{BINANCE_REF}" target="_blank" rel="nofollow noopener">Binance 注册</a>
+    <a class="trade-btn okx" href="{OKX_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{{event_category:'referral',site:'signal',destination:'okx',placement:'daily_page',link_type:'invite'}});">OKX 当前邀请活动</a>
+    <a class="trade-btn bitget" href="{BITGET_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','affiliate_click',{{event_category:'affiliate',site:'signal',destination:'bitget',placement:'daily_page',link_type:'affiliate'}});">Bitget 合作注册页</a>
+    <a class="trade-btn binance" href="{BINANCE_REF}" target="_blank" rel="nofollow noopener" onclick="gtag('event','tool_click',{{event_category:'outbound',site:'signal',destination:'binance',placement:'daily_page',link_type:'direct'}});">Binance 官网</a>
   </div>
 </div>"""
 

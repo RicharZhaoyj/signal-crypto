@@ -30,10 +30,14 @@
     if (!link) return;
     const href = link.getAttribute('href') || '';
     let destination = '';
-    if (href.indexOf('kxmqpwrlvjt.com') !== -1) destination = 'okx';
-    else if (href.indexOf('partner.bitget.cafe') !== -1) destination = 'bitget';
-    else if (href.indexOf('bsmkweb.cc') !== -1) destination = 'binance';
-    if (destination) trackSignalEvent('affiliate_click', {site: 'signal', destination: destination, placement: 'market_board'});
+    let eventName = '';
+    let linkType = '';
+    if (href.indexOf('kxmqpwrlvjt.com') !== -1) {
+      destination = 'okx'; eventName = 'referral_click'; linkType = 'invite';
+    } else if (href.indexOf('partner.bitget.cafe') !== -1) {
+      destination = 'bitget'; eventName = 'affiliate_click'; linkType = 'affiliate';
+    }
+    if (destination) trackSignalEvent(eventName, {site: 'signal', destination: destination, placement: 'market_board', link_type: linkType});
   });
 </script>
 <script type="application/ld+json">
@@ -198,7 +202,6 @@ footer{padding:20px 4px 8px;color:#65738d;text-align:center;font-size:.76rem}foo
 </div>
 
 <script>
-const OKX_URL = 'https://www.kxmqpwrlvjt.com/join/72697785?utm_source=signal&utm_medium=market_board&utm_campaign=market_board';
 const $ = (id) => document.getElementById(id);
 const number = (value) => Number(value) || 0;
 const changeOf = (item) => number(item && (item.change24h ?? item.change));

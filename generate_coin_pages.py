@@ -17,7 +17,7 @@ SITE_URL = "https://signal.link.cn"
 GA4_ID = "G-C0PKBWYHSD"
 OKX_REF = "https://www.kxmqpwrlvjt.com/join/72697785"
 BITGET_REF = "https://partner.bitget.cafe/bg/GD38XZ"
-BINANCE_REF = "https://www.bsmkweb.cc/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_DUO1O&utm_source=referral_entrance"
+BINANCE_REF = "https://www.binance.com/"
 INDEXNOW_KEY = "signalcrypto2026indexnow"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -405,26 +405,27 @@ footer .copyright{{text-align:center;color:#555;font-size:12px;}}
     </div>
   </div>
 
-  <!-- 模块4: 交易所注册链接 -->
+  <!-- 模块4: 交易平台入口 -->
   <div class="section">
-    <h2>🏦 交易 {sym}</h2>
+    <h2>🏦 选择交易平台</h2>
     <div class="exchange-cards">
       <div class="exchange-card">
         <div class="ex-name" style="color:#f97316;">OKX</div>
-        <div class="ex-desc">全球领先交易所<br>注册享返佣</div>
-        <a class="ex-btn ex-okx" href="{OKX_REF}" target="_blank" rel="nofollow noopener">注册交易 {sym} →</a>
+        <div class="ex-desc">邀请活动链接<br>权益以页面为准</div>
+        <a class="ex-btn ex-okx" href="{OKX_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{{event_category:'referral',site:'signal',destination:'okx',placement:'coin_page',symbol:'{sym}',link_type:'invite'}});">查看 OKX 活动 →</a>
       </div>
       <div class="exchange-card">
         <div class="ex-name" style="color:#00c853;">Bitget</div>
-        <div class="ex-desc">跟单交易<br>合约杠杆</div>
-        <a class="ex-btn ex-bitget" href="{BITGET_REF}" target="_blank" rel="nofollow noopener">注册交易 {sym} →</a>
+        <div class="ex-desc">可跟踪合作链接<br>本站可能获佣金</div>
+        <a class="ex-btn ex-bitget" href="{BITGET_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','affiliate_click',{{event_category:'affiliate',site:'signal',destination:'bitget',placement:'coin_page',symbol:'{sym}',link_type:'affiliate'}});">打开 Bitget 注册页 →</a>
       </div>
       <div class="exchange-card">
         <div class="ex-name" style="color:#f0b90b;">Binance</div>
-        <div class="ex-desc">最大交易所<br>流动性最好</div>
-        <a class="ex-btn ex-binance" href="{BINANCE_REF}" target="_blank" rel="nofollow noopener">注册交易 {sym} →</a>
+        <div class="ex-desc">普通官网链接<br>不作联盟归因</div>
+        <a class="ex-btn ex-binance" href="{BINANCE_REF}" target="_blank" rel="nofollow noopener" onclick="gtag('event','tool_click',{{event_category:'outbound',site:'signal',destination:'binance',placement:'coin_page',symbol:'{sym}',link_type:'direct'}});">访问 Binance 官网 →</a>
       </div>
     </div>
+    <p style="color:#777;font-size:12px;margin-top:12px;">奖励、费率与地区资格以交易所实时页面为准；数字资产交易具有高风险。</p>
   </div>
 
   <!-- 模块6: 相关币种推荐 -->
@@ -467,8 +468,8 @@ def update_sitemap(coin_symbols):
         (f"{SITE_URL}/guide/btc-analysis.html", "0.9", "daily"),
         (f"{SITE_URL}/guide/eth-analysis.html", "0.9", "daily"),
         (f"{SITE_URL}/sitemap.html", "0.8", "weekly"),
-        (f"{SITE_URL}/tools.html", "0.8", "weekly"),
-        (f"{SITE_URL}/compare.html", "0.8", "weekly"),
+        (f"{SITE_URL}/tools", "0.8", "weekly"),
+        (f"{SITE_URL}/compare", "0.8", "weekly"),
         (f"{SITE_URL}/guide/spot-strategy.html", "0.8", "weekly"),
         (f"{SITE_URL}/guide/contract-trading.html", "0.8", "weekly"),
         (f"{SITE_URL}/guide/market-indicators.html", "0.8", "weekly"),

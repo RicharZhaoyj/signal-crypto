@@ -177,7 +177,7 @@ def render_html(market_data):
   <div class="coin-name">₿ BTC</div>
   <div class="coin-price">${fmt_price(b["price"])}</div>
   <div class="coin-change" style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</div>
-  <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
+  <a class="trade-btn" href="/compare?utm_source=signal&utm_medium=homepage&utm_campaign=exchange_compare&utm_content=btc_card" onclick="gtag('event','exchange_compare_click',{{event_category:'monetization_funnel',site:'signal',placement:'btc_card',destination:'/compare'}});">比较交易平台 →</a>
 </div>
 """
     if market_data.get("eth"):
@@ -188,7 +188,7 @@ def render_html(market_data):
   <div class="coin-name">⟠ ETH</div>
   <div class="coin-price">${fmt_price(e["price"])}</div>
   <div class="coin-change" style="{get_change_class(c)}">{'+' if c >= 0 else ''}{c:.2f}%</div>
-  <a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">去OKX交易 →</a>
+  <a class="trade-btn" href="/compare?utm_source=signal&utm_medium=homepage&utm_campaign=exchange_compare&utm_content=eth_card" onclick="gtag('event','exchange_compare_click',{{event_category:'monetization_funnel',site:'signal',placement:'eth_card',destination:'/compare'}});">比较交易平台 →</a>
 </div>
 """
 

@@ -6,6 +6,7 @@
 <title>加密货币实用工具 · 合约计算器 · 仓位计算器 · Signal</title>
 <meta name="description" content="加密货币合约计算器、仓位计算器、止损止盈计算器、资金费率计算器 — 免费在线使用，帮助您管理交易风险。">
 <meta name="keywords" content="合约计算器,仓位计算器,止损计算器,资金费率计算器,加密货币工具,Signal">
+<link rel="canonical" href="https://signal.link.cn/tools">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans SC",sans-serif;background:linear-gradient(135deg,#0f0c29,#1a1a3e 40%,#24243e);color:#e0e0e0;min-height:100vh;padding:20px}
@@ -41,6 +42,12 @@ label{display:block;font-size:.85em;color:#aaa;margin-bottom:4px}
 .promo-btn.okx{background:#1e3a5f;color:#fff}
 .promo-btn.bitget{background:#2a3f2f;color:#fff}
 .promo-btn.binance{background:#3a2f1f;color:#fff}
+.compare-entry{margin:30px 0 0;padding:22px;border:1px solid rgba(102,126,234,.35);border-radius:16px;background:linear-gradient(135deg,rgba(102,126,234,.14),rgba(118,75,162,.09));display:flex;align-items:center;justify-content:space-between;gap:18px}
+.compare-entry h2{font-size:1.15em;margin-bottom:7px;color:#fff}
+.compare-entry p{font-size:.86em;color:#aaa;line-height:1.6}
+.compare-entry a{flex:0 0 auto;padding:11px 18px;border-radius:10px;background:#667eea;color:#fff;text-decoration:none;font-size:.9em;font-weight:700}
+.promo-note{max-width:760px;margin:10px auto 0;color:#777;font-size:.76em;line-height:1.6}
+@media(max-width:680px){.compare-entry{align-items:flex-start;flex-direction:column}.compare-entry a{width:100%;text-align:center}}
 footer{text-align:center;margin-top:40px;color:#666;font-size:.8em}
 </style>
 <script type="application/ld+json">
@@ -66,7 +73,7 @@ footer{text-align:center;margin-top:40px;color:#666;font-size:.8em}
     <meta property="og:site_name" content="加密货币分析" />
     <meta property="og:title" content="加密货币实用工具 · 合约计算器 · 仓位计算器 · Signal" />
     <meta property="og:description" content="加密货币合约计算器、仓位计算器、止损止盈计算器、资金费率计算器 — 免费在线使用，帮助您管理交易风险。" />
-    <meta property="og:url" content="https://signal.link.cn/tools.html" />
+    <meta property="og:url" content="https://signal.link.cn/tools" />
     <meta property="og:image" content="https://signal.link.cn/og-image.jpg" />
     <meta property="og:locale" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -173,15 +180,24 @@ footer{text-align:center;margin-top:40px;color:#666;font-size:.8em}
 
 </div>
 
-<!-- 返佣引导 -->
-<div class=promo-section>
-  <h2 class=promo-title>💰 推荐交易所</h2>
-  <p style="font-size:.85em;color:#888;margin-bottom:6px">通过以下链接注册，获得手续费折扣并支持本站运营</p>
-  <div class=promo-btns>
-    <a class="promo-btn okx" href="https://www.kxmqpwrlvjt.com/join/72697785" target=_blank rel=nofollow onclick="gtag('event','affiliate_click',{event_category:'affiliate',site:'signal',destination:'okx',placement:'tools_promo',tool_name:'OKX'});">OKX 注册 → 享返佣</a>
-    <a class="promo-btn bitget" href="https://partner.bitget.cafe/bg/GD38XZ" target=_blank rel=nofollow onclick="gtag('event','affiliate_click',{event_category:'affiliate',site:'signal',destination:'bitget',placement:'tools_promo',tool_name:'Bitget'});">Bitget 注册 → 享返佣</a>
-    <a class="promo-btn binance" href="https://www.binance.com/activity/referral/offers/claim?ref=SIGNAL" target=_blank rel=nofollow onclick="gtag('event','affiliate_click',{event_category:'affiliate',site:'signal',destination:'binance',placement:'tools_promo',tool_name:'Binance'});">Binance 注册</a>
+<section class=compare-entry aria-labelledby=exchange-compare-heading>
+  <div>
+    <h2 id=exchange-compare-heading>先比较，再选择交易平台</h2>
+    <p>按地区可用性、现货/合约需求、跟单功能与官方费率页逐项核对。比较页会明确区分合作链接、邀请链接和普通官网链接。</p>
   </div>
+  <a href="/compare?utm_source=signal&utm_medium=tools&utm_campaign=exchange_compare&utm_content=tools_after_calculators" onclick="gtag('event','exchange_compare_click',{event_category:'monetization_funnel',site:'signal',placement:'tools_after_calculators',destination:'/compare'});">查看交易所选择指南 →</a>
+</section>
+
+<!-- 合作与官网入口 -->
+<div class=promo-section>
+  <h2 class=promo-title>交易平台入口</h2>
+  <p style="font-size:.85em;color:#888;margin-bottom:6px">活动和地区资格会变化，请以注册页面显示为准</p>
+  <div class=promo-btns>
+    <a class="promo-btn okx" href="https://www.kxmqpwrlvjt.com/join/72697785" target=_blank rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{event_category:'referral',site:'signal',destination:'okx',placement:'tools_promo',link_type:'invite'});">OKX 当前邀请活动</a>
+    <a class="promo-btn bitget" href="https://partner.bitget.cafe/bg/GD38XZ" target=_blank rel="nofollow sponsored noopener" onclick="gtag('event','affiliate_click',{event_category:'affiliate',site:'signal',destination:'bitget',placement:'tools_promo',link_type:'affiliate'});">Bitget 合作注册页</a>
+    <a class="promo-btn binance" href="https://www.binance.com/" target=_blank rel="nofollow noopener" onclick="gtag('event','tool_click',{event_category:'outbound',site:'signal',destination:'binance',placement:'tools_promo',link_type:'direct'});">Binance 官网</a>
+  </div>
+  <p class=promo-note>披露：Bitget 为可跟踪合作链接，本站可能获得佣金；OKX 为邀请活动链接；Binance 当前为普通官网链接。用户奖励并非固定，且部分产品可能不适用于所在地区。</p>
 </div>
 
 <footer>

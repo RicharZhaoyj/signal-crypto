@@ -34,11 +34,15 @@
       if (!link) return;
       const href = link.getAttribute('href') || '';
       let destination = '';
-      if (href.indexOf('kxmqpwrlvjt.com') !== -1) destination = 'okx';
-      else if (href.indexOf('partner.bitget.cafe') !== -1) destination = 'bitget';
-      else if (href.indexOf('bsmkweb.cc') !== -1) destination = 'binance';
+      let eventName = '';
+      let linkType = '';
+      if (href.indexOf('kxmqpwrlvjt.com') !== -1) {
+        destination = 'okx'; eventName = 'referral_click'; linkType = 'invite';
+      } else if (href.indexOf('partner.bitget.cafe') !== -1) {
+        destination = 'bitget'; eventName = 'affiliate_click'; linkType = 'affiliate';
+      }
       if (destination) {
-        trackSignalEvent('affiliate_click', {site: 'signal', destination: destination});
+        trackSignalEvent(eventName, {site: 'signal', destination: destination, link_type: linkType});
       }
     });
 </script>
@@ -570,13 +574,15 @@ footer a{color:#667eea;text-decoration:none}
 </div>
 
 <div class="promo">
-<h3>💰 推荐交易所（返佣支持本站运营）</h3>
-<p>通过以下链接注册交易，你将获得手续费折扣，本站也能获得返佣支持</p>
+<h3>交易平台入口（链接类型已披露）</h3>
+<p>奖励、费率和地区资格会变化，请先查看交易所选择指南并以注册页为准</p>
 <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px">
-<a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow noopener">OKX 注册 → 享返佣</a>
-<a class="trade-btn" href="https://partner.bitget.cafe/bg/GD38XZ" target="_blank" rel="nofollow noopener">Bitget 注册 → 享返佣</a>
-<a class="trade-btn" href="https://www.bsmkweb.cc/referral/earn-together/refer2earn-usdc/claim?hl=zh-CN&ref=GRO_28502_DUO1O&utm_source=referral_entrance" target="_blank" rel="nofollow noopener">Binance 注册</a>
+<a class="trade-btn" href="/compare?utm_source=signal&utm_medium=homepage&utm_campaign=exchange_compare&utm_content=homepage_promo" onclick="gtag('event','exchange_compare_click',{event_category:'monetization_funnel',site:'signal',placement:'homepage_promo',destination:'/compare'});">先看交易所选择指南</a>
+<a class="trade-btn" href="https://www.kxmqpwrlvjt.com/join/72697785" target="_blank" rel="nofollow sponsored noopener">OKX 当前邀请活动</a>
+<a class="trade-btn" href="https://partner.bitget.cafe/bg/GD38XZ" target="_blank" rel="nofollow sponsored noopener">Bitget 合作注册页</a>
+<a class="trade-btn" href="https://www.binance.com/" target="_blank" rel="nofollow noopener" onclick="gtag('event','tool_click',{event_category:'outbound',site:'signal',destination:'binance',placement:'homepage_promo',link_type:'direct'});">Binance 官网</a>
 </div>
+<p style="font-size:.75em;color:#777;margin-top:10px">Bitget 为可跟踪合作链接，本站可能获得佣金；OKX 为邀请活动链接；Binance 为普通官网链接。</p>
 </div>
 
 <div class="subscribe" id="subscribe">
@@ -651,13 +657,13 @@ footer a{color:#667eea;text-decoration:none}
 </a>
 <a href="https://signal.link.cn/guide/okx-rebate.html" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
 <div style="font-size:1.5em;margin-bottom:8px">🎁</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">OKX 返佣注册教程</div>
-<div style="color:#888;font-size:.8em">手续费20%折扣+KYC流程+省钱技巧</div>
+<div style="color:#fff;font-weight:600;margin-bottom:4px">OKX 邀请与注册教程</div>
+<div style="color:#888;font-size:.8em">活动资格、KYC、费用核对与风险说明</div>
 </a>
 <a href="https://signal.link.cn/guide/bitget-rebate.html" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
 <div style="font-size:1.5em;margin-bottom:8px">🔵</div>
-<div style="color:#fff;font-weight:600;margin-bottom:4px">Bitget 跟单注册教程</div>
-<div style="color:#888;font-size:.8em">一键复制交易员策略+返佣领取</div>
+<div style="color:#fff;font-weight:600;margin-bottom:4px">Bitget 注册与合作链接</div>
+<div style="color:#888;font-size:.8em">跟单风险、费用核对和透明合作披露</div>
 </a>
 <a href="https://signal.link.cn/guide/meme-coin.html" style="display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px;text-decoration:none;transition:border .2s" onmouseover="this.style.borderColor='#667eea'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)'">
 <div style="font-size:1.5em;margin-bottom:8px">🐕</div>
@@ -700,7 +706,7 @@ footer a{color:#667eea;text-decoration:none}
 <a href="/guide/contract-trading.html" style="display:inline-block;padding:4px 12px;background:rgba(239,68,68,.15);color:#fca5a5;border-radius:20px;font-size:.82em;text-decoration:none">⚠️ 合约交易</a>
 <a href="/guide/btc-analysis.html" style="display:inline-block;padding:4px 12px;background:rgba(251,191,36,.15);color:#fcd34d;border-radius:20px;font-size:.82em;text-decoration:none">₿ BTC分析</a>
 <a href="/guide/eth-analysis.html" style="display:inline-block;padding:4px 12px;background:rgba(139,92,246,.15);color:#c4b5fd;border-radius:20px;font-size:.82em;text-decoration:none">Ξ ETH分析</a>
-<a href="/guide/okx-rebate.html" style="display:inline-block;padding:4px 12px;background:rgba(59,130,246,.15);color:#93c5fd;border-radius:20px;font-size:.82em;text-decoration:none">🎁 OKX返佣</a>
+<a href="/guide/okx-rebate.html" style="display:inline-block;padding:4px 12px;background:rgba(59,130,246,.15);color:#93c5fd;border-radius:20px;font-size:.82em;text-decoration:none">🎁 OKX邀请规则</a>
 <a href="/guide/bitget-rebate.html" style="display:inline-block;padding:4px 12px;background:rgba(6,182,212,.15);color:#67e8f9;border-radius:20px;font-size:.82em;text-decoration:none">🔵 Bitget跟单</a>
 <a href="/guide/meme-coin.html" style="display:inline-block;padding:4px 12px;background:rgba(249,115,22,.15);color:#fdba74;border-radius:20px;font-size:.82em;text-decoration:none">🐕 MEME币</a>
 <a href="/guide/" style="display:inline-block;padding:4px 12px;background:rgba(34,197,94,.15);color:#86efac;border-radius:20px;font-size:.82em;text-decoration:none">📚 全部指南</a>
