@@ -1947,6 +1947,18 @@
 
   <!-- daily-pages-start -->
   <url>
+    <loc>https://signal.link.cn/daily/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://signal.link.cn/feed.xml</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://signal.link.cn/daily/2026-08-07</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -2074,6 +2086,12 @@
   </url>
   <url>
     <loc>https://signal.link.cn/daily/2026-08-28</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://signal.link.cn/daily/2026-08-29</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
