@@ -2,14 +2,20 @@ name: Signal Auto Update
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    # 避开整点拥堵，并每 30 分钟提供一次调度机会，降低 GitHub Actions 延迟导致的数据陈旧。
+    - cron: '17,47 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
 
+concurrency:
+  group: signal-auto-update
+  cancel-in-progress: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
     steps:
