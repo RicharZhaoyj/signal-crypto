@@ -1645,6 +1645,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://signal.link.cn/coin/XINTC</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://signal.link.cn/coin/XINTW</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
@@ -1820,6 +1826,12 @@
   </url>
   <url>
     <loc>https://signal.link.cn/coin/XRAM</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://signal.link.cn/coin/XRDDT</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -2096,6 +2108,18 @@
   </url>
 
   <!-- daily-pages-start -->
+  <url>
+    <loc>https://signal.link.cn/daily/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://signal.link.cn/feed.xml</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://signal.link.cn/daily/2026-08-07</loc>
     <lastmod>2026-10-29</lastmod>
@@ -2590,6 +2614,12 @@
   </url>
   <url>
     <loc>https://signal.link.cn/daily/2026-10-28</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://signal.link.cn/daily/2026-10-29</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
