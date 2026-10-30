@@ -1,7 +1,7 @@
 import requests
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import time
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -132,7 +132,7 @@ def analyze_data(tickers):
     print(f"异动品种数量: {len(volatile)}")
 
     return {
-        "timestamp": datetime.now().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "totalPairs": len(tickers),
         "upCount": up_count,
         "downCount": down_count,
@@ -144,6 +144,17 @@ def analyze_data(tickers):
         "sideways": sideways[:15],
         "topVolume": top_volume[:10]
     }
+
+def format_snapshot_time(value):
+    """Do not assign a timezone to historical timestamps that did not record one."""
+    try:
+        ts = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if ts.tzinfo is None:
+            return ts.strftime("%Y-%m-%d %H:%M:%S") + "（源时间未标时区，待核实）"
+        return ts.astimezone(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S") + "（UTC+08:00）"
+    except (TypeError, AttributeError, ValueError):
+        return "待核实（源时间缺失或无效）"
+
 
 def render_html(market_data):
     def fmt_price(p):
@@ -240,11 +251,7 @@ def render_html(market_data):
 </tr>
 """
 
-    try:
-        ts = datetime.fromisoformat(market_data["timestamp"])
-        time_str = ts.strftime("%m-%d %H:%M")
-    except:
-        time_str = "刚刚"
+    time_str = format_snapshot_time(market_data.get("timestamp"))
 
     return {
         "top_coins": top_coins_html,
@@ -252,7 +259,7 @@ def render_html(market_data):
         "volatile": volatile_rows,
         "sideways": sideways_rows,
         "volume": volume_rows,
-        "update_time": f"⏰ {time_str}",
+        "update_time": f"⏰ 最后快照：{time_str}",
     }
 
 

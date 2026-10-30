@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Signal加密货币智能分析平台，实时监测异动品种与横盘启动机会，提供OKX现货数据深度分析。">
+<meta name="description" content="Signal加密货币分析平台，通过定时快照观察异动品种与横盘启动机会。非实时数据，提供OKX现货快照分析。">
 <meta name="keywords" content="加密货币,比特币,以太坊,币圈分析,异动监测,横盘突破,OKX,现货分析,crypto signal">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Signal · 加密货币智能分析">
-<meta property="og:description" content="实时监测加密货币异动品种与横盘启动机会">
+<meta property="og:description" content="通过定时快照观察加密货币异动与横盘启动机会，非实时数据">
 <meta property="og:url" content="https://signal.link.cn">
 <meta property="og:site_name" content="Signal">
 <meta property="og:image" content="https://signal.link.cn/og-image.jpg">
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="https://signal.link.cn/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Signal · 加密货币智能分析">
-<meta name="twitter:description" content="实时监测加密货币异动品种与横盘启动机会">
+<meta name="twitter:description" content="通过定时快照观察加密货币异动与横盘启动机会，非实时数据">
 <link rel="canonical" href="https://signal.link.cn/">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0PKBWYHSD"></script>
@@ -47,7 +47,7 @@
     });
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Signal 加密货币分析","url":"https://signal.link.cn","description":"实时监测加密货币异动品种与横盘启动机会","inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://signal.link.cn/coin/{search_term_string}"},"query-input":"required name=search_term_string"}}
+{"@context":"https://schema.org","@type":"WebSite","name":"Signal 加密货币分析","url":"https://signal.link.cn","description":"通过定时快照观察加密货币异动与横盘启动机会，非实时数据","inLanguage":"zh-CN","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://signal.link.cn/coin/{search_term_string}"},"query-input":"required name=search_term_string"}}
 </script>
 <title>Signal · 加密货币分析</title>
 <style>
@@ -106,7 +106,7 @@ footer a{color:#667eea;text-decoration:none}
     "@type": "WebSite",
     "name": "Signal · 加密货币智能分析",
     "url": "https://signal.link.cn",
-    "description": "实时监测加密货币异动品种与横盘启动机会，提供OKX现货数据深度分析",
+    "description": "通过定时快照观察加密货币异动与横盘启动机会，提供OKX现货快照分析，非实时数据",
     "potentialAction": {
         "@type": "SearchAction",
         "target": "https://signal.link.cn/?q={search_term_string}",
@@ -120,7 +120,7 @@ footer a{color:#667eea;text-decoration:none}
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": "加密货币异动监测数据",
-    "description": "实时监测OKX现货异动品种、横盘蓄势品种及成交量排行",
+    "description": "通过定时快照观察OKX现货异动品种、横盘蓄势品种及成交量排行，非实时数据",
     "url": "https://signal.link.cn",
     "creator": {
         "@type": "Organization",
@@ -153,8 +153,8 @@ footer a{color:#667eea;text-decoration:none}
 
 <header>
 <h1>📡 Signal 加密分析</h1>
-<p class="subtitle">智能识别异动品种与横盘启动机会 · 每小时自动更新</p>
-<div class="update-time" id="updateTime">⏰ 10-30 02:58</div>
+<p class="subtitle">智能识别异动品种与横盘启动机会 · 定时快照，非实时</p>
+<div class="update-time" id="updateTime">⏰ 最后快照：2026-10-30 02:58:06（源时间未标时区，待核实）</div>
 <a href="/market-board?utm_source=signal&utm_medium=homepage&utm_campaign=market_board"
    data-growth-placement="homepage_market_board"
    style="display:flex;align-items:center;justify-content:center;gap:14px;max-width:760px;margin:16px auto 0;padding:13px 18px;border:1px solid rgba(29,214,243,.35);border-radius:10px;background:linear-gradient(100deg,rgba(13,54,74,.55),rgba(42,33,67,.55));color:#dcecff;text-decoration:none;transition:transform .2s,border-color .2s"
@@ -732,7 +732,7 @@ footer a{color:#667eea;text-decoration:none}
 </div>
 </div>
 <p>Powered by <strong>Signal</strong> · 数据来源: OKX</p>
-<p style="margin-top:4px"><a href="https://signal.link.cn">signal.link.cn</a> · 每小时自动更新</p>
+<p style="margin-top:4px"><a href="https://signal.link.cn">signal.link.cn</a> · 定时快照，非实时</p>
 </footer>
 </div>
 
@@ -741,6 +741,21 @@ function toNum(val) {
   if (val == null) return 0;
   if (typeof val === 'number') return val;
   return parseFloat(String(val).replace('%','')) || 0;
+}
+
+function formatSnapshotTime(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?$/.test(value)) {
+    return '待核实（源时间缺失或无效）';
+  }
+  if (!/(Z|[+-]\d{2}:\d{2})$/.test(value)) {
+    return value.slice(0, 19).replace('T', ' ') + '（源时间未标时区，待核实）';
+  }
+  const timestamp = new Date(value);
+  if (!Number.isFinite(timestamp.getTime())) return '待核实（源时间缺失或无效）';
+  return timestamp.toLocaleString('zh-CN', {
+    timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+  }) + '（UTC+08:00）';
 }
 
 async function loadData() {
@@ -752,17 +767,7 @@ async function loadData() {
     
     const d = await res.json();
     
-    let timeStr = '刚刚更新';
-    if (d.timestamp) {
-      try {
-        timeStr = new Date(d.timestamp).toLocaleString('zh-CN', { 
-          timeZone: 'Asia/Shanghai',
-          month: '2-digit', day: '2-digit',
-          hour: '2-digit', minute: '2-digit'
-        });
-      } catch(e) {}
-    }
-    updateEl.innerHTML = `⏰ ${timeStr}`;
+    updateEl.textContent = `⏰ 最后快照：${formatSnapshotTime(d.timestamp)}`;
 
     safeRender(() => renderTopCoins(d));
     safeRender(() => renderOverview(d));
