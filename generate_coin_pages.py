@@ -16,7 +16,7 @@ from datetime import datetime, timedelta
 SITE_URL = "https://signal.link.cn"
 GA4_ID = "G-C0PKBWYHSD"
 OKX_REF = "https://www.kxmqpwrlvjt.com/join/72697785"
-BITGET_REF = "https://partner.bitget.cafe/bg/GD38XZ"
+BITGET_REF = "https://partner.bitget.ninja/bg/GD38XZ"
 BINANCE_REF = "https://www.binance.com/"
 INDEXNOW_KEY = "signalcrypto2026indexnow"
 
