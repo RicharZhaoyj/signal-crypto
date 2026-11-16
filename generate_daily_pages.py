@@ -236,8 +236,8 @@ def generate_daily_html(date_str, market_data, prev_date, next_date):
   <h2>🏦 交易平台入口</h2>
   <p class="section-desc">奖励和地区资格会变化，请先核对注册页；Bitget 为合作链接，OKX 为邀请活动链接，Binance 为普通官网链接</p>
   <div class="promo-grid">
-    <a class="trade-btn okx" href="{OKX_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{{event_category:'referral',site:'signal',destination:'okx',placement:'daily_page',link_type:'invite'}});">OKX 当前邀请活动</a>
     <a class="trade-btn bitget" href="{BITGET_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','affiliate_click',{{event_category:'affiliate',site:'signal',destination:'bitget',placement:'daily_page',link_type:'affiliate'}});">Bitget 合作注册页</a>
+    <a class="trade-btn okx" href="{OKX_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{{event_category:'referral',site:'signal',destination:'okx',placement:'daily_page',link_type:'invite'}});">OKX 当前邀请活动</a>
     <a class="trade-btn binance" href="{BINANCE_REF}" target="_blank" rel="nofollow noopener" onclick="gtag('event','tool_click',{{event_category:'outbound',site:'signal',destination:'binance',placement:'daily_page',link_type:'direct'}});">Binance 官网</a>
   </div>
 </div>"""

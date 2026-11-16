@@ -410,14 +410,14 @@ footer .copyright{{text-align:center;color:#555;font-size:12px;}}
     <h2>🏦 选择交易平台</h2>
     <div class="exchange-cards">
       <div class="exchange-card">
-        <div class="ex-name" style="color:#f97316;">OKX</div>
-        <div class="ex-desc">邀请活动链接<br>权益以页面为准</div>
-        <a class="ex-btn ex-okx" href="{OKX_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{{event_category:'referral',site:'signal',destination:'okx',placement:'coin_page',symbol:'{sym}',link_type:'invite'}});">查看 OKX 活动 →</a>
-      </div>
-      <div class="exchange-card">
         <div class="ex-name" style="color:#00c853;">Bitget</div>
         <div class="ex-desc">可跟踪合作链接<br>本站可能获佣金</div>
         <a class="ex-btn ex-bitget" href="{BITGET_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','affiliate_click',{{event_category:'affiliate',site:'signal',destination:'bitget',placement:'coin_page',symbol:'{sym}',link_type:'affiliate'}});">打开 Bitget 注册页 →</a>
+      </div>
+      <div class="exchange-card">
+        <div class="ex-name" style="color:#f97316;">OKX</div>
+        <div class="ex-desc">邀请活动链接<br>权益以页面为准</div>
+        <a class="ex-btn ex-okx" href="{OKX_REF}" target="_blank" rel="nofollow sponsored noopener" onclick="gtag('event','referral_click',{{event_category:'referral',site:'signal',destination:'okx',placement:'coin_page',symbol:'{sym}',link_type:'invite'}});">查看 OKX 活动 →</a>
       </div>
       <div class="exchange-card">
         <div class="ex-name" style="color:#f0b90b;">Binance</div>
