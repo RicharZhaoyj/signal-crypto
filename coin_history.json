@@ -146,7 +146,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ACE": {
     "symbol": "ACE",
@@ -199,9 +199,17 @@
         "change": -29.66,
         "volume": 2224021.215013053,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.04126,
+        "change": -31.37,
+        "volume": 328190.834849425,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PUMP": {
     "symbol": "PUMP",
@@ -344,20 +352,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PARTI": {
     "symbol": "PARTI",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.03427,
-        "change": 7.36,
-        "volume": 301246.4123332,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-26",
         "time": "19:17",
@@ -623,7 +623,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "YB": {
     "symbol": "YB",
@@ -766,7 +766,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CVX": {
     "symbol": "CVX",
@@ -821,52 +821,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "RE": {
     "symbol": "RE",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.38089,
-        "change": 0.08,
-        "volume": 277793.8828444,
-        "type": "sideways",
-        "vola_7d": 9.75,
-        "position_7d": 43.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.37754,
-        "change": -1.69,
-        "volume": 318145.202737,
-        "type": "sideways",
-        "vola_7d": 9.17,
-        "position_7d": 34.8
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.37447,
-        "change": -1.95,
-        "volume": 312467.5213357,
-        "type": "sideways",
-        "vola_7d": 9.17,
-        "position_7d": 26.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.37519,
-        "change": -1.18,
-        "volume": 308689.4570949,
-        "type": "sideways",
-        "vola_7d": 9.17,
-        "position_7d": 28.7
-      },
       {
         "date": "2026-10-25",
         "time": "20:49",
@@ -978,7 +938,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SLX": {
     "symbol": "SLX",
@@ -1041,7 +1001,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SCR": {
     "symbol": "SCR",
@@ -1088,7 +1048,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PYTH": {
     "symbol": "PYTH",
@@ -1199,7 +1159,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AGLD": {
     "symbol": "AGLD",
@@ -1356,7 +1316,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SAND": {
     "symbol": "SAND",
@@ -1423,7 +1383,7 @@
         "position_7d": 34.9
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NMR": {
     "symbol": "NMR",
@@ -1824,9 +1784,19 @@
         "type": "sideways",
         "vola_7d": 13.39,
         "position_7d": 42.5
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 7.44,
+        "change": -0.48,
+        "volume": 74724.604581747,
+        "type": "sideways",
+        "vola_7d": 13.39,
+        "position_7d": 30.1
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TIA": {
     "symbol": "TIA",
@@ -1881,7 +1851,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "APE": {
     "symbol": "APE",
@@ -1896,7 +1866,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LINEA": {
     "symbol": "LINEA",
@@ -1973,7 +1943,7 @@
         "position_7d": 3.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DATA": {
     "symbol": "DATA",
@@ -1988,36 +1958,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "STRK": {
     "symbol": "STRK",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.04932,
-        "change": -7.52,
-        "volume": 7119215.585128427,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.04802,
-        "change": -8.36,
-        "volume": 7910646.206430001,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.04697,
-        "change": -10.45,
-        "volume": 8978018.736607175,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-05",
         "time": "01:48",
@@ -2037,82 +1983,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZKJ": {
     "symbol": "ZKJ",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.005379,
-        "change": -2.11,
-        "volume": 134690.8188239879,
-        "type": "sideways",
-        "vola_7d": 9.2,
-        "position_7d": 6.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.0055,
-        "change": -0.02,
-        "volume": 123326.7427214175,
-        "type": "sideways",
-        "vola_7d": 9.2,
-        "position_7d": 31.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.005444,
-        "change": -1.02,
-        "volume": 130010.826977241,
-        "type": "sideways",
-        "vola_7d": 9.2,
-        "position_7d": 19.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.0055,
-        "change": -0.79,
-        "volume": 36841.0106977367,
-        "type": "sideways",
-        "vola_7d": 9.2,
-        "position_7d": 31.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.00546,
-        "change": -1.55,
-        "volume": 39996.9530864337,
-        "type": "sideways",
-        "vola_7d": 7.61,
-        "position_7d": 27.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.0055,
-        "change": -1.31,
-        "volume": 34538.8165341044,
-        "type": "sideways",
-        "vola_7d": 7.61,
-        "position_7d": 36.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.0055,
-        "change": -0.18,
-        "volume": 36018.7722403833,
-        "type": "sideways",
-        "vola_7d": 7.61,
-        "position_7d": 36.9
-      },
       {
         "date": "2026-10-25",
         "time": "05:19",
@@ -2666,28 +2542,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DOT": {
     "symbol": "DOT",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 1.0877,
-        "change": -7.53,
-        "volume": 5043780.297307838,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 1.0588,
-        "change": -11.16,
-        "volume": 4587072.501131582,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-05",
         "time": "17:39",
@@ -2789,7 +2649,7 @@
         "position_7d": 14.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XGOOGL": {
     "symbol": "XGOOGL",
@@ -2820,7 +2680,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ARB": {
     "symbol": "ARB",
@@ -2867,20 +2727,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "GRAM": {
     "symbol": "GRAM",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 1.221,
-        "change": -7.22,
-        "volume": 7641493.774349,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-03",
         "time": "06:44",
@@ -3076,92 +2928,12 @@
         "position_7d": 17.4
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BTC": {
     "symbol": "BTC",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 81178.4,
-        "change": -0.22,
-        "volume": 294362045.198266,
-        "type": "sideways",
-        "vola_7d": 5.45,
-        "position_7d": 14.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 80887.2,
-        "change": -0.95,
-        "volume": 284693618.6403472,
-        "type": "sideways",
-        "vola_7d": 5.45,
-        "position_7d": 8.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 80635.4,
-        "change": -1.43,
-        "volume": 245513871.60758936,
-        "type": "sideways",
-        "vola_7d": 5.45,
-        "position_7d": 2.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 80711.2,
-        "change": -1.16,
-        "volume": 245236523.49103847,
-        "type": "sideways",
-        "vola_7d": 5.52,
-        "position_7d": 5.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 80271.7,
-        "change": -1.75,
-        "volume": 334061556.712941,
-        "type": "sideways",
-        "vola_7d": 7.17,
-        "position_7d": 18.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 80330.1,
-        "change": -1.43,
-        "volume": 335342155.04873776,
-        "type": "sideways",
-        "vola_7d": 7.17,
-        "position_7d": 19.8
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 80559.6,
-        "change": -0.96,
-        "volume": 337073167.63452953,
-        "type": "sideways",
-        "vola_7d": 7.17,
-        "position_7d": 23.6
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 80350.7,
-        "change": -1.21,
-        "volume": 332708605.279704,
-        "type": "sideways",
-        "vola_7d": 7.17,
-        "position_7d": 20.0
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -4509,78 +4281,22 @@
         "change": 0.9,
         "volume": 934780579.6156213,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 60256.9,
+        "change": -0.38,
+        "volume": 919970157.7908856,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ETH": {
     "symbol": "ETH",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 2387.32,
-        "change": -0.03,
-        "volume": 227001885.40989953,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 2381.42,
-        "change": -0.8,
-        "volume": 208831713.10928282,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 2366.36,
-        "change": -1.66,
-        "volume": 160668351.97222835,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 2366.45,
-        "change": -1.32,
-        "volume": 157159902.97899312,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 2319.65,
-        "change": -3.63,
-        "volume": 239614968.64537087,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 2331.78,
-        "change": -3.0,
-        "volume": 245558039.06948003,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 2341.37,
-        "change": -2.35,
-        "volume": 246904991.8325787,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 2338.02,
-        "change": -2.49,
-        "volume": 250815823.63603324,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -5764,78 +5480,22 @@
         "change": 1.03,
         "volume": 411550056.5390133,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 1688.35,
+        "change": -0.74,
+        "volume": 462998475.7217792,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SOL": {
     "symbol": "SOL",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 102.83,
-        "change": -0.82,
-        "volume": 50967751.82081392,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 102.71,
-        "change": -1.21,
-        "volume": 46971223.98658245,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 101.83,
-        "change": -2.63,
-        "volume": 48561090.92083594,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 101.37,
-        "change": -2.82,
-        "volume": 48980675.18155077,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 100.59,
-        "change": -3.9,
-        "volume": 67185738.92244516,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 101.02,
-        "change": -3.05,
-        "volume": 67384393.99534862,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 101.25,
-        "change": -2.52,
-        "volume": 66754495.39311755,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 101.31,
-        "change": -2.19,
-        "volume": 66027128.20570699,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -7019,78 +6679,22 @@
         "change": 4.34,
         "volume": 115411455.00679082,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 71.1,
+        "change": 1.69,
+        "volume": 129029226.46265525,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "USDC": {
     "symbol": "USDC",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 1.00115,
-        "change": 0.0,
-        "volume": 152378633.50081584,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 1.0011,
-        "change": -0.02,
-        "volume": 136732308.36289382,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 1.00111,
-        "change": -0.01,
-        "volume": 115846412.78238234,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 1.00107,
-        "change": 0.0,
-        "volume": 92195299.9036516,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 1.00118,
-        "change": 0.01,
-        "volume": 78923948.89802235,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 1.00118,
-        "change": 0.01,
-        "volume": 72280175.27176973,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 1.00119,
-        "change": 0.02,
-        "volume": 70673332.2753771,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 1.00118,
-        "change": 0.02,
-        "volume": 66543779.349838465,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -8274,78 +7878,22 @@
         "change": -0.04,
         "volume": 337157827.604346,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 1.00119,
+        "change": -0.03,
+        "volume": 299463266.43926185,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DOGE": {
     "symbol": "DOGE",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.07864,
-        "change": -0.24,
-        "volume": 23429364.76953934,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.07883,
-        "change": -0.82,
-        "volume": 21160515.814647745,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.07753,
-        "change": -3.65,
-        "volume": 19534826.884417746,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.07751,
-        "change": -3.15,
-        "volume": 18811504.62752099,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.07651,
-        "change": -4.4,
-        "volume": 34352040.16613385,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.07679,
-        "change": -3.55,
-        "volume": 35242214.86481731,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.07707,
-        "change": -2.69,
-        "volume": 35183807.472024076,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.07713,
-        "change": -2.61,
-        "volume": 34257776.552254096,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -9525,22 +9073,22 @@
         "change": 3.06,
         "volume": 28926165.400103472,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.05617,
+        "change": 3.22,
+        "volume": 31603290.55463067,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRP": {
     "symbol": "XRP",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 1.2949,
-        "change": -1.11,
-        "volume": 20568925.20876786,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -10700,78 +10248,22 @@
         "change": 1.9,
         "volume": 52420173.724052645,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.9423,
+        "change": 3.14,
+        "volume": 57522771.431318514,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZEC": {
     "symbol": "ZEC",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 1180.53,
-        "change": -3.3,
-        "volume": 55352644.3070625,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 1175.43,
-        "change": -3.39,
-        "volume": 49581762.6881196,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 1156.33,
-        "change": -5.95,
-        "volume": 36253699.734358,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 1158.41,
-        "change": -5.37,
-        "volume": 30397445.8456873,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 1158.54,
-        "change": -7.11,
-        "volume": 30795767.5200218,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 1181.26,
-        "change": -5.07,
-        "volume": 30768819.0964441,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 1187.91,
-        "change": -3.39,
-        "volume": 30335854.3628784,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 1194.82,
-        "change": -2.14,
-        "volume": 31297444.8722279,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -11955,9 +11447,17 @@
         "change": 1.66,
         "volume": 56964081.0027282,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 756.6,
+        "change": -3.21,
+        "volume": 66423530.9937001,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PIXEL": {
     "symbol": "PIXEL",
@@ -12004,7 +11504,7 @@
         "position_7d": 31.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PENGU": {
     "symbol": "PENGU",
@@ -12059,7 +11559,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CELR": {
     "symbol": "CELR",
@@ -12130,36 +11630,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ASP": {
     "symbol": "ASP",
     "first_seen": "2026-08-09",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.0115,
-        "change": -15.45,
-        "volume": 323119.03615984,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.01144,
-        "change": -8.34,
-        "volume": 228301.51065529,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.011472,
-        "change": -10.16,
-        "volume": 132651.18447541,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "10:09",
@@ -12339,9 +11815,19 @@
         "type": "sideways",
         "vola_7d": 15.76,
         "position_7d": 3.5
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.007927,
+        "change": -2.14,
+        "volume": 192868.92562402,
+        "type": "sideways",
+        "vola_7d": 16.84,
+        "position_7d": 0.1
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ROBO": {
     "symbol": "ROBO",
@@ -12356,7 +11842,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AEON": {
     "symbol": "AEON",
@@ -12539,7 +12025,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AVNT": {
     "symbol": "AVNT",
@@ -12554,7 +12040,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MOVE": {
     "symbol": "MOVE",
@@ -12669,9 +12155,19 @@
         "type": "sideways",
         "vola_7d": 18.14,
         "position_7d": 35.9
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.004532,
+        "change": 1.75,
+        "volume": 26121.8836732,
+        "type": "sideways",
+        "vola_7d": 18.14,
+        "position_7d": 31.9
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CHZ": {
     "symbol": "CHZ",
@@ -13116,94 +12612,24 @@
         "type": "sideways",
         "vola_7d": 17.36,
         "position_7d": 34.1
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.008988,
+        "change": 3.57,
+        "volume": 367156.7870366219,
+        "type": "sideways",
+        "vola_7d": 17.36,
+        "position_7d": 34.6
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "OMI": {
     "symbol": "OMI",
     "first_seen": "2026-08-09",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.000277,
-        "change": 0.29,
-        "volume": 7269.2062541575,
-        "type": "sideways",
-        "vola_7d": 8.36,
-        "position_7d": 39.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.000278,
-        "change": 0.87,
-        "volume": 7507.9167745317,
-        "type": "sideways",
-        "vola_7d": 8.36,
-        "position_7d": 44.6
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.000278,
-        "change": 0.4,
-        "volume": 10757.6810379464,
-        "type": "sideways",
-        "vola_7d": 8.36,
-        "position_7d": 45.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.000278,
-        "change": -0.71,
-        "volume": 10620.421111021,
-        "type": "sideways",
-        "vola_7d": 8.36,
-        "position_7d": 44.6
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.000271,
-        "change": -3.69,
-        "volume": 14085.4125908699,
-        "type": "sideways",
-        "vola_7d": 9.71,
-        "position_7d": 26.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.000272,
-        "change": -2.51,
-        "volume": 15557.0562201334,
-        "type": "sideways",
-        "vola_7d": 9.71,
-        "position_7d": 29.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.000272,
-        "change": -2.3,
-        "volume": 15727.1864694238,
-        "type": "sideways",
-        "vola_7d": 9.71,
-        "position_7d": 27.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.000269,
-        "change": -3.55,
-        "volume": 16398.433130151,
-        "type": "sideways",
-        "vola_7d": 9.71,
-        "position_7d": 15.6
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -13441,52 +12867,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CARDS": {
     "symbol": "CARDS",
     "first_seen": "2026-08-09",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.3101,
-        "change": -12.25,
-        "volume": 1603102.861681,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.3071,
-        "change": -16.46,
-        "volume": 1525925.883885,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.3184,
-        "change": -12.91,
-        "volume": 1384465.835594,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.3244,
-        "change": -12.18,
-        "volume": 1345597.583457,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.3184,
-        "change": -13.53,
-        "volume": 1204820.533876,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -13752,7 +13138,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CFG": {
     "symbol": "CFG",
@@ -13855,7 +13241,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LAT": {
     "symbol": "LAT",
@@ -13976,7 +13362,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAMD": {
     "symbol": "XAMD",
@@ -14113,28 +13499,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "IOST": {
     "symbol": "IOST",
     "first_seen": "2026-08-09",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.000789,
-        "change": -10.43,
-        "volume": 228301.6007002106,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.000774,
-        "change": -8.79,
-        "volume": 198207.76266888497,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "05:19",
@@ -14360,7 +13730,7 @@
         "position_7d": 43.1
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ENS": {
     "symbol": "ENS",
@@ -14437,7 +13807,7 @@
         "position_7d": 5.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ETC": {
     "symbol": "ETC",
@@ -15284,7 +14654,7 @@
         "position_7d": 7.3
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LPT": {
     "symbol": "LPT",
@@ -15551,7 +14921,7 @@
         "position_7d": 2.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CHIP": {
     "symbol": "CHIP",
@@ -15718,20 +15088,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCH": {
     "symbol": "XCH",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 1.33,
-        "change": -7.51,
-        "volume": 361362.088211525,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-26",
         "time": "01:12",
@@ -15773,7 +15135,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "KNC": {
     "symbol": "KNC",
@@ -16540,76 +15902,12 @@
         "position_7d": 28.0
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "WLD": {
     "symbol": "WLD",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.4804,
-        "change": -12.11,
-        "volume": 18240498.7836684,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.4801,
-        "change": -12.53,
-        "volume": 19761590.4952408,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.4671,
-        "change": -14.68,
-        "volume": 19806223.1667156,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.4696,
-        "change": -11.8,
-        "volume": 19058143.1349291,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.4665,
-        "change": -12.3,
-        "volume": 20879025.1569859,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.4634,
-        "change": -12.75,
-        "volume": 21174497.9705365,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.466,
-        "change": -10.33,
-        "volume": 21122928.3678526,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.4639,
-        "change": -8.73,
-        "volume": 20849673.495756,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "17:52",
@@ -16755,76 +16053,12 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "IRYS": {
     "symbol": "IRYS",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.07554,
-        "change": 263.17,
-        "volume": 96174040.476843,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.09082,
-        "change": 251.74,
-        "volume": 103301849.153954,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.07935,
-        "change": 133.38,
-        "volume": 108934799.278492,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.06373,
-        "change": 45.3,
-        "volume": 113569779.254465,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.05027,
-        "change": -55.88,
-        "volume": 92848060.437185,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.04466,
-        "change": -65.41,
-        "volume": 78620989.6996,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.04435,
-        "change": -79.98,
-        "volume": 69094002.4493,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.04393,
-        "change": -44.84,
-        "volume": 52566041.823936,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -17178,7 +16412,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CETUS": {
     "symbol": "CETUS",
@@ -17275,7 +16509,7 @@
         "position_7d": 27.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TRB": {
     "symbol": "TRB",
@@ -17622,7 +16856,7 @@
         "position_7d": 26.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MMT": {
     "symbol": "MMT",
@@ -17797,7 +17031,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "GMX": {
     "symbol": "GMX",
@@ -18062,7 +17296,7 @@
         "position_7d": 47.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "HUMA": {
     "symbol": "HUMA",
@@ -18517,76 +17751,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PHA": {
     "symbol": "PHA",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.05399,
-        "change": -12.17,
-        "volume": 998566.887317452,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.05184,
-        "change": -15.64,
-        "volume": 958561.9682919336,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.05103,
-        "change": -18.33,
-        "volume": 907122.6883823837,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.05104,
-        "change": -21.71,
-        "volume": 705615.8386917614,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.04986,
-        "change": -16.52,
-        "volume": 563131.408309589,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.04912,
-        "change": -15.85,
-        "volume": 501669.8109077411,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.0501,
-        "change": -13.92,
-        "volume": 479328.90438921476,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.0482,
-        "change": -14.45,
-        "volume": 395020.01108184876,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -18660,7 +17830,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "EIGEN": {
     "symbol": "EIGEN",
@@ -18691,7 +17861,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MON": {
     "symbol": "MON",
@@ -18722,7 +17892,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "FOGO": {
     "symbol": "FOGO",
@@ -18865,7 +18035,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MERL": {
     "symbol": "MERL",
@@ -18952,82 +18122,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BNT": {
     "symbol": "BNT",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.303,
-        "change": -0.69,
-        "volume": 1576.6269771312,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 38.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.3049,
-        "change": -0.97,
-        "volume": 1795.0699758579,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 46.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.3049,
-        "change": -0.55,
-        "volume": 1038.7949054441,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 46.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.2938,
-        "change": -3.39,
-        "volume": 1770.500281639,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 1.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.299,
-        "change": -2.42,
-        "volume": 1932.7520372928,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 22.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.299,
-        "change": -2.57,
-        "volume": 1325.080948455,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 22.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.299,
-        "change": -2.57,
-        "volume": 1325.080948455,
-        "type": "sideways",
-        "vola_7d": 8.31,
-        "position_7d": 22.5
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -19889,59 +18989,12 @@
         "position_7d": 42.9
       }
     ],
-    "last_updated": "2026-11-23"
-  },
-  "VELODROME": {
-    "symbol": "VELODROME",
-    "first_seen": "2026-08-10",
-    "records": [
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.03108,
-        "change": -10.51,
-        "volume": 39142.493562206,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.0308,
-        "change": -8.39,
-        "volume": 59573.814479677,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.03062,
-        "change": -8.73,
-        "volume": 57938.714027735,
-        "type": "volatile"
-      }
-    ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "KMNO": {
     "symbol": "KMNO",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.04211,
-        "change": 10.09,
-        "volume": 671487.430326,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.04403,
-        "change": 13.22,
-        "volume": 912628.021313,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "17:52",
@@ -20015,7 +19068,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "KITE": {
     "symbol": "KITE",
@@ -20128,92 +19181,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TRX": {
     "symbol": "TRX",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.33006,
-        "change": 0.43,
-        "volume": 3228521.400595565,
-        "type": "sideways",
-        "vola_7d": 2.32,
-        "position_7d": 30.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.33004,
-        "change": 0.14,
-        "volume": 3118408.8568695365,
-        "type": "sideways",
-        "vola_7d": 2.32,
-        "position_7d": 29.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.32977,
-        "change": -0.06,
-        "volume": 2838506.5863935812,
-        "type": "sideways",
-        "vola_7d": 2.32,
-        "position_7d": 26.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.33043,
-        "change": -0.05,
-        "volume": 2631816.248031718,
-        "type": "sideways",
-        "vola_7d": 2.32,
-        "position_7d": 35.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.3296,
-        "change": -0.07,
-        "volume": 3060045.4894262943,
-        "type": "sideways",
-        "vola_7d": 1.75,
-        "position_7d": 32.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.32938,
-        "change": -0.29,
-        "volume": 3049867.230728862,
-        "type": "sideways",
-        "vola_7d": 1.75,
-        "position_7d": 28.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.32918,
-        "change": -0.23,
-        "volume": 3008993.787572985,
-        "type": "sideways",
-        "vola_7d": 1.75,
-        "position_7d": 24.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.32928,
-        "change": -0.29,
-        "volume": 3035980.9289379762,
-        "type": "sideways",
-        "vola_7d": 1.75,
-        "position_7d": 26.7
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -21167,7 +20140,7 @@
         "position_7d": 44.0
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XLITE": {
     "symbol": "XLITE",
@@ -21294,7 +20267,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XASTS": {
     "symbol": "XASTS",
@@ -21479,7 +20452,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSOXL": {
     "symbol": "XSOXL",
@@ -21836,34 +20809,22 @@
         "change": 26.95,
         "volume": 11888116.0009634,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 42.85,
+        "change": 27.08,
+        "volume": 12414884.2453989,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BCH": {
     "symbol": "BCH",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 274.6,
-        "change": -3.72,
-        "volume": 3446380.0637987,
-        "type": "sideways",
-        "vola_7d": 10.07,
-        "position_7d": 40.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 274.3,
-        "change": -3.25,
-        "volume": 3434711.7698895,
-        "type": "sideways",
-        "vola_7d": 10.07,
-        "position_7d": 38.3
-      },
       {
         "date": "2026-10-25",
         "time": "10:09",
@@ -22101,52 +21062,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "GAS": {
     "symbol": "GAS",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 1.236,
-        "change": 0.75,
-        "volume": 69498.1057540773,
-        "type": "sideways",
-        "vola_7d": 7.74,
-        "position_7d": 37.6
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 1.217,
-        "change": -2.19,
-        "volume": 72098.5691732162,
-        "type": "sideways",
-        "vola_7d": 7.74,
-        "position_7d": 17.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 1.1935,
-        "change": -4.07,
-        "volume": 93792.8202794429,
-        "type": "sideways",
-        "vola_7d": 8.47,
-        "position_7d": 0.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 1.1975,
-        "change": -4.27,
-        "volume": 90063.1740467749,
-        "type": "sideways",
-        "vola_7d": 8.67,
-        "position_7d": 6.5
-      },
       {
         "date": "2026-10-28",
         "time": "02:14",
@@ -22686,22 +21607,24 @@
         "type": "sideways",
         "vola_7d": 15.14,
         "position_7d": 43.6
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.9101,
+        "change": 0.79,
+        "volume": 152531.2371793409,
+        "type": "sideways",
+        "vola_7d": 15.14,
+        "position_7d": 41.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MET": {
     "symbol": "MET",
     "first_seen": "2026-08-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.306,
-        "change": -8.63,
-        "volume": 385969.6721462,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-07",
         "time": "16:25",
@@ -22759,7 +21682,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AAVE": {
     "symbol": "AAVE",
@@ -22896,7 +21819,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ASTR": {
     "symbol": "ASTR",
@@ -23123,7 +22046,7 @@
         "position_7d": 47.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CRV": {
     "symbol": "CRV",
@@ -23170,7 +22093,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "RAY": {
     "symbol": "RAY",
@@ -23205,7 +22128,7 @@
         "position_7d": 5.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BASED": {
     "symbol": "BASED",
@@ -23252,7 +22175,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "HYPE": {
     "symbol": "HYPE",
@@ -24345,9 +23268,17 @@
         "change": 3.54,
         "volume": 43764901.6779376,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 63.096,
+        "change": 2.48,
+        "volume": 41814359.4719053,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XUSAR": {
     "symbol": "XUSAR",
@@ -24442,7 +23373,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SEI": {
     "symbol": "SEI",
@@ -24459,7 +23390,7 @@
         "position_7d": 18.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMRVL": {
     "symbol": "XMRVL",
@@ -24532,36 +23463,12 @@
         "position_7d": 9.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LIT": {
     "symbol": "LIT",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 3.1328,
-        "change": -7.89,
-        "volume": 12651629.8719713,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 3.139,
-        "change": -9.52,
-        "volume": 9221223.9963616,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 3.0765,
-        "change": -9.84,
-        "volume": 8610307.3579435,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-29",
         "time": "19:13",
@@ -24827,7 +23734,7 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "APT": {
     "symbol": "APT",
@@ -24874,92 +23781,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAUT": {
     "symbol": "XAUT",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 3993.7,
-        "change": -0.91,
-        "volume": 17400474.9065319,
-        "type": "sideways",
-        "vola_7d": 5.11,
-        "position_7d": 5.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 3996.6,
-        "change": -0.43,
-        "volume": 12706570.0773954,
-        "type": "sideways",
-        "vola_7d": 5.11,
-        "position_7d": 6.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 3994.7,
-        "change": -0.9,
-        "volume": 11158998.2335167,
-        "type": "sideways",
-        "vola_7d": 5.11,
-        "position_7d": 6.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 3994.9,
-        "change": -1.0,
-        "volume": 10027228.1219738,
-        "type": "sideways",
-        "vola_7d": 5.11,
-        "position_7d": 6.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 3989.5,
-        "change": -0.37,
-        "volume": 7656216.9546689,
-        "type": "sideways",
-        "vola_7d": 5.26,
-        "position_7d": 5.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 3991.4,
-        "change": -0.21,
-        "volume": 7374302.0882692,
-        "type": "sideways",
-        "vola_7d": 5.26,
-        "position_7d": 6.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 3992.8,
-        "change": -0.22,
-        "volume": 7310449.1109891,
-        "type": "sideways",
-        "vola_7d": 5.26,
-        "position_7d": 7.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 3993.5,
-        "change": -0.1,
-        "volume": 6481478.1236508,
-        "type": "sideways",
-        "vola_7d": 5.26,
-        "position_7d": 7.8
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -26099,9 +24926,19 @@
         "type": "sideways",
         "vola_7d": 10.54,
         "position_7d": 37.6
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 3633.3,
+        "change": 1.57,
+        "volume": 10793361.0325478,
+        "type": "sideways",
+        "vola_7d": 10.54,
+        "position_7d": 37.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "RVN": {
     "symbol": "RVN",
@@ -26124,20 +24961,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "EDGE": {
     "symbol": "EDGE",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.3144,
-        "change": -9.71,
-        "volume": 885698.6992155,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-01",
         "time": "09:44",
@@ -26227,36 +25056,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SOPH": {
     "symbol": "SOPH",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.001541,
-        "change": -19.61,
-        "volume": 870526.7985394,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.001468,
-        "change": -18.26,
-        "volume": 586946.0135807,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.001505,
-        "change": -11.21,
-        "volume": 535854.4668312,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -26618,76 +25423,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PEPE": {
     "symbol": "PEPE",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 5e-06,
-        "change": 4.12,
-        "volume": 40522086.22288367,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 5e-06,
-        "change": 1.47,
-        "volume": 40747130.34903001,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 4e-06,
-        "change": -10.67,
-        "volume": 34587601.9311384,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 4e-06,
-        "change": -11.54,
-        "volume": 23858199.81459402,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 4e-06,
-        "change": -10.75,
-        "volume": 22149578.48279512,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 4e-06,
-        "change": -7.16,
-        "volume": 23731123.68188916,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 4e-06,
-        "change": -4.59,
-        "volume": 24009269.02237144,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 4e-06,
-        "change": -2.91,
-        "volume": 23453532.068145424,
-        "type": "topVolume"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -27553,7 +26294,7 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NAVX": {
     "symbol": "NAVX",
@@ -27608,7 +26349,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MEGA": {
     "symbol": "MEGA",
@@ -27695,7 +26436,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NIGHT": {
     "symbol": "NIGHT",
@@ -27854,7 +26595,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCRCL": {
     "symbol": "XCRCL",
@@ -27965,7 +26706,7 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SAHARA": {
     "symbol": "SAHARA",
@@ -27988,92 +26729,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XNVDA": {
     "symbol": "XNVDA",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 211.45,
-        "change": -0.48,
-        "volume": 1007457.4213869,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 6.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 211.67,
-        "change": -0.98,
-        "volume": 1002312.7814211,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 8.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 211.3,
-        "change": -1.69,
-        "volume": 876551.6920084,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 5.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 211.59,
-        "change": -0.29,
-        "volume": 637135.101409,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 7.4
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 211.49,
-        "change": -0.25,
-        "volume": 596793.2097723,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 6.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 211.53,
-        "change": -0.13,
-        "volume": 612095.1564754,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 6.9
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 211.82,
-        "change": -0.08,
-        "volume": 667974.6141408,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 9.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 211.99,
-        "change": 0.13,
-        "volume": 615642.2119548,
-        "type": "sideways",
-        "vola_7d": 5.71,
-        "position_7d": 10.7
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -28937,46 +27598,22 @@
         "change": 24.27,
         "volume": 76837984.741221,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 164.9,
+        "change": 25.59,
+        "volume": 72409936.7789162,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZAMA": {
     "symbol": "ZAMA",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.06863,
-        "change": -10.47,
-        "volume": 462678.702263,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.06901,
-        "change": -9.83,
-        "volume": 452018.831209,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.06892,
-        "change": -8.59,
-        "volume": 428751.684812,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.06861,
-        "change": -7.28,
-        "volume": 412267.266334,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-27",
         "time": "23:12",
@@ -29090,28 +27727,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BIGTIME": {
     "symbol": "BIGTIME",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.007144,
-        "change": 9.64,
-        "volume": 480612.98213884,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.007021,
-        "change": 8.35,
-        "volume": 1016708.62522894,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -29129,7 +27750,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BONK": {
     "symbol": "BONK",
@@ -29154,7 +27775,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BERA": {
     "symbol": "BERA",
@@ -29249,60 +27870,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MINA": {
     "symbol": "MINA",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.0665,
-        "change": -9.78,
-        "volume": 359228.1478029709,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.06589,
-        "change": -8.64,
-        "volume": 346838.94130448764,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.06377,
-        "change": -11.6,
-        "volume": 361349.4700805541,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.06486,
-        "change": -9.27,
-        "volume": 353716.8569137921,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.06487,
-        "change": -8.58,
-        "volume": 345889.45924421644,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.06484,
-        "change": -7.53,
-        "volume": 318124.2099460141,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -29312,28 +27885,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LSK": {
     "symbol": "LSK",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.16787,
-        "change": -7.92,
-        "volume": 101747.19302359094,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.16946,
-        "change": -7.26,
-        "volume": 90198.06818539272,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "10:09",
@@ -29527,44 +28084,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "OFC": {
     "symbol": "OFC",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.006659,
-        "change": 15.45,
-        "volume": 805350.710085,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.00657,
-        "change": 15.06,
-        "volume": 1115876.7056135,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.006734,
-        "change": 18.79,
-        "volume": 1133843.5148108,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.006749,
-        "change": 19.88,
-        "volume": 1147384.7826824,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "05:19",
@@ -29734,32 +28259,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XONDS": {
     "symbol": "XONDS",
     "first_seen": "2026-08-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 6.121,
-        "change": -1.45,
-        "volume": 28056.5756378,
-        "type": "sideways",
-        "vola_7d": 8.04,
-        "position_7d": 46.8
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 6.121,
-        "change": -1.91,
-        "volume": 28026.4710378,
-        "type": "sideways",
-        "vola_7d": 8.04,
-        "position_7d": 46.8
-      },
       {
         "date": "2026-10-27",
         "time": "07:49",
@@ -29853,7 +28358,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "INJ": {
     "symbol": "INJ",
@@ -29916,7 +28421,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ONE": {
     "symbol": "ONE",
@@ -30179,7 +28684,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "USDG": {
     "symbol": "USDG",
@@ -30258,7 +28763,7 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "UNI": {
     "symbol": "UNI",
@@ -30457,7 +28962,7 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "GRASS": {
     "symbol": "GRASS",
@@ -30584,7 +29089,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XDELL": {
     "symbol": "XDELL",
@@ -30663,7 +29168,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LDO": {
     "symbol": "LDO",
@@ -30760,7 +29265,7 @@
         "position_7d": 29.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XBMNR": {
     "symbol": "XBMNR",
@@ -31067,7 +29572,7 @@
         "position_7d": 25.0
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "OP": {
     "symbol": "OP",
@@ -31098,44 +29603,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BAT": {
     "symbol": "BAT",
     "first_seen": "2026-08-13",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.16051,
-        "change": -8.28,
-        "volume": 788040.0172357843,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.15718,
-        "change": -8.95,
-        "volume": 936962.5302589678,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.15692,
-        "change": -9.15,
-        "volume": 914765.3262151569,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.15718,
-        "change": -9.31,
-        "volume": 903454.7598503501,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-26",
         "time": "12:57",
@@ -31249,7 +29722,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XNBIS": {
     "symbol": "XNBIS",
@@ -31392,44 +29865,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DOS": {
     "symbol": "DOS",
     "first_seen": "2026-08-13",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.2311,
-        "change": 8.65,
-        "volume": 11165530.870683,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.2576,
-        "change": 12.0,
-        "volume": 13294261.103979,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.2631,
-        "change": 11.53,
-        "volume": 14423677.171991,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.254,
-        "change": 9.86,
-        "volume": 8392426.740031,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "05:19",
@@ -31743,7 +30184,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ETHFI": {
     "symbol": "ETHFI",
@@ -31862,7 +30303,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCBRS": {
     "symbol": "XCBRS",
@@ -31973,7 +30414,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZBCN": {
     "symbol": "ZBCN",
@@ -32060,7 +30501,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BARD": {
     "symbol": "BARD",
@@ -32291,7 +30732,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZRO": {
     "symbol": "ZRO",
@@ -32418,20 +30859,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "OL": {
     "symbol": "OL",
     "first_seen": "2026-08-14",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.006838,
-        "change": 8.13,
-        "volume": 268324.7646527,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-26",
         "time": "06:10",
@@ -32631,9 +31064,17 @@
         "change": -17.22,
         "volume": 576612.9270314,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.002562,
+        "change": -23.39,
+        "volume": 447286.1403432,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NES": {
     "symbol": "NES",
@@ -32960,7 +31401,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MORPHO": {
     "symbol": "MORPHO",
@@ -33289,7 +31730,7 @@
         "position_7d": 6.6
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TRA": {
     "symbol": "TRA",
@@ -33714,72 +32155,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XHOOD": {
     "symbol": "XHOOD",
     "first_seen": "2026-08-14",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 95.0,
-        "change": -1.3,
-        "volume": 199147.2345363,
-        "type": "sideways",
-        "vola_7d": 9.26,
-        "position_7d": 7.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 94.96,
-        "change": -2.06,
-        "volume": 180463.441465,
-        "type": "sideways",
-        "vola_7d": 9.26,
-        "position_7d": 6.8
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 94.37,
-        "change": -3.32,
-        "volume": 167568.0529632,
-        "type": "sideways",
-        "vola_7d": 9.42,
-        "position_7d": 1.6
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 94.76,
-        "change": -1.79,
-        "volume": 125408.8981457,
-        "type": "sideways",
-        "vola_7d": 9.42,
-        "position_7d": 6.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 94.98,
-        "change": -0.22,
-        "volume": 63587.0008312,
-        "type": "sideways",
-        "vola_7d": 9.98,
-        "position_7d": 13.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 94.92,
-        "change": -0.22,
-        "volume": 62089.6778078,
-        "type": "sideways",
-        "vola_7d": 9.98,
-        "position_7d": 12.5
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -34051,7 +32432,7 @@
         "position_7d": 13.6
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LRC": {
     "symbol": "LRC",
@@ -34082,7 +32463,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPLTR": {
     "symbol": "XPLTR",
@@ -34097,7 +32478,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "YGG": {
     "symbol": "YGG",
@@ -34112,7 +32493,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "G": {
     "symbol": "G",
@@ -34183,28 +32564,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "WET": {
     "symbol": "WET",
     "first_seen": "2026-08-15",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.05588,
-        "change": 8.95,
-        "volume": 515478.5578071,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.06265,
-        "change": 20.25,
-        "volume": 1266428.0029034,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "05:19",
@@ -34418,9 +32783,19 @@
         "type": "sideways",
         "vola_7d": 17.87,
         "position_7d": 33.1
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.03819,
+        "change": 2.85,
+        "volume": 155450.2800401,
+        "type": "sideways",
+        "vola_7d": 17.87,
+        "position_7d": 30.6
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SONIC": {
     "symbol": "SONIC",
@@ -34559,7 +32934,7 @@
         "position_7d": 0.0
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CORE": {
     "symbol": "CORE",
@@ -34646,28 +33021,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "FLUID": {
     "symbol": "FLUID",
     "first_seen": "2026-08-15",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 2.1301,
-        "change": -9.62,
-        "volume": 119869.9691697,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 2.1535,
-        "change": -7.54,
-        "volume": 117843.3482548,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-29",
         "time": "19:13",
@@ -34773,92 +33132,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PI": {
     "symbol": "PI",
     "first_seen": "2026-08-15",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.07853,
-        "change": 0.29,
-        "volume": 1131668.76096936,
-        "type": "sideways",
-        "vola_7d": 5.01,
-        "position_7d": 44.4
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.0786,
-        "change": -0.39,
-        "volume": 1171413.87437742,
-        "type": "sideways",
-        "vola_7d": 5.01,
-        "position_7d": 46.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.07758,
-        "change": -2.48,
-        "volume": 1180623.64437263,
-        "type": "sideways",
-        "vola_7d": 5.01,
-        "position_7d": 19.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.07787,
-        "change": -1.75,
-        "volume": 1169392.37618321,
-        "type": "sideways",
-        "vola_7d": 5.01,
-        "position_7d": 27.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.07722,
-        "change": -2.02,
-        "volume": 1471402.10286428,
-        "type": "sideways",
-        "vola_7d": 6.45,
-        "position_7d": 29.4
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.07708,
-        "change": -2.17,
-        "volume": 1459169.04885539,
-        "type": "sideways",
-        "vola_7d": 6.45,
-        "position_7d": 26.6
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.07709,
-        "change": -1.88,
-        "volume": 1448885.55331856,
-        "type": "sideways",
-        "vola_7d": 6.45,
-        "position_7d": 26.8
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.07702,
-        "change": -1.96,
-        "volume": 1420260.8584078,
-        "type": "sideways",
-        "vola_7d": 6.45,
-        "position_7d": 25.4
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -35384,7 +33663,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XALAB": {
     "symbol": "XALAB",
@@ -35477,9 +33756,17 @@
         "change": 15.72,
         "volume": 9583.1195587,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 222.22,
+        "change": 19.11,
+        "volume": 11334.7341434,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCOHR": {
     "symbol": "XCOHR",
@@ -35582,7 +33869,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CTC": {
     "symbol": "CTC",
@@ -35605,7 +33892,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SPK": {
     "symbol": "SPK",
@@ -35660,28 +33947,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XBE": {
     "symbol": "XBE",
     "first_seen": "2026-08-18",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 194.2,
-        "change": -9.1,
-        "volume": 424642.1601377,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 191.99,
-        "change": -12.31,
-        "volume": 373033.2541371,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-26",
         "time": "20:58",
@@ -35755,7 +34026,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XBOT": {
     "symbol": "XBOT",
@@ -35954,7 +34225,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XNOW": {
     "symbol": "XNOW",
@@ -36599,44 +34870,12 @@
         "position_7d": 20.0
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SENT": {
     "symbol": "SENT",
     "first_seen": "2026-08-18",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.02117,
-        "change": -11.05,
-        "volume": 548546.185033,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.02128,
-        "change": -9.83,
-        "volume": 393564.698345,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.02121,
-        "change": -9.86,
-        "volume": 368752.158939,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.02103,
-        "change": -8.09,
-        "volume": 289072.754527,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "14:22",
@@ -36694,7 +34933,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSHAZ": {
     "symbol": "XSHAZ",
@@ -36885,7 +35124,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "VINE": {
     "symbol": "VINE",
@@ -37132,7 +35371,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "VELO": {
     "symbol": "VELO",
@@ -37211,20 +35450,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PROS": {
     "symbol": "PROS",
     "first_seen": "2026-08-19",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.6697,
-        "change": 9.71,
-        "volume": 1347527.8401653,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-01",
         "time": "16:24",
@@ -37346,92 +35577,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XKO": {
     "symbol": "XKO",
     "first_seen": "2026-08-19",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 93.08,
-        "change": -2.56,
-        "volume": 10886.306442,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 13.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 92.89,
-        "change": -2.4,
-        "volume": 9401.1691256,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 6.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 93.13,
-        "change": -1.67,
-        "volume": 8059.8967645,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 14.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 93.2,
-        "change": -1.97,
-        "volume": 7290.162357,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 17.1
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 92.95,
-        "change": -0.44,
-        "volume": 1312.6820279,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 8.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 92.89,
-        "change": -0.33,
-        "volume": 1202.2088771,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 6.7
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 92.96,
-        "change": -0.15,
-        "volume": 620.600048,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 9.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 92.95,
-        "change": -0.05,
-        "volume": 620.6000005,
-        "type": "sideways",
-        "vola_7d": 3.23,
-        "position_7d": 8.7
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -37533,7 +35684,7 @@
         "position_7d": 18.9
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XLRCX": {
     "symbol": "XLRCX",
@@ -37870,7 +36021,7 @@
         "position_7d": 0.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "POR": {
     "symbol": "POR",
@@ -38833,7 +36984,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SD": {
     "symbol": "SD",
@@ -39136,92 +37287,12 @@
         "position_7d": 18.4
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTTWO": {
     "symbol": "XTTWO",
     "first_seen": "2026-08-19",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 204.82,
-        "change": -1.84,
-        "volume": 853.9352836,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 16.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 204.82,
-        "change": -1.69,
-        "volume": 660.1790836,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 16.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 204.82,
-        "change": -1.19,
-        "volume": 634.8041486,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 16.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 204.66,
-        "change": -1.27,
-        "volume": 712.4549574,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 14.2
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 205.25,
-        "change": -0.49,
-        "volume": 847.8583371,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 21.8
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 204.44,
-        "change": -0.88,
-        "volume": 1861.2416929,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 11.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 204.44,
-        "change": -0.27,
-        "volume": 1836.6416929,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 11.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 204.44,
-        "change": 0.11,
-        "volume": 1464.1483735,
-        "type": "sideways",
-        "vola_7d": 3.82,
-        "position_7d": 11.3
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -39841,38 +37912,24 @@
         "type": "sideways",
         "vola_7d": 12.78,
         "position_7d": 45.4
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 208.45,
+        "change": -1.09,
+        "volume": 187761.9418895,
+        "type": "sideways",
+        "vola_7d": 12.78,
+        "position_7d": 33.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ENA": {
     "symbol": "ENA",
     "first_seen": "2026-08-19",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.18796,
-        "change": -10.77,
-        "volume": 5677533.4603133,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.1876,
-        "change": -10.84,
-        "volume": 5074061.1498525,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.18847,
-        "change": -9.72,
-        "volume": 4904511.4081463,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "17:52",
@@ -39986,20 +38043,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "S": {
     "symbol": "S",
     "first_seen": "2026-08-20",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.04768,
-        "change": -7.54,
-        "volume": 340619.37314807,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-07",
         "time": "20:06",
@@ -40009,92 +38058,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRIVN": {
     "symbol": "XRIVN",
     "first_seen": "2026-08-20",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 11.82,
-        "change": -2.07,
-        "volume": 2209.054326,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 20.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 11.82,
-        "change": -2.15,
-        "volume": 2189.054863,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 20.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 11.83,
-        "change": -2.07,
-        "volume": 2199.90179,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 21.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 11.86,
-        "change": -1.74,
-        "volume": 2202.771397,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 24.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 11.86,
-        "change": 1.19,
-        "volume": 1852.534587,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 24.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 11.86,
-        "change": 1.19,
-        "volume": 1852.534587,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 24.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 11.86,
-        "change": -0.42,
-        "volume": 1331.664237,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 24.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 11.86,
-        "change": 0.0,
-        "volume": 1329.671757,
-        "type": "sideways",
-        "vola_7d": 8.61,
-        "position_7d": 24.0
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -40634,7 +38603,7 @@
         "position_7d": 2.4
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "STX": {
     "symbol": "STX",
@@ -40705,7 +38674,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPL": {
     "symbol": "XPL",
@@ -40784,7 +38753,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DASH": {
     "symbol": "DASH",
@@ -40815,7 +38784,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TOSHI": {
     "symbol": "TOSHI",
@@ -40846,99 +38815,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
-  },
-  "ARKM": {
-    "symbol": "ARKM",
-    "first_seen": "2026-08-23",
-    "records": [
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.12549,
-        "change": -9.82,
-        "volume": 400328.20221474,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.12559,
-        "change": -9.13,
-        "volume": 365063.6960535,
-        "type": "volatile"
-      }
-    ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NEAR": {
     "symbol": "NEAR",
     "first_seen": "2026-08-24",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 4.689,
-        "change": -3.91,
-        "volume": 20072660.550654173,
-        "type": "topVolume"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 4.639,
-        "change": -5.67,
-        "volume": 22172556.558262244,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 4.505,
-        "change": -9.01,
-        "volume": 22832418.246187203,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 4.432,
-        "change": -9.64,
-        "volume": 23863883.89225058,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 4.431,
-        "change": -8.66,
-        "volume": 29239695.245129168,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 4.453,
-        "change": -7.82,
-        "volume": 30030898.038322132,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 4.462,
-        "change": -6.46,
-        "volume": 29640640.321490243,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 4.429,
-        "change": -7.32,
-        "volume": 29405262.14691643,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -41570,9 +39452,17 @@
         "change": 1.51,
         "volume": 22174701.050160505,
         "type": "topVolume"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 2.957,
+        "change": 0.17,
+        "volume": 23763812.691951063,
+        "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ATH": {
     "symbol": "ATH",
@@ -41595,20 +39485,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MEW": {
     "symbol": "MEW",
     "first_seen": "2026-08-25",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.000459,
-        "change": -10.64,
-        "volume": 792162.7030603,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "20:49",
@@ -41634,7 +39516,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "JUP": {
     "symbol": "JUP",
@@ -41673,7 +39555,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAPLD": {
     "symbol": "XAPLD",
@@ -41744,43 +39626,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
-  },
-  "EGLD": {
-    "symbol": "EGLD",
-    "first_seen": "2026-08-30",
-    "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 3.27,
-        "change": -10.26,
-        "volume": 45266.298224773,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 3.281,
-        "change": -8.04,
-        "volume": 46396.28276192,
-        "type": "volatile"
-      }
-    ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BREV": {
     "symbol": "BREV",
     "first_seen": "2026-08-30",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.07969,
-        "change": 7.94,
-        "volume": 61259.119297,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "10:09",
@@ -41966,7 +39817,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SKY": {
     "symbol": "SKY",
@@ -41989,7 +39840,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SAFE": {
     "symbol": "SAFE",
@@ -42036,20 +39887,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CP": {
     "symbol": "CP",
     "first_seen": "2026-09-02",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.011049,
-        "change": 16.04,
-        "volume": 3233286.8754734,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "05:19",
@@ -42187,7 +40030,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "WIN": {
     "symbol": "WIN",
@@ -42242,7 +40085,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCIEN": {
     "symbol": "XCIEN",
@@ -42281,44 +40124,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "METIS": {
     "symbol": "METIS",
     "first_seen": "2026-09-05",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 3.494,
-        "change": -10.84,
-        "volume": 81849.743745828,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 3.456,
-        "change": -10.9,
-        "volume": 82754.106246656,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 3.485,
-        "change": -9.74,
-        "volume": 73460.036722659,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 3.46,
-        "change": -10.43,
-        "volume": 68911.114952929,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -42344,7 +40155,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XINTW": {
     "symbol": "XINTW",
@@ -42629,9 +40440,17 @@
         "change": 16.66,
         "volume": 50771.7765913,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 5.574,
+        "change": 19.64,
+        "volume": 56837.2692819,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSOXS": {
     "symbol": "XSOXS",
@@ -43036,9 +40855,17 @@
         "change": -33.23,
         "volume": 3042274.174847,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 49.73,
+        "change": -34.71,
+        "volume": 3027017.794091,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XDRAM": {
     "symbol": "XDRAM",
@@ -43135,7 +40962,7 @@
         "position_7d": 6.9
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMVLL": {
     "symbol": "XMVLL",
@@ -43564,9 +41391,17 @@
         "change": 23.54,
         "volume": 17096.7802612,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 8.31,
+        "change": 25.6,
+        "volume": 19074.3909834,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZIL": {
     "symbol": "ZIL",
@@ -43725,7 +41560,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XKORU": {
     "symbol": "XKORU",
@@ -44002,30 +41837,22 @@
         "change": 15.28,
         "volume": 309561.3694393,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 6.294,
+        "change": 25.98,
+        "volume": 389572.5234809,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BLUR": {
     "symbol": "BLUR",
     "first_seen": "2026-09-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.008188,
-        "change": -7.8,
-        "volume": 278413.3811710733,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.008055,
-        "change": -8.91,
-        "volume": 284587.9474285846,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-28",
         "time": "08:32",
@@ -44155,20 +41982,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSNXX": {
     "symbol": "XSNXX",
     "first_seen": "2026-09-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 8.084,
-        "change": -10.39,
-        "volume": 693640.7607751,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-28",
         "time": "08:32",
@@ -44586,20 +42405,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMUU": {
     "symbol": "XMUU",
     "first_seen": "2026-09-11",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 24.22,
-        "change": 8.13,
-        "volume": 5141.545662,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-27",
         "time": "02:04",
@@ -44855,9 +42666,17 @@
         "change": 25.58,
         "volume": 37148.610916,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 13.24,
+        "change": 29.68,
+        "volume": 39713.289476,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XON": {
     "symbol": "XON",
@@ -44872,7 +42691,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CVC": {
     "symbol": "CVC",
@@ -44959,60 +42778,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PONS": {
     "symbol": "PONS",
     "first_seen": "2026-09-16",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.2306,
-        "change": -10.55,
-        "volume": 1962802.614452,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.2262,
-        "change": -11.54,
-        "volume": 2114216.697962,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.2294,
-        "change": -10.18,
-        "volume": 2565956.833915,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.229,
-        "change": -10.23,
-        "volume": 2628380.66285,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.2279,
-        "change": -8.99,
-        "volume": 2551838.075855,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.2289,
-        "change": -7.59,
-        "volume": 2514408.575747,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "14:22",
@@ -45302,7 +43073,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "VVV": {
     "symbol": "VVV",
@@ -45509,7 +43280,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "2Z": {
     "symbol": "2Z",
@@ -45532,7 +43303,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "COMP": {
     "symbol": "COMP",
@@ -45587,7 +43358,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "IMX": {
     "symbol": "IMX",
@@ -45610,20 +43381,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "WOO": {
     "symbol": "WOO",
     "first_seen": "2026-09-27",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.00964,
-        "change": -8.02,
-        "volume": 467016.8731240815,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-30",
         "time": "21:03",
@@ -45665,76 +43428,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CT": {
     "symbol": "CT",
     "first_seen": "2026-09-30",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.19913,
-        "change": -11.85,
-        "volume": 6915621.796204,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.1903,
-        "change": -13.69,
-        "volume": 7017791.895459,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.18289,
-        "change": -14.15,
-        "volume": 6302122.871698,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.17364,
-        "change": -16.62,
-        "volume": 5788399.709443,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.15635,
-        "change": -23.92,
-        "volume": 7322255.161002,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.15392,
-        "change": -25.91,
-        "volume": 8081591.822018,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.15294,
-        "change": -25.33,
-        "volume": 8408742.810091,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.15759,
-        "change": -22.1,
-        "volume": 8743803.853577,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -46056,7 +43755,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAAOI": {
     "symbol": "XAAOI",
@@ -46199,7 +43898,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ACT": {
     "symbol": "ACT",
@@ -46310,7 +44009,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MAGIC": {
     "symbol": "MAGIC",
@@ -46325,7 +44024,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XWDC": {
     "symbol": "XWDC",
@@ -46348,7 +44047,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "YFI": {
     "symbol": "YFI",
@@ -46363,7 +44062,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "GRVT": {
     "symbol": "GRVT",
@@ -46514,20 +44213,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PROMPT": {
     "symbol": "PROMPT",
     "first_seen": "2026-10-06",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.01877,
-        "change": 9.77,
-        "volume": 1067467.626877,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -46881,7 +44572,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XOUST": {
     "symbol": "XOUST",
@@ -46992,72 +44683,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XWEN": {
     "symbol": "XWEN",
     "first_seen": "2026-10-09",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 6.234,
-        "change": -4.68,
-        "volume": 2519.8299749,
-        "type": "sideways",
-        "vola_7d": 9.92,
-        "position_7d": 9.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 6.234,
-        "change": -4.68,
-        "volume": 2519.7665369,
-        "type": "sideways",
-        "vola_7d": 9.92,
-        "position_7d": 9.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 6.189,
-        "change": -1.32,
-        "volume": 523.8766812,
-        "type": "sideways",
-        "vola_7d": 9.92,
-        "position_7d": 2.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 6.189,
-        "change": -0.8,
-        "volume": 521.7497549,
-        "type": "sideways",
-        "vola_7d": 9.92,
-        "position_7d": 2.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 6.189,
-        "change": 0.19,
-        "volume": 10.6985917,
-        "type": "sideways",
-        "vola_7d": 9.92,
-        "position_7d": 2.0
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 6.209,
-        "change": 0.52,
-        "volume": 21.798421,
-        "type": "sideways",
-        "vola_7d": 9.92,
-        "position_7d": 5.2
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -47559,30 +45190,24 @@
         "type": "sideways",
         "vola_7d": 6.43,
         "position_7d": 15.9
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 8.512,
+        "change": -0.6,
+        "volume": 3310.8809504,
+        "type": "sideways",
+        "vola_7d": 6.43,
+        "position_7d": 15.9
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCRDO": {
     "symbol": "XCRDO",
     "first_seen": "2026-10-09",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 153.6,
-        "change": -8.11,
-        "volume": 7638.5168033,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 148.37,
-        "change": -12.33,
-        "volume": 6846.3680302,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-03",
         "time": "20:38",
@@ -47682,9 +45307,17 @@
         "type": "sideways",
         "vola_7d": 17.66,
         "position_7d": 4.6
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 122.58,
+        "change": 18.77,
+        "volume": 11957.7404358,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAEHR": {
     "symbol": "XAEHR",
@@ -47899,28 +45532,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CFX": {
     "symbol": "CFX",
     "first_seen": "2026-10-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.04781,
-        "change": -8.83,
-        "volume": 966381.5534629718,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.04789,
-        "change": -7.97,
-        "volume": 962327.9086580819,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-14",
         "time": "22:58",
@@ -47954,52 +45571,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NEO": {
     "symbol": "NEO",
     "first_seen": "2026-10-10",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 2.176,
-        "change": -0.18,
-        "volume": 74005.120384299,
-        "type": "sideways",
-        "vola_7d": 9.47,
-        "position_7d": 32.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 2.188,
-        "change": -1.0,
-        "volume": 81312.187169401,
-        "type": "sideways",
-        "vola_7d": 9.47,
-        "position_7d": 38.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 2.155,
-        "change": -2.71,
-        "volume": 188139.264842282,
-        "type": "sideways",
-        "vola_7d": 9.47,
-        "position_7d": 20.5
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 2.155,
-        "change": -2.58,
-        "volume": 196295.446511476,
-        "type": "sideways",
-        "vola_7d": 9.47,
-        "position_7d": 22.0
-      },
       {
         "date": "2026-10-28",
         "time": "20:33",
@@ -48451,7 +46028,7 @@
         "position_7d": 47.9
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XIREN": {
     "symbol": "XIREN",
@@ -48552,9 +46129,17 @@
         "change": -11.4,
         "volume": 123640.098097,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 14.8,
+        "change": 19.74,
+        "volume": 206587.776001,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "RSR": {
     "symbol": "RSR",
@@ -48681,7 +46266,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SPACE": {
     "symbol": "SPACE",
@@ -48784,7 +46369,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPURR": {
     "symbol": "XPURR",
@@ -48959,7 +46544,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XQNT": {
     "symbol": "XQNT",
@@ -49070,7 +46655,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCRWV": {
     "symbol": "XCRWV",
@@ -49123,9 +46708,17 @@
         "change": -12.7,
         "volume": 92744.5401779,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 48.29,
+        "change": 16.61,
+        "volume": 432254.5471135,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPENG": {
     "symbol": "XPENG",
@@ -49236,7 +46829,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XFLY": {
     "symbol": "XFLY",
@@ -49371,7 +46964,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XFLNC": {
     "symbol": "XFLNC",
@@ -49432,9 +47025,17 @@
         "change": -5.96,
         "volume": 4804.0480322,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 4.426,
+        "change": 23.42,
+        "volume": 21992.6205829,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRKLB": {
     "symbol": "XRKLB",
@@ -49513,20 +47114,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRAM": {
     "symbol": "XRAM",
     "first_seen": "2026-10-15",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 8.02,
-        "change": 8.97,
-        "volume": 4372.4692959,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-27",
         "time": "02:04",
@@ -49790,54 +47383,22 @@
         "change": 23.03,
         "volume": 33911.3827777,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 4.8,
+        "change": 23.39,
+        "volume": 44279.7844616,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XXBI": {
     "symbol": "XXBI",
     "first_seen": "2026-10-15",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 149.38,
-        "change": -0.59,
-        "volume": 42.7749815,
-        "type": "sideways",
-        "vola_7d": 8.23,
-        "position_7d": 47.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 149.03,
-        "change": -0.23,
-        "volume": 84.1445165,
-        "type": "sideways",
-        "vola_7d": 8.23,
-        "position_7d": 44.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 149.03,
-        "change": -0.23,
-        "volume": 84.1445165,
-        "type": "sideways",
-        "vola_7d": 8.23,
-        "position_7d": 44.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 149.03,
-        "change": -0.23,
-        "volume": 84.1445165,
-        "type": "sideways",
-        "vola_7d": 8.23,
-        "position_7d": 44.3
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -50819,7 +48380,7 @@
         "position_7d": 17.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XUVXY": {
     "symbol": "XUVXY",
@@ -51002,7 +48563,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTTMI": {
     "symbol": "XTTMI",
@@ -51073,44 +48634,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ANIME": {
     "symbol": "ANIME",
     "first_seen": "2026-10-15",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.003227,
-        "change": 12.67,
-        "volume": 857623.08524881,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.003575,
-        "change": 25.35,
-        "volume": 1070318.41496783,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.003352,
-        "change": 17.45,
-        "volume": 1284982.70140985,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.00372,
-        "change": 32.34,
-        "volume": 1612206.07705336,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -51168,7 +48697,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSPCH": {
     "symbol": "XSPCH",
@@ -51247,7 +48776,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTSLL": {
     "symbol": "XTSLL",
@@ -51446,7 +48975,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XLUNR": {
     "symbol": "XLUNR",
@@ -51605,7 +49134,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XOKTA": {
     "symbol": "XOKTA",
@@ -51668,7 +49197,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTWLO": {
     "symbol": "XTWLO",
@@ -51723,7 +49252,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XGPRO": {
     "symbol": "XGPRO",
@@ -51810,7 +49339,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPOET": {
     "symbol": "XPOET",
@@ -51865,20 +49394,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "WCT": {
     "symbol": "WCT",
     "first_seen": "2026-10-18",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.03805,
-        "change": 8.75,
-        "volume": 546607.039161,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "10:09",
@@ -51896,7 +49417,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BICO": {
     "symbol": "BICO",
@@ -51911,7 +49432,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTER": {
     "symbol": "XTER",
@@ -51942,7 +49463,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSNDK": {
     "symbol": "XSNDK",
@@ -52013,68 +49534,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DOOD": {
     "symbol": "DOOD",
     "first_seen": "2026-10-20",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.001626,
-        "change": -22.2,
-        "volume": 1398258.8639549,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.001651,
-        "change": -14.72,
-        "volume": 1924313.9413022,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.001616,
-        "change": -18.43,
-        "volume": 2034297.4233329,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.001553,
-        "change": -18.05,
-        "volume": 2066355.0046494,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "16:58",
-        "price": 0.001503,
-        "change": -14.55,
-        "volume": 2042867.4623926,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "18:43",
-        "price": 0.001503,
-        "change": -14.11,
-        "volume": 1978693.533727,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "19:29",
-        "price": 0.001511,
-        "change": -9.9,
-        "volume": 1863361.0077988,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -52252,32 +49717,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "T": {
     "symbol": "T",
     "first_seen": "2026-10-20",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.004655,
-        "change": -1.69,
-        "volume": 1386.9174420601,
-        "type": "sideways",
-        "vola_7d": 9.7,
-        "position_7d": 5.3
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.004711,
-        "change": -2.3,
-        "volume": 1930.2683457004,
-        "type": "sideways",
-        "vola_7d": 9.7,
-        "position_7d": 17.8
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -52589,9 +50034,19 @@
         "type": "sideways",
         "vola_7d": 18.13,
         "position_7d": 29.7
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.003644,
+        "change": 1.14,
+        "volume": 1933.095928668,
+        "type": "sideways",
+        "vola_7d": 18.13,
+        "position_7d": 33.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSMCI": {
     "symbol": "XSMCI",
@@ -52670,7 +50125,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSHLD": {
     "symbol": "XSHLD",
@@ -53465,9 +50920,19 @@
         "type": "sideways",
         "vola_7d": 8.72,
         "position_7d": 47.6
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 56.64,
+        "change": 2.0,
+        "volume": 90.8750621,
+        "type": "sideways",
+        "vola_7d": 8.72,
+        "position_7d": 40.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DGB": {
     "symbol": "DGB",
@@ -53498,7 +50963,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSIMO": {
     "symbol": "XSIMO",
@@ -53545,7 +51010,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTSEM": {
     "symbol": "XTSEM",
@@ -53600,7 +51065,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XLYTE": {
     "symbol": "XLYTE",
@@ -53733,30 +51198,22 @@
         "change": 18.2,
         "volume": 5424.178318,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 14.42,
+        "change": 16.38,
+        "volume": 7471.717137,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCRWD": {
     "symbol": "XCRWD",
     "first_seen": "2026-10-23",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 258.48,
-        "change": 9.23,
-        "volume": 56154.0532488,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 256.99,
-        "change": 8.11,
-        "volume": 54973.0511705,
-        "type": "volatile"
-      },
       {
         "date": "2026-11-18",
         "time": "19:05",
@@ -53790,20 +51247,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AI": {
     "symbol": "AI",
     "first_seen": "2026-10-24",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "00:01",
-        "price": 0.01836,
-        "change": 8.32,
-        "volume": 550978.519144,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "20:49",
@@ -53853,44 +51302,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "KAT": {
     "symbol": "KAT",
     "first_seen": "2026-10-24",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.004735,
-        "change": 19.03,
-        "volume": 2131881.7218027,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.004531,
-        "change": 13.33,
-        "volume": 4119588.6335301,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "13:19",
-        "price": 0.004412,
-        "change": 10.0,
-        "volume": 6850524.6811649,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.004551,
-        "change": 10.62,
-        "volume": 7677726.6240144,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -54036,36 +51453,12 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZORA": {
     "symbol": "ZORA",
     "first_seen": "2026-10-24",
     "records": [
-      {
-        "date": "2026-10-24",
-        "time": "04:33",
-        "price": 0.006896,
-        "change": 7.97,
-        "volume": 419518.4345216,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "09:07",
-        "price": 0.0072,
-        "change": 12.27,
-        "volume": 830601.94007957,
-        "type": "volatile"
-      },
-      {
-        "date": "2026-10-24",
-        "time": "21:53",
-        "price": 0.007072,
-        "change": 7.97,
-        "volume": 1473904.62870876,
-        "type": "volatile"
-      },
       {
         "date": "2026-10-25",
         "time": "00:20",
@@ -54163,7 +51556,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XEWZ": {
     "symbol": "XEWZ",
@@ -54226,7 +51619,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ME": {
     "symbol": "ME",
@@ -54241,7 +51634,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ETHW": {
     "symbol": "ETHW",
@@ -54288,7 +51681,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BABY": {
     "symbol": "BABY",
@@ -54335,7 +51728,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BRL1": {
     "symbol": "BRL1",
@@ -54374,7 +51767,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SNT": {
     "symbol": "SNT",
@@ -54437,7 +51830,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XOKLO": {
     "symbol": "XOKLO",
@@ -55052,9 +52445,19 @@
         "type": "sideways",
         "vola_7d": 16.46,
         "position_7d": 29.3
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 21.15,
+        "change": 1.44,
+        "volume": 5608.723518,
+        "type": "sideways",
+        "vola_7d": 16.46,
+        "position_7d": 37.2
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSOFI": {
     "symbol": "XSOFI",
@@ -55109,7 +52512,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XINFQ": {
     "symbol": "XINFQ",
@@ -55212,7 +52615,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XBRKB": {
     "symbol": "XBRKB",
@@ -55607,9 +53010,19 @@
         "type": "sideways",
         "vola_7d": 5.18,
         "position_7d": 35.7
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 574.35,
+        "change": 0.24,
+        "volume": 18738.304336,
+        "type": "sideways",
+        "vola_7d": 5.18,
+        "position_7d": 39.6
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XVRT": {
     "symbol": "XVRT",
@@ -55672,7 +53085,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAXTI": {
     "symbol": "XAXTI",
@@ -55813,9 +53226,17 @@
         "change": 15.29,
         "volume": 33332.0263181,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 37.88,
+        "change": 19.8,
+        "volume": 34071.4714741,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSKHY": {
     "symbol": "XSKHY",
@@ -55846,7 +53267,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTEM": {
     "symbol": "XTEM",
@@ -55869,7 +53290,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CSPR": {
     "symbol": "CSPR",
@@ -55996,7 +53417,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XKLAC": {
     "symbol": "XKLAC",
@@ -56019,7 +53440,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XURNM": {
     "symbol": "XURNM",
@@ -56042,7 +53463,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XORCL": {
     "symbol": "XORCL",
@@ -56065,7 +53486,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XNET": {
     "symbol": "XNET",
@@ -56088,7 +53509,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRDDT": {
     "symbol": "XRDDT",
@@ -56183,7 +53604,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XINTC": {
     "symbol": "XINTC",
@@ -56254,7 +53675,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XVICR": {
     "symbol": "XVICR",
@@ -56301,7 +53722,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ONDO": {
     "symbol": "ONDO",
@@ -56316,7 +53737,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SLP": {
     "symbol": "SLP",
@@ -56331,7 +53752,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XDDOG": {
     "symbol": "XDDOG",
@@ -56386,7 +53807,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PENDLE": {
     "symbol": "PENDLE",
@@ -56401,7 +53822,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "GLM": {
     "symbol": "GLM",
@@ -56416,7 +53837,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTEAM": {
     "symbol": "XTEAM",
@@ -56471,7 +53892,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PROVE": {
     "symbol": "PROVE",
@@ -56526,7 +53947,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CELO": {
     "symbol": "CELO",
@@ -56567,9 +53988,19 @@
         "type": "volatile",
         "vola_7d": 14.46,
         "position_7d": 0.0
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 0.05526,
+        "change": 3.39,
+        "volume": 42478.42395768828,
+        "type": "sideways",
+        "vola_7d": 18.66,
+        "position_7d": 42.3
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "LINK": {
     "symbol": "LINK",
@@ -56592,7 +54023,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XFWDI": {
     "symbol": "XFWDI",
@@ -56655,7 +54086,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TRUMP": {
     "symbol": "TRUMP",
@@ -56750,7 +54181,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ILV": {
     "symbol": "ILV",
@@ -56765,7 +54196,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "BIO": {
     "symbol": "BIO",
@@ -56796,7 +54227,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XXIAOMI": {
     "symbol": "XXIAOMI",
@@ -56811,7 +54242,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CAT": {
     "symbol": "CAT",
@@ -56834,7 +54265,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSHOP": {
     "symbol": "XSHOP",
@@ -56881,7 +54312,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XHUT": {
     "symbol": "XHUT",
@@ -57016,7 +54447,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMARA": {
     "symbol": "XMARA",
@@ -57079,7 +54510,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRIOT": {
     "symbol": "XRIOT",
@@ -57142,7 +54573,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XGEV": {
     "symbol": "XGEV",
@@ -57157,7 +54588,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XAPP": {
     "symbol": "XAPP",
@@ -57220,7 +54651,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XRDW": {
     "symbol": "XRDW",
@@ -57315,7 +54746,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMRNA": {
     "symbol": "XMRNA",
@@ -57346,7 +54777,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XOSCR": {
     "symbol": "XOSCR",
@@ -57369,7 +54800,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XARM": {
     "symbol": "XARM",
@@ -57400,7 +54831,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCGNX": {
     "symbol": "XCGNX",
@@ -57423,7 +54854,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSQQQ": {
     "symbol": "XSQQQ",
@@ -57462,7 +54893,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTQQQ": {
     "symbol": "XTQQQ",
@@ -57485,7 +54916,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XDKNG": {
     "symbol": "XDKNG",
@@ -57532,7 +54963,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTZ": {
     "symbol": "XTZ",
@@ -57571,7 +55002,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XIONQ": {
     "symbol": "XIONQ",
@@ -57650,7 +55081,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XGTLB": {
     "symbol": "XGTLB",
@@ -57665,7 +55096,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DEGEN": {
     "symbol": "DEGEN",
@@ -57784,7 +55215,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NFT": {
     "symbol": "NFT",
@@ -57847,7 +55278,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "HMSTR": {
     "symbol": "HMSTR",
@@ -57894,7 +55325,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CATI": {
     "symbol": "CATI",
@@ -57933,7 +55364,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "PNUT": {
     "symbol": "PNUT",
@@ -57948,7 +55379,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "MENGO": {
     "symbol": "MENGO",
@@ -58155,7 +55586,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CITY": {
     "symbol": "CITY",
@@ -58170,7 +55601,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "NEIRO": {
     "symbol": "NEIRO",
@@ -58197,7 +55628,7 @@
         "position_7d": 30.0
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ASTER": {
     "symbol": "ASTER",
@@ -58292,7 +55723,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XHIMS": {
     "symbol": "XHIMS",
@@ -58355,7 +55786,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XTESTA": {
     "symbol": "XTESTA",
@@ -58570,7 +56001,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XNVDL": {
     "symbol": "XNVDL",
@@ -58719,9 +56150,17 @@
         "change": 44.56,
         "volume": 183424.44362,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 16.57,
+        "change": 46.64,
+        "volume": 216260.709753,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSKDD": {
     "symbol": "XSKDD",
@@ -58902,9 +56341,17 @@
         "change": -30.68,
         "volume": 26598.3451883,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 9.408,
+        "change": -28.73,
+        "volume": 32876.1525408,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XBIDU": {
     "symbol": "XBIDU",
@@ -59259,9 +56706,19 @@
         "type": "volatile",
         "vola_7d": 15.37,
         "position_7d": 41.4
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 64.11,
+        "change": 0.63,
+        "volume": 1972.7261665,
+        "type": "sideways",
+        "vola_7d": 15.37,
+        "position_7d": 17.8
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSKUU": {
     "symbol": "XSKUU",
@@ -59426,9 +56883,17 @@
         "change": 23.1,
         "volume": 14459.459328,
         "type": "volatile"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "02:50",
+        "price": 10.64,
+        "change": 26.52,
+        "volume": 18314.409974,
+        "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMU": {
     "symbol": "XMU",
@@ -59443,7 +56908,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AERO": {
     "symbol": "AERO",
@@ -59522,7 +56987,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "OKB": {
     "symbol": "OKB",
@@ -59537,7 +57002,7 @@
         "type": "topVolume"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XADI": {
     "symbol": "XADI",
@@ -60044,7 +57509,7 @@
         "position_7d": 17.3
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ENJ": {
     "symbol": "ENJ",
@@ -60075,7 +57540,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XZM": {
     "symbol": "XZM",
@@ -60106,7 +57571,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AR": {
     "symbol": "AR",
@@ -60161,7 +57626,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMSTR": {
     "symbol": "XMSTR",
@@ -60176,7 +57641,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XIBKR": {
     "symbol": "XIBKR",
@@ -60633,7 +58098,7 @@
         "position_7d": 31.7
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DOGS": {
     "symbol": "DOGS",
@@ -60680,7 +58145,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "JOE": {
     "symbol": "JOE",
@@ -60695,7 +58160,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "DYDX": {
     "symbol": "DYDX",
@@ -60710,7 +58175,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "VIRTUAL": {
     "symbol": "VIRTUAL",
@@ -60741,7 +58206,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ORDI": {
     "symbol": "ORDI",
@@ -60764,7 +58229,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TAO": {
     "symbol": "TAO",
@@ -60779,7 +58244,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "AVAX": {
     "symbol": "AVAX",
@@ -60802,7 +58267,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "KAITO": {
     "symbol": "KAITO",
@@ -60833,7 +58298,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "CC": {
     "symbol": "CC",
@@ -60856,7 +58321,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XEWT": {
     "symbol": "XEWT",
@@ -60879,7 +58344,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ALLO": {
     "symbol": "ALLO",
@@ -60894,7 +58359,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ICP": {
     "symbol": "ICP",
@@ -60925,7 +58390,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "RESOLV": {
     "symbol": "RESOLV",
@@ -60940,7 +58405,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "FLOW": {
     "symbol": "FLOW",
@@ -60955,7 +58420,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ORBS": {
     "symbol": "ORBS",
@@ -60978,7 +58443,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCRM": {
     "symbol": "XCRM",
@@ -61001,7 +58466,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMP": {
     "symbol": "XMP",
@@ -61016,7 +58481,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XBWET": {
     "symbol": "XBWET",
@@ -61039,7 +58504,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPANW": {
     "symbol": "XPANW",
@@ -61086,7 +58551,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XUNH": {
     "symbol": "XUNH",
@@ -61117,7 +58582,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XCYPH": {
     "symbol": "XCYPH",
@@ -61172,7 +58637,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XPDD": {
     "symbol": "XPDD",
@@ -61195,7 +58660,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XDP": {
     "symbol": "XDP",
@@ -61226,7 +58691,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSECZ": {
     "symbol": "XSECZ",
@@ -61273,7 +58738,7 @@
         "position_7d": 2.3
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ARG": {
     "symbol": "ARG",
@@ -61424,7 +58889,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMSTU": {
     "symbol": "XMSTU",
@@ -61487,7 +58952,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XMINIMAX": {
     "symbol": "XMINIMAX",
@@ -61526,7 +58991,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "TNSR": {
     "symbol": "TNSR",
@@ -61541,7 +59006,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "ZENT": {
     "symbol": "ZENT",
@@ -61564,7 +59029,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "SPURS": {
     "symbol": "SPURS",
@@ -61611,7 +59076,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "RENDER": {
     "symbol": "RENDER",
@@ -61626,7 +59091,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "JTO": {
     "symbol": "JTO",
@@ -61649,7 +59114,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XZHONGJI": {
     "symbol": "XZHONGJI",
@@ -61672,7 +59137,7 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   },
   "XSHEIN": {
     "symbol": "XSHEIN",
@@ -61687,6 +59152,6 @@
         "type": "volatile"
       }
     ],
-    "last_updated": "2026-11-23"
+    "last_updated": "2026-11-24"
   }
 }
